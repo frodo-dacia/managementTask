@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace managementTask
 {
-    public partial class Form1 : Form
+    public partial class TasksForm : Form
     {
-        public Form1()
+        public TasksForm()
         {
             InitializeComponent();
         }

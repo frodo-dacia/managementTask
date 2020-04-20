@@ -1,0 +1,11 @@
+C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\managementTask.exe.config
+C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\managementTask.exe
+C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\managementTask.pdb
+C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.csprojAssemblyReference.cache
+C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.Properties.Resources.resources
+C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.csproj.GenerateResource.cache
+C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.csproj.CoreCompileInputs.cache
+C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.exe
+C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.pdb
+C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.Login.resources
+C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.TasksForm.resources
