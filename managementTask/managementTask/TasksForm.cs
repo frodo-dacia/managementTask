@@ -15,10 +15,13 @@ namespace managementTask
     public partial class TasksPage : Form
     {
         int refreshPageIndx = 0;
+        string usernameButton = "";
         private Tasks _Tasks;
         private List<TextBox> tasksShown = new List<TextBox>();
-        public TasksPage()
+        User currentUser;
+        public TasksPage(User currentUser)
         {
+            this.currentUser = currentUser;
             InitializeComponent();
             _Tasks = new Tasks();
             InitializeUsers();
@@ -261,10 +264,13 @@ namespace managementTask
         }
         private void taskClick(object sender, EventArgs e, int Task_ID)
         {
-            
-            EditTaskForm editTaskForm = new EditTaskForm(Task_ID);
-            editTaskForm.ShowDialog();
-            TasksLoad(refreshPageIndx);
+           
+            if (refreshPageIndx == currentUser.ID)
+            {
+                EditTaskForm editTaskForm = new EditTaskForm(Task_ID);
+                editTaskForm.ShowDialog();
+                TasksLoad(refreshPageIndx);
+            }
             
         }
 

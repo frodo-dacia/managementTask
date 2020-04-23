@@ -56,6 +56,34 @@ namespace managementTask
             }
         }
 
+        public int GetAccessLevel(string userName, string password)
+        {
+            int accessLevel = -1;
+
+            foreach (User user in _users)
+            {
+                if (user.Name == userName && user.PassHash == Crypto.HashString(password))
+                {
+                    accessLevel = user.AccessLevel;
+                }
+            }
+            return accessLevel;
+        }
+
+        public int GetId(string userName, string password)
+        {
+            int id = -1;
+
+            foreach (User user in _users)
+            {
+                if (user.Name == userName && user.PassHash == Crypto.HashString(password))
+                {
+                   id = user.ID;
+                }
+            }
+            return id;
+        }
+
         public bool Login(string userName, string password)
         {
             password = Crypto.HashString(password);
