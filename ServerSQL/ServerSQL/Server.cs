@@ -6,9 +6,9 @@ using System.Threading;
 class Server
 {
     TcpListener server = null;
-    public Server(string ip, int port)
+    public Server( int port)
     {
-        IPAddress localAddr = IPAddress.Parse(ip);
+        
         server = new TcpListener(IPAddress.Any, port);
         server.Start();
         StartListener();

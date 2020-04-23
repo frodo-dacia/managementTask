@@ -7,7 +7,7 @@ class Program
         Thread t = new Thread(delegate ()
         {
 
-            Server myserver = new Server("192.168.56.1", 13000);
+            Server myserver = new Server(13000);
         });
         t.Start();
 
