@@ -33,7 +33,7 @@ namespace managementTask
             if(loginStatus == true)
             {
                 this.Hide();
-                TasksForm tasksForm = new TasksForm();
+                TasksPage tasksForm = new TasksPage();
                 tasksForm.ShowDialog();
                 this.Close();
                 

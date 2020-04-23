@@ -8,4 +8,5 @@ C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\o
 C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.exe
 C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.pdb
 C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.Login.resources
-C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.TasksForm.resources
+C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.TasksPage.resources
+C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.EditTaskForm.resources
