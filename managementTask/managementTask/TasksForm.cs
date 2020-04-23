@@ -14,6 +14,7 @@ namespace managementTask
 {
     public partial class TasksPage : Form
     {
+        int refreshPageIndx = 0;
         private Tasks _Tasks;
         private List<TextBox> tasksShown = new List<TextBox>();
         public TasksPage()
@@ -182,8 +183,9 @@ namespace managementTask
                     element.Dispose();
                 }
             }
-            tasksShown.Clear();
+            // tasksShown.Clear();
 
+            
             int ValueX;
             int ValueYToDo = 73;
             int ValueYProg = 73;
@@ -238,6 +240,7 @@ namespace managementTask
                     task.ReadOnly = true;
                     task.Font = new Font("Calibri", 12);
 
+                    
                     task.Text = "ID:  " + Task_ID.ToString() + Environment.NewLine +
                         "Tip:  " + Tip + Environment.NewLine +
                         "Descriere:  " + Desc + Environment.NewLine +
@@ -246,17 +249,23 @@ namespace managementTask
 
                    
                     task.Click += (sender, e) => taskClick(sender, e, Task_ID);
-
+                    refreshPageIndx = ID;
+                    
                     tasksShown.Add(task);
                     this.Controls.Add(task);
+                    
                 }
 
             }
+          
         }
         private void taskClick(object sender, EventArgs e, int Task_ID)
         {
+            
             EditTaskForm editTaskForm = new EditTaskForm(Task_ID);
             editTaskForm.ShowDialog();
+            TasksLoad(refreshPageIndx);
+            
         }
 
 

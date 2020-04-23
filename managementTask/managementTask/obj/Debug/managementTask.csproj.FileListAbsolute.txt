@@ -10,3 +10,14 @@ C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\o
 C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.Login.resources
 C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.TasksPage.resources
 C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.EditTaskForm.resources
+C:\managementTask\managementTask\managementTask\bin\Debug\managementTask.exe.config
+C:\managementTask\managementTask\managementTask\bin\Debug\managementTask.exe
+C:\managementTask\managementTask\managementTask\bin\Debug\managementTask.pdb
+C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.EditTaskForm.resources
+C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.Login.resources
+C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.Properties.Resources.resources
+C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.TasksPage.resources
+C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.csproj.GenerateResource.Cache
+C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.csproj.CoreCompileInputs.cache
+C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.exe
+C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.pdb
