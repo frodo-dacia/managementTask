@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Client\Client.cs" />
     <Compile Include="Client\ClientPool.cs" />
+    <Compile Include="Client\Logger.cs" />
     <Compile Include="DataController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

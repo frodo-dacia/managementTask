@@ -45,5 +45,11 @@ namespace ServerSQL.Client
                 ShellMenu.ShowError("eroare la adaugare client in clientPool");
             }
         }
+
+        public void CloseAllConnections()
+        {
+            foreach (Client client in _clientPool)
+                client.CloseConnection("Connection clossed by server.");
+        }
     }
 }

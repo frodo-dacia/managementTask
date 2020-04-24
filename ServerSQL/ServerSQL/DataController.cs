@@ -11,12 +11,10 @@ using System.Configuration;
 using ServerSQL;
 
 namespace managementTask
-{
-
-    
+{    
     class DataController
     {
-        SqlConnection connection = null;s
+        SqlConnection connection = null;
 
         public DataController()
         {

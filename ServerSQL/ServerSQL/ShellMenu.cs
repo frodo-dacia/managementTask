@@ -116,7 +116,7 @@ namespace ServerSQL
 
         static public void ShowError(string i)
         {
-            Console.WriteLine(i);
+            Console.WriteLine("\n"+i);
             Console.Write("> ");
         }
     }

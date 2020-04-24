@@ -11,12 +11,22 @@ namespace ServerSQL.Client
     class Client
     {
         TcpClient _client = null;
+        Logger _log = null;
+
 
         public Client(TcpClient newClient)
-        {
-            _client = newClient;
+        {           
+            _client = newClient;          
             Thread t = new Thread(new ParameterizedThreadStart(this.HandleDevice));
-            t.Start(newClient);
+            t.Start(_client);
+            _log = new Logger();
+            _log.WriteLog("New connection: "+_client.Client.RemoteEndPoint.ToString());
+        }
+
+        public void CloseConnection(string log)
+        {
+            _log.WriteLog(log);
+            _client.Close();
         }
 
         public void HandleDevice(Object obj)
@@ -33,17 +43,18 @@ namespace ServerSQL.Client
                 {
                     string hex = BitConverter.ToString(bytes);
                     data = Encoding.ASCII.GetString(bytes, 0, i);
-                    Console.WriteLine("{1}: Received: {0}", data, Thread.CurrentThread.ManagedThreadId);
+                    _log.WriteLog(Thread.CurrentThread.ManagedThreadId + ": Received: " + data + "\n");
                     //aici ii trimitem datele pe care le vrea el
                     string str = "Hey Device!";
                     Byte[] reply = System.Text.Encoding.ASCII.GetBytes(str);
                     stream.Write(reply, 0, reply.Length);
-                    Console.WriteLine("{1}: Sent: {0}", str, Thread.CurrentThread.ManagedThreadId);
+                    _log.WriteLog(Thread.CurrentThread.ManagedThreadId + ": Sent: " + str + "\n");
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine("Exception: {0}", e.ToString());
+                //Console.WriteLine("Exception: {0}", e.ToString());
+                _log.WriteLog("Exception: " + e.ToString());
                 client.Close();
             }
         }
