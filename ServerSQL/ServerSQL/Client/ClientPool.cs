@@ -11,6 +11,7 @@ namespace ServerSQL.Client
 {
     sealed class ClientPool : IEnumerable
     {
+        private static List<Client> _clientPool = new List<Client>();
         private static ClientPool instance = null;
         private static readonly object padlock = new object();
         public static ClientPool Instance
@@ -27,8 +28,9 @@ namespace ServerSQL.Client
                 }
             }
         }
-
-        List<Client> _clientPool = new List<Client>();
+        public ClientPool()
+        {
+        }
         public IEnumerator GetEnumerator()
         {
             return _clientPool.GetEnumerator();
@@ -51,5 +53,30 @@ namespace ServerSQL.Client
             foreach (Client client in _clientPool)
                 client.CloseConnection("Connection clossed by server.");
         }
+
+        public override string ToString()
+        {
+            string s="";
+            foreach(Client client in _clientPool)
+            {
+                s += client.ToString() + "\n";
+            }
+            return s;
+        }
+
+        public void KillClient(string s)
+        {
+            Client clientToRemove = null;
+            foreach(Client client in _clientPool)
+            {
+                if (s.Equals(client.GetID()))
+                {
+                    client.CloseConnection("Connection clossed by server command line.");
+                    clientToRemove = client;
+                }
+            }
+            _clientPool.Remove(clientToRemove);
+        }
+       
     }
 }

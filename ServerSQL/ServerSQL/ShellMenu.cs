@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServerSQL.Client;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,21 +45,23 @@ namespace ServerSQL
                 {
                     case "start":
                         StartServer();
+                        Console.Write("> ");
                         break;
                     case "help":
                         ShowHelp();
+                        Console.Write("> ");
                         break;
                     case "connections":
                         ShowConnections();
+                        Console.Write("> ");
                         break;
-                    case "stop":
-                        StopServer();
-                        break;
-                    case "quit":
+                    case "close":
                         QuitApp();
+                        Console.Write("> ");
                         break;
                     case "kill":
                         KillConnection();
+                        Console.Write("> ");
                         break;
                     case "":
                         Console.Write("> ");
@@ -66,34 +69,50 @@ namespace ServerSQL
                     default:
                         Console.Write("Invalid command. Type '> help' for available commands...\n> ");
                         break;
+                        
                 }
+                
             }
            
         }
 
         private void KillConnection()
         {
-            throw new NotImplementedException();
+            Console.Write("Client ID to kill: ");
+            string s = Console.ReadLine();
+            ClientPool aux = new ClientPool();
+            aux.KillClient(s);
+            Console.WriteLine("Killed: " + s);
         }
 
         private void QuitApp()
         {
-            throw new NotImplementedException();
+            StopServer();
+            System.Environment.Exit(1);
         }
 
         private void StopServer()
         {
-            throw new NotImplementedException();
+            Server t = new Server();
+            t.Stop();
         }
 
         private void ShowConnections()
         {
-            throw new NotImplementedException();
+            ClientPool aux = new ClientPool();
+            Console.WriteLine("IP_ADDRESS             |    ID");
+            Console.Write(aux.ToString());
         }
 
         private void ShowHelp()
         {
-            throw new NotImplementedException();
+
+            Console.WriteLine("" +
+                "\t> start => Starts the server.\n" +                
+                "\t> connections => Shows active connections.\n" +
+                "\t> kill => Kills a connections(prompts to input).\n" +
+                "\t> close => Closes app.\n" +
+                "\t> help => Shows help.");
         }
 
         private void StartServer()
@@ -107,7 +126,6 @@ namespace ServerSQL
                 });
                 t.Start();
                 Console.WriteLine("Server Started");
-                Console.Write("> ");
             }catch(Exception)
             {
                 Console.WriteLine("Eroare la StartServer");

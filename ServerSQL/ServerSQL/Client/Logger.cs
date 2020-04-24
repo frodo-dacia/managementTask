@@ -24,7 +24,7 @@ namespace ServerSQL.Client
             File.AppendAllText(_path, s+Environment.NewLine);
         }
 
-        public string RandomString(int size, bool lowerCase)
+        public static string RandomString(int size, bool lowerCase)
         {
             StringBuilder builder = new StringBuilder();
             Random random = new Random();

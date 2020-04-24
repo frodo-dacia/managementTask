@@ -10,6 +10,7 @@ namespace ServerSQL.Client
 {
     class Client
     {
+        readonly string ID = Logger.RandomString(4,true);
         TcpClient _client = null;
         Logger _log = null;
 
@@ -59,5 +60,15 @@ namespace ServerSQL.Client
             }
         }
 
+
+        public override string ToString()
+        {
+            return _client.Client.RemoteEndPoint.ToString()+"         "+this.ID;
+        }
+
+        public string GetID()
+        {
+            return ID;
+        }
     }
 }
