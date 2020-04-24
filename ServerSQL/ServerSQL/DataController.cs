@@ -8,8 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Data.SqlClient;
 using System.Configuration;
-
-
+using ServerSQL;
 
 namespace managementTask
 {
@@ -17,7 +16,7 @@ namespace managementTask
     
     class DataController
     {
-        SqlConnection connection = null;
+        SqlConnection connection = null;s
 
         public DataController()
         {
@@ -29,7 +28,7 @@ namespace managementTask
             }
             catch (SqlException e)
             {
-                Console.Error.Write(e.ToString());
+                ShellMenu.ShowError(e.ToString());
             }
         }
 

@@ -1,15 +1,38 @@
-﻿using System;
+﻿using ServerSQL;
+using ServerSQL.Client;
+using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-class Server
+sealed class Server
 {
+
+    private static Server instance = null;
+    private static readonly object padlock = new object();
     TcpListener server = null;
+    ClientPool _clientPool = null;
+
+    public static Server Instance
+    {
+        get
+        {
+            lock (padlock)
+            {
+                if (instance == null)
+                {
+                    instance = new Server(1300);
+                }
+                return instance;
+            }
+        }
+    }
+        
     public Server( int port)
     {
         
         server = new TcpListener(IPAddress.Any, port);
+        _clientPool = new ClientPool();
         server.Start();
         StartListener();
     }
@@ -18,17 +41,17 @@ class Server
         try
         {
             while (true)
-            {
-                Console.WriteLine("Waiting for a connection...");
-                TcpClient client = server.AcceptTcpClient();
-                Console.WriteLine("Connected!");
-                Thread t = new Thread(new ParameterizedThreadStart(HandleDevice));
-                t.Start(client);
+            {            
+                //Console.WriteLine("Waiting for a connection...");
+                if (server.Pending())
+                {
+                    _clientPool.AddClient(server.AcceptTcpClient());
+                }         
             }
         }
         catch (SocketException e)
         {
-            Console.WriteLine("SocketException: {0}", e);
+            ShellMenu.ShowError("SocketException: "+ e);
             server.Stop();
         }
     }

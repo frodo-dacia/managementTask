@@ -1,17 +1,14 @@
-﻿using System;
+﻿using ServerSQL;
+using System;
 using System.Threading;
 class Program
 {
     static void Main(string[] args)
     {
-        Thread t = new Thread(delegate ()
+        Thread u = new Thread(delegate ()
         {
-
-            Server myserver = new Server(13000);
+            ShellMenu menu = new ShellMenu();
         });
-        t.Start();
-
-        Console.WriteLine("Server Started...!");
-
+        u.Start();
     }
 }
