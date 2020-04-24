@@ -22,3 +22,15 @@ C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.csproj.
 C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.exe
 C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.pdb
 C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.csprojResolveAssemblyReference.cache
+C:\Users\buddy\Source\Repos\managementTask\managementTask\managementTask\bin\Debug\managementTask.exe.config
+C:\Users\buddy\Source\Repos\managementTask\managementTask\managementTask\bin\Debug\managementTask.exe
+C:\Users\buddy\Source\Repos\managementTask\managementTask\managementTask\bin\Debug\managementTask.pdb
+C:\Users\buddy\Source\Repos\managementTask\managementTask\managementTask\obj\Debug\managementTask.csprojAssemblyReference.cache
+C:\Users\buddy\Source\Repos\managementTask\managementTask\managementTask\obj\Debug\managementTask.EditTaskForm.resources
+C:\Users\buddy\Source\Repos\managementTask\managementTask\managementTask\obj\Debug\managementTask.Login.resources
+C:\Users\buddy\Source\Repos\managementTask\managementTask\managementTask\obj\Debug\managementTask.Properties.Resources.resources
+C:\Users\buddy\Source\Repos\managementTask\managementTask\managementTask\obj\Debug\managementTask.TasksPage.resources
+C:\Users\buddy\Source\Repos\managementTask\managementTask\managementTask\obj\Debug\managementTask.csproj.GenerateResource.cache
+C:\Users\buddy\Source\Repos\managementTask\managementTask\managementTask\obj\Debug\managementTask.csproj.CoreCompileInputs.cache
+C:\Users\buddy\Source\Repos\managementTask\managementTask\managementTask\obj\Debug\managementTask.exe
+C:\Users\buddy\Source\Repos\managementTask\managementTask\managementTask\obj\Debug\managementTask.pdb
