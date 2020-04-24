@@ -46,6 +46,7 @@
     <Compile Include="Client\Client.cs" />
     <Compile Include="Client\ClientPool.cs" />
     <Compile Include="Client\Logger.cs" />
+    <Compile Include="Command\Command.cs" />
     <Compile Include="DataController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -55,5 +56,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
