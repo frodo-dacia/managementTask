@@ -33,7 +33,10 @@ namespace managementTask
             if(loginStatus == true)
             {
                 this.Hide();
-                TasksForm tasksForm = new TasksForm();
+                int accessLevel = _Users.GetAccessLevel(userName, password);
+                int id = _Users.GetId(userName, password);
+                User currentUser = new User(id, userName, Crypto.HashString(password), accessLevel);
+                TasksPage tasksForm = new TasksPage(currentUser);
                 tasksForm.ShowDialog();
                 this.Close();
                 

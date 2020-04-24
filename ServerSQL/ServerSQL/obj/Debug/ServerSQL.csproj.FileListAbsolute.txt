@@ -1,0 +1,14 @@
+C:\Users\Diana\source\repos\ServerSQL\ServerSQL\bin\Debug\ServerSQL.exe.config
+C:\Users\Diana\source\repos\ServerSQL\ServerSQL\bin\Debug\ServerSQL.exe
+C:\Users\Diana\source\repos\ServerSQL\ServerSQL\bin\Debug\ServerSQL.pdb
+C:\Users\Diana\source\repos\ServerSQL\ServerSQL\obj\Debug\ServerSQL.csprojResolveAssemblyReference.cache
+C:\Users\Diana\source\repos\ServerSQL\ServerSQL\obj\Debug\ServerSQL.csproj.CoreCompileInputs.cache
+C:\Users\Diana\source\repos\ServerSQL\ServerSQL\obj\Debug\ServerSQL.exe
+C:\Users\Diana\source\repos\ServerSQL\ServerSQL\obj\Debug\ServerSQL.pdb
+C:\managementTask\ServerSQL\ServerSQL\obj\Debug\ServerSQL.csprojResolveAssemblyReference.cache
+C:\managementTask\ServerSQL\ServerSQL\obj\Debug\ServerSQL.csproj.CoreCompileInputs.cache
+C:\managementTask\ServerSQL\ServerSQL\obj\Debug\ServerSQL.exe
+C:\managementTask\ServerSQL\ServerSQL\obj\Debug\ServerSQL.pdb
+C:\managementTask\ServerSQL\ServerSQL\bin\Debug\ServerSQL.exe.config
+C:\managementTask\ServerSQL\ServerSQL\bin\Debug\ServerSQL.exe
+C:\managementTask\ServerSQL\ServerSQL\bin\Debug\ServerSQL.pdb

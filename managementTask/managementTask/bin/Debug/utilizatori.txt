@@ -1,4 +1,4 @@
-Andrei	kXoAPxSTvabxLgYb0w86sEJC12A=	0
-Sandu	Y7AAJDjDrgyLOnVF85ta8FMN0E8=	1
-Frodo	X9QD/QeSryPEPcAcujfdb+lXGZU=	1
-Vali	xjDwrgj8FeaAAQxsd68XtJHdflQ=	1
+1	Andrei	kXoAPxSTvabxLgYb0w86sEJC12A=	0
+2	Sandu	Y7AAJDjDrgyLOnVF85ta8FMN0E8=	1
+3	Frodo	X9QD/QeSryPEPcAcujfdb+lXGZU=	1
+4	Vali	xjDwrgj8FeaAAQxsd68XtJHdflQ=	1

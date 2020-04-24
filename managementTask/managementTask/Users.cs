@@ -10,12 +10,14 @@ namespace managementTask
 {
     public struct User
     {
+        public readonly int ID;
         public readonly string Name;
         public readonly string PassHash;
         public readonly int AccessLevel;
 
-        public User(string name, string passHash, int accessLevel)
+        public User(int id, string name, string passHash, int accessLevel)
         {
+            ID = id;
             Name = name;
             PassHash = passHash;
             AccessLevel = accessLevel;
@@ -23,8 +25,15 @@ namespace managementTask
     }
     public class Users
     {
-        private List<User> _users;
+        private static List<User> _users;
         private User _currentUser;
+
+        public static List<User> MyUsers {
+            get
+            {
+                return _users;
+            } 
+        }
 
         public Users()
         {
@@ -36,7 +45,7 @@ namespace managementTask
                 while ((line = sr.ReadLine()) != null)
                 {
                     string[] toks = line.Split('\t');
-                    User user = new User(toks[0], toks[1], Convert.ToInt32(toks[2]));
+                    User user = new User(Convert.ToInt32(toks[0]), toks[1], toks[2], Convert.ToInt32(toks[3]));
                     _users.Add(user);
                 }
                 sr.Close();
@@ -45,6 +54,34 @@ namespace managementTask
             {
                 MessageBox.Show(exc.Message);
             }
+        }
+
+        public int GetAccessLevel(string userName, string password)
+        {
+            int accessLevel = -1;
+
+            foreach (User user in _users)
+            {
+                if (user.Name == userName && user.PassHash == Crypto.HashString(password))
+                {
+                    accessLevel = user.AccessLevel;
+                }
+            }
+            return accessLevel;
+        }
+
+        public int GetId(string userName, string password)
+        {
+            int id = -1;
+
+            foreach (User user in _users)
+            {
+                if (user.Name == userName && user.PassHash == Crypto.HashString(password))
+                {
+                   id = user.ID;
+                }
+            }
+            return id;
         }
 
         public bool Login(string userName, string password)
