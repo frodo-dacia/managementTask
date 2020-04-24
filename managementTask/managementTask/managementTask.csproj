@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Crypto.cs" />
+    <Compile Include="Factory\FactoryClass.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
