@@ -12,16 +12,29 @@ namespace ServerSQL.Client
         string _path=null;
         public Logger()
         {
-            string name = RandomString(8, true)+".log";
-            _path = System.IO.Directory.GetCurrentDirectory();
-            _path = System.IO.Path.Combine(_path, "logs");
-            System.IO.Directory.CreateDirectory(_path);
-            _path = System.IO.Path.Combine(_path, name);
+            try
+            {
+                string name = RandomString(8, true) + ".log";
+                _path = System.IO.Directory.GetCurrentDirectory();
+                _path = System.IO.Path.Combine(_path, "logs");
+                System.IO.Directory.CreateDirectory(_path);
+                _path = System.IO.Path.Combine(_path, name);
+            }catch(Exception e)
+            {
+                ShellMenu.ShowError(e.ToString());
+            }
         }
 
         public void WriteLog(string s)
         {
-            File.AppendAllText(_path, s+Environment.NewLine);
+            try
+            {
+                File.AppendAllText(_path, s + Environment.NewLine);
+            }
+            catch(Exception e)
+            {
+                ShellMenu.ShowError(e.ToString());
+            }
         }
 
         public static string RandomString(int size, bool lowerCase)
