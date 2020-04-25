@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateNewTaskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateNewTaskForm.Designer.cs">
+      <DependentUpon>CreateNewTaskForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateNewUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateNewUserForm.Designer.cs">
+      <DependentUpon>CreateNewUserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Crypto.cs" />
     <Compile Include="EditTaskForm.cs">
       <SubType>Form</SubType>
@@ -69,6 +81,12 @@
       <DependentUpon>TasksForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Users.cs" />
+    <EmbeddedResource Include="CreateNewTaskForm.resx">
+      <DependentUpon>CreateNewTaskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateNewUserForm.resx">
+      <DependentUpon>CreateNewUserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditTaskForm.resx">
       <DependentUpon>EditTaskForm.cs</DependentUpon>
     </EmbeddedResource>

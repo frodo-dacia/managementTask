@@ -14,17 +14,20 @@ namespace managementTask
 {
     public partial class TasksPage : Form
     {
-        int refreshPageIndx = 0;
-        string usernameButton = "";
+        private int refreshPageIndx = 0;
         private Tasks _Tasks;
         private List<TextBox> tasksShown = new List<TextBox>();
-        User currentUser;
+        private User currentUser;
         public TasksPage(User currentUser)
         {
             this.currentUser = currentUser;
             InitializeComponent();
             _Tasks = new Tasks();
             InitializeUsers();
+            if(currentUser.AccessLevel == Access.Admin)
+            {
+                AdminExtraButtons();
+            }
         }
 
         private void InitializeComponent()
@@ -44,7 +47,7 @@ namespace managementTask
             this.label_Kanban.BackColor = System.Drawing.Color.Transparent;
             this.label_Kanban.Font = new System.Drawing.Font("MV Boli", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Kanban.ForeColor = System.Drawing.Color.Black;
-            this.label_Kanban.Location = new System.Drawing.Point(34, 35);
+            this.label_Kanban.Location = new System.Drawing.Point(34, 26);
             this.label_Kanban.Name = "label_Kanban";
             this.label_Kanban.Size = new System.Drawing.Size(277, 52);
             this.label_Kanban.TabIndex = 0;
@@ -265,14 +268,80 @@ namespace managementTask
         private void taskClick(object sender, EventArgs e, int Task_ID)
         {
            
-            if (refreshPageIndx == currentUser.ID)
+            if (refreshPageIndx == currentUser.ID || currentUser.AccessLevel == Access.Admin)
             {
-                EditTaskForm editTaskForm = new EditTaskForm(Task_ID);
+                EditTaskForm editTaskForm = new EditTaskForm(Task_ID,currentUser.AccessLevel);
                 editTaskForm.ShowDialog();
-                TasksLoad(refreshPageIndx);
+                if (editTaskForm.canceled == 0)
+                {
+                    TasksLoad(refreshPageIndx);
+                }
             }
             
         }
+
+        private void AdminExtraButtons()
+        {
+            /****************CREATE NEW TASK BUTTON**********************/
+            Button NewTaskButon = new Button();
+
+            NewTaskButon.Height = 40;
+            NewTaskButon.Width = 204;
+
+            NewTaskButon.BackColor = Color.SteelBlue;
+            NewTaskButon.ForeColor = Color.Black;
+            NewTaskButon.TabStop = false;
+            NewTaskButon.FlatStyle = FlatStyle.Flat;
+            NewTaskButon.FlatAppearance.BorderSize = 0;
+
+            NewTaskButon.Location = new Point(372, 36);
+
+            NewTaskButon.Text = "Create New Task";
+            NewTaskButon.Name = "button_CreateNewTask";
+            NewTaskButon.Font = new Font("Georgia", 16);
+
+            NewTaskButon.Click += (sender, e) => CreateNewTask_Clicked(sender, e);
+            Controls.Add(NewTaskButon);
+
+            /****************CREATE NEW USER BUTTON**********************/
+
+            Button NewUserButon = new Button();
+
+            NewUserButon.Height = 40;
+            NewUserButon.Width = 204;
+
+            NewUserButon.BackColor = Color.SteelBlue;
+            NewUserButon.ForeColor = Color.Black;
+            NewUserButon.TabStop = false;
+            NewUserButon.FlatStyle = FlatStyle.Flat;
+            NewUserButon.FlatAppearance.BorderSize = 0;
+
+            NewUserButon.Location = new Point(620, 36);
+
+            NewUserButon.Text = "Create New User";
+            NewUserButon.Name = "button_CreateNewUser";
+            NewUserButon.Font = new Font("Georgia", 16);
+
+            NewUserButon.Click += (sender, e) => CreateNewUser_Clicked(sender, e);
+            Controls.Add(NewUserButon);
+
+        }
+
+        private void CreateNewTask_Clicked(object sender, EventArgs e)
+        {
+            CreateNewTaskForm createNewTask = new CreateNewTaskForm();
+            createNewTask.ShowDialog();
+
+        }
+        
+        private void CreateNewUser_Clicked(object sender, EventArgs e)
+        {
+            CreateNewUserForm createNewUser = new CreateNewUserForm();
+            createNewUser.ShowDialog();
+
+        }
+
+        
 
 
     }

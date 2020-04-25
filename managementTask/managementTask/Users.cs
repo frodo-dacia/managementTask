@@ -6,8 +6,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
 namespace managementTask
 {
+
+    static class Access
+    {
+        public const int Admin = 0;
+        public const int User = 1;
+    }
     public struct User
     {
         public readonly int ID;

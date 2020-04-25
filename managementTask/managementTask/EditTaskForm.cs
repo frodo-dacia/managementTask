@@ -14,21 +14,39 @@ namespace managementTask
     public partial class EditTaskForm : Form
     {
         private int _taskID;
+        private int _accessLevel;
         private List<Task> _taskuri = Tasks.MyTasks;
-        public EditTaskForm(int taskID)
+        public int canceled { get; set; }
+        public EditTaskForm(int taskID, int accessLevel)
         {
+            _accessLevel = accessLevel;
             _taskID = taskID;
             InitializeComponent();
         }
 
         private void EditTaskForm_Load(object sender, EventArgs e)
         {
+            if(_accessLevel == Access.Admin)
+            {
+                Button button = new Button();
+
+                button.Height = 37;
+                button.Width = 135;
+
+                button.Location = new Point(455, 20);
+
+                button.Text = "Delete Task";
+                button.Name = "button_DeteleTask";
+
+                button.Click += (Sender, E) => DeleteTask_Clicked(Sender, E);
+                Controls.Add(button);
+            }
             foreach (var obj in _taskuri)
             {
                 if (obj.Task_ID == _taskID)
                 {
                     textBox_Tip.Text = obj.Tip;
-                    textBox_Status.Text = obj.Status;
+                    comboBox_Status.Text = obj.Status;
                     textBox_Continut.Text = obj.Continut;
                     textBox_Nota.Text = obj.Nota.ToString();
                     textBox_Timp.Text = obj.TimpEstimat.ToString();
@@ -42,9 +60,9 @@ namespace managementTask
             {
                 if(_taskuri[i].Task_ID == _taskID)
                 {
-                    _taskuri[i] = new Task(_taskuri[i].Task_ID, _taskuri[i].User_ID, textBox_Tip.Text, textBox_Status.Text, textBox_Continut.Text, Convert.ToInt32(textBox_Nota.Text), Convert.ToInt32(textBox_Timp.Text));
+                    _taskuri[i] = new Task(_taskuri[i].Task_ID, _taskuri[i].User_ID, textBox_Tip.Text, comboBox_Status.Text, textBox_Continut.Text, Convert.ToInt32(textBox_Nota.Text), Convert.ToInt32(textBox_Timp.Text));
                     
-                    string newLine = _taskuri[i].Task_ID.ToString() + '\t' + _taskuri[i].User_ID.ToString() + '\t' + textBox_Tip.Text + '\t' + textBox_Status.Text + '\t' + textBox_Continut.Text + '\t' + textBox_Nota.Text + '\t' + textBox_Timp.Text;
+                    string newLine = _taskuri[i].Task_ID.ToString() + '\t' + _taskuri[i].User_ID.ToString() + '\t' + textBox_Tip.Text + '\t' + comboBox_Status.Text + '\t' + textBox_Continut.Text + '\t' + textBox_Nota.Text + '\t' + textBox_Timp.Text;
 
                     string[] arrLine = File.ReadAllLines("taskuri.txt");
                     arrLine[i] = newLine;
@@ -54,6 +72,17 @@ namespace managementTask
             }
             this.Close();
 
+        }
+
+        private void DeleteTask_Clicked(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button_Cancel_Click(object sender, EventArgs e)
+        {
+            canceled = 1;
+            this.Close();
         }
     }
 }

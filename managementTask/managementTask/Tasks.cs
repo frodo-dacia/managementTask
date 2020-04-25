@@ -10,13 +10,13 @@ namespace managementTask
 {
     public struct Task
     {
-        public int Task_ID;
-        public int User_ID;
-        public string Tip;
-        public string Status;
-        public string Continut;
-        public int Nota;
-        public int TimpEstimat;
+        public int Task_ID { get; set; }
+        public int User_ID { get; set; }
+        public string Tip { get; set; }
+        public string Status { get; set; }
+        public string Continut { get; set; }
+        public int Nota { get; set; }
+        public int TimpEstimat { get; set; }
 
         public Task(int task_ID, int user_ID, string tip, string status, string continut, int nota, int timpEstimat)
         {

@@ -35,11 +35,12 @@
             this.label_Nota = new System.Windows.Forms.Label();
             this.label_Timp = new System.Windows.Forms.Label();
             this.textBox_Tip = new System.Windows.Forms.TextBox();
-            this.textBox_Status = new System.Windows.Forms.TextBox();
             this.textBox_Continut = new System.Windows.Forms.TextBox();
             this.textBox_Nota = new System.Windows.Forms.TextBox();
             this.textBox_Timp = new System.Windows.Forms.TextBox();
             this.button_Apply = new System.Windows.Forms.Button();
+            this.comboBox_Status = new System.Windows.Forms.ComboBox();
+            this.button_Cancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -108,14 +109,6 @@
             this.textBox_Tip.Size = new System.Drawing.Size(127, 26);
             this.textBox_Tip.TabIndex = 6;
             // 
-            // textBox_Status
-            // 
-            this.textBox_Status.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Status.Location = new System.Drawing.Point(108, 71);
-            this.textBox_Status.Name = "textBox_Status";
-            this.textBox_Status.Size = new System.Drawing.Size(127, 26);
-            this.textBox_Status.TabIndex = 7;
-            // 
             // textBox_Continut
             // 
             this.textBox_Continut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -144,7 +137,7 @@
             // 
             // button_Apply
             // 
-            this.button_Apply.Location = new System.Drawing.Point(259, 292);
+            this.button_Apply.Location = new System.Drawing.Point(156, 299);
             this.button_Apply.Name = "button_Apply";
             this.button_Apply.Size = new System.Drawing.Size(109, 37);
             this.button_Apply.TabIndex = 11;
@@ -152,16 +145,46 @@
             this.button_Apply.UseVisualStyleBackColor = true;
             this.button_Apply.Click += new System.EventHandler(this.button_Apply_Click);
             // 
+            // comboBox_Status
+            // 
+            this.comboBox_Status.AutoCompleteCustomSource.AddRange(new string[] {
+            "TO DO",
+            "IN PROGRESS",
+            "CODE REVIEW",
+            "DONE"});
+            this.comboBox_Status.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_Status.FormattingEnabled = true;
+            this.comboBox_Status.Items.AddRange(new object[] {
+            "TO DO",
+            "IN PROGRESS",
+            "CODE REVIEW",
+            "DONE"});
+            this.comboBox_Status.Location = new System.Drawing.Point(108, 71);
+            this.comboBox_Status.Name = "comboBox_Status";
+            this.comboBox_Status.Size = new System.Drawing.Size(168, 28);
+            this.comboBox_Status.TabIndex = 12;
+            // 
+            // button_Cancel
+            // 
+            this.button_Cancel.Location = new System.Drawing.Point(364, 299);
+            this.button_Cancel.Name = "button_Cancel";
+            this.button_Cancel.Size = new System.Drawing.Size(109, 37);
+            this.button_Cancel.TabIndex = 13;
+            this.button_Cancel.Text = "Cancel";
+            this.button_Cancel.UseVisualStyleBackColor = true;
+            this.button_Cancel.Click += new System.EventHandler(this.button_Cancel_Click);
+            // 
             // EditTaskForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(618, 357);
+            this.Controls.Add(this.button_Cancel);
+            this.Controls.Add(this.comboBox_Status);
             this.Controls.Add(this.button_Apply);
             this.Controls.Add(this.textBox_Timp);
             this.Controls.Add(this.textBox_Nota);
             this.Controls.Add(this.textBox_Continut);
-            this.Controls.Add(this.textBox_Status);
             this.Controls.Add(this.textBox_Tip);
             this.Controls.Add(this.label_Timp);
             this.Controls.Add(this.label_Nota);
@@ -186,10 +209,11 @@
         private System.Windows.Forms.Label label_Nota;
         private System.Windows.Forms.Label label_Timp;
         private System.Windows.Forms.TextBox textBox_Tip;
-        private System.Windows.Forms.TextBox textBox_Status;
         private System.Windows.Forms.TextBox textBox_Continut;
         private System.Windows.Forms.TextBox textBox_Nota;
         private System.Windows.Forms.TextBox textBox_Timp;
         private System.Windows.Forms.Button button_Apply;
+        private System.Windows.Forms.ComboBox comboBox_Status;
+        private System.Windows.Forms.Button button_Cancel;
     }
 }
