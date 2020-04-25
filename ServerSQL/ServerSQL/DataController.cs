@@ -8,13 +8,10 @@ using System.Data;
 using System.Drawing;
 using System.Data.SqlClient;
 using System.Configuration;
-
-
+using ServerSQL;
 
 namespace managementTask
-{
-
-    
+{    
     class DataController
     {
         SqlConnection connection = null;
@@ -29,7 +26,7 @@ namespace managementTask
             }
             catch (SqlException e)
             {
-                Console.Error.Write(e.ToString());
+                ShellMenu.ShowError(e.ToString());
             }
         }
 
