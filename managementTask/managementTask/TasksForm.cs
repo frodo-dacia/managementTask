@@ -14,15 +14,19 @@ namespace managementTask
 {
     public partial class TasksPage : Form
     {
+        Client client = null;
         private int refreshPageIndx = 0;
         private Tasks _Tasks;
         private List<TextBox> tasksShown = new List<TextBox>();
         private User currentUser;
-        public TasksPage(User currentUser)
+        
+        public TasksPage(User currentUser, Client client)
         {
+           
             this.currentUser = currentUser;
+            this.client = client;
             InitializeComponent();
-            _Tasks = new Tasks();
+            _Tasks = new Tasks(client);
             InitializeUsers();
             if(currentUser.AccessLevel == Access.Admin)
             {
@@ -49,7 +53,7 @@ namespace managementTask
             this.label_Kanban.ForeColor = System.Drawing.Color.Black;
             this.label_Kanban.Location = new System.Drawing.Point(34, 26);
             this.label_Kanban.Name = "label_Kanban";
-            this.label_Kanban.Size = new System.Drawing.Size(277, 52);
+            this.label_Kanban.Size = new System.Drawing.Size(345, 65);
             this.label_Kanban.TabIndex = 0;
             this.label_Kanban.Text = "Kanban Board";
             // 
@@ -120,6 +124,7 @@ namespace managementTask
             this.label_ToDo.TabIndex = 0;
             this.label_ToDo.Text = "TO DO";
             this.label_ToDo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_ToDo.Click += new System.EventHandler(this.label_ToDo_Click);
             // 
             // TasksPage
             // 
@@ -270,7 +275,7 @@ namespace managementTask
            
             if (refreshPageIndx == currentUser.ID || currentUser.AccessLevel == Access.Admin)
             {
-                EditTaskForm editTaskForm = new EditTaskForm(Task_ID,currentUser.AccessLevel);
+                EditTaskForm editTaskForm = new EditTaskForm(Task_ID,currentUser.AccessLevel,client);
                 editTaskForm.ShowDialog();
                 if (editTaskForm.canceled == 0)
                 {
@@ -329,20 +334,28 @@ namespace managementTask
 
         private void CreateNewTask_Clicked(object sender, EventArgs e)
         {
-            CreateNewTaskForm createNewTask = new CreateNewTaskForm();
+            CreateNewTaskForm createNewTask = new CreateNewTaskForm(client,_Tasks);
             createNewTask.ShowDialog();
+            _Tasks = new Tasks(client);
+            TasksLoad(refreshPageIndx);
+            
 
         }
         
         private void CreateNewUser_Clicked(object sender, EventArgs e)
         {
-            CreateNewUserForm createNewUser = new CreateNewUserForm();
+
+            CreateNewUserForm createNewUser = new CreateNewUserForm(client);
             createNewUser.ShowDialog();
+            new Users(client);
+            InitializeUsers();
+            
 
         }
 
-        
+        private void label_ToDo_Click(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }

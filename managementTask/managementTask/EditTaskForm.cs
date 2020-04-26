@@ -17,11 +17,14 @@ namespace managementTask
         private int _accessLevel;
         private List<Task> _taskuri = Tasks.MyTasks;
         public int canceled { get; set; }
-        public EditTaskForm(int taskID, int accessLevel)
+        private Client client = null;
+
+        public EditTaskForm(int taskID, int accessLevel, Client client)
         {
             _accessLevel = accessLevel;
             _taskID = taskID;
             InitializeComponent();
+            this.client = client;
         }
 
         private void EditTaskForm_Load(object sender, EventArgs e)
@@ -61,13 +64,20 @@ namespace managementTask
                 if(_taskuri[i].Task_ID == _taskID)
                 {
                     _taskuri[i] = new Task(_taskuri[i].Task_ID, _taskuri[i].User_ID, textBox_Tip.Text, comboBox_Status.Text, textBox_Continut.Text, Convert.ToInt32(textBox_Nota.Text), Convert.ToInt32(textBox_Timp.Text));
-                    
-                    string newLine = _taskuri[i].Task_ID.ToString() + '\t' + _taskuri[i].User_ID.ToString() + '\t' + textBox_Tip.Text + '\t' + comboBox_Status.Text + '\t' + textBox_Continut.Text + '\t' + textBox_Nota.Text + '\t' + textBox_Timp.Text;
 
-                    string[] arrLine = File.ReadAllLines("taskuri.txt");
-                    arrLine[i] = newLine;
-                    File.WriteAllLines("taskuri.txt", arrLine);
-                    
+                    client.SendMessage("UpdateTable|TaskDB,Task,Tip,"+ textBox_Tip.Text+","+_taskID);
+                    client.ReceiveMessage();
+
+                    client.SendMessage("UpdateTable|TaskDB,Task,Status," + comboBox_Status.Text + "," + _taskID);
+                    client.ReceiveMessage();
+
+                    client.SendMessage("UpdateTable|TaskDB,Task,Continut," + textBox_Continut.Text + "," + _taskID);
+                    client.ReceiveMessage();
+                    client.SendMessage("UpdateTable|TaskDB,Task,Nota," + textBox_Nota.Text + "," + _taskID);
+                    client.ReceiveMessage();
+                    client.SendMessage("UpdateTable|TaskDB,Task,TimpEstimat," + textBox_Timp.Text + "," + _taskID);
+                    client.ReceiveMessage();
+                   
                 }
             }
             this.Close();

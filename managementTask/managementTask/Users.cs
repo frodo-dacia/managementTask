@@ -35,6 +35,7 @@ namespace managementTask
     {
         private static List<User> _users;
         private User _currentUser;
+        private Client client = null;
 
         public static List<User> MyUsers {
             get
@@ -43,20 +44,28 @@ namespace managementTask
             } 
         }
 
-        public Users()
+        public Users(Client client)
         {
+
+            this.client = client;
             try
             {
+                string data = "";
                 _users = new List<User>();
-                StreamReader sr = new StreamReader("utilizatori.txt");
-                string line;
-                while ((line = sr.ReadLine()) != null)
+                client.SendMessage("GetTable|UserDB,User,user");
+                data = client.ReceiveMessage();
+                string[] values = data.Split(';').ToArray();
+                foreach (string str in values)
                 {
-                    string[] toks = line.Split('\t');
-                    User user = new User(Convert.ToInt32(toks[0]), toks[1], toks[2], Convert.ToInt32(toks[3]));
-                    _users.Add(user);
+                    string[] toks = str.Split(',').ToArray();
+
+                    if (!str.Equals(""))
+                    {
+                        User user = new User(Convert.ToInt32(toks[0]), toks[1], toks[2], Convert.ToInt32(toks[3]));
+                        _users.Add(user);
+                    }
                 }
-                sr.Close();
+
             }
             catch (Exception exc)
             {

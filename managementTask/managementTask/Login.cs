@@ -13,10 +13,13 @@ namespace managementTask
     public partial class Login : Form
     {
         private Users _Users;
+        Client client = new Client();
+     
         public Login()
         {
+            client.Start("192.168.56.1");
             InitializeComponent();
-            _Users = new Users();
+            _Users = new Users(client);
 
         }
 
@@ -36,7 +39,7 @@ namespace managementTask
                 int accessLevel = _Users.GetAccessLevel(userName, password);
                 int id = _Users.GetId(userName, password);
                 User currentUser = new User(id, userName, Crypto.HashString(password), accessLevel);
-                TasksPage tasksForm = new TasksPage(currentUser);
+                TasksPage tasksForm = new TasksPage(currentUser, client);
                 tasksForm.ShowDialog();
                 this.Close();
                 

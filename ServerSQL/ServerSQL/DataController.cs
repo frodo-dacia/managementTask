@@ -48,15 +48,14 @@ namespace managementTask
                 case "task":
                     try
                     {
-                        using (SqlCommand cmd = new SqlCommand("USE " + nameDatabase + "; CREATE TABLE ['" + nameTable + "']("
+                        using (SqlCommand cmd = new SqlCommand("USE " + nameDatabase + "; CREATE TABLE [" + nameTable + "]("
                                         + "[IdTask]      [int]  NOT NULL ,"
                                         + "[IdUser]      [int]  NOT NULL,"
                                         + "[Tip]         [nvarchar](max) NOT NULL,"
                                         + "[Status]      [nvarchar](max) NOT NULL,"
                                         + "[Continut]    [nvarchar](max) NOT NULL,"
                                         + "[Nota]        [int]  NOT NULL,"
-                                        + "[TimpEstimat] [int]  NOT NULL,"
-                                        + "[CalePoza]    [nvarchar](max) NOT NULL CONSTRAINT CompKey_ID_NAME PRIMARY KEY (IdTask, IdUser));"
+                                        + "[TimpEstimat] [int]  NOT NULL CONSTRAINT CompKey_ID_NAME PRIMARY KEY (IdTask, IdUser));"
                                          , connection))
                         {
                             cmd.ExecuteNonQuery();
@@ -70,7 +69,7 @@ namespace managementTask
                 case "user":
                     try
                     {
-                        using (SqlCommand cmd = new SqlCommand("USE " + nameDatabase + "; CREATE TABLE ['" + nameTable + "']("
+                        using (SqlCommand cmd = new SqlCommand("USE " + nameDatabase + "; CREATE TABLE [" + nameTable + "]("
                                             + "[IdUser]      [int]  NOT NULL PRIMARY KEY,"
                                             + "[Username]         [nvarchar](max) NOT NULL,"
                                             + "[Password]      [nvarchar](max) NOT NULL,"
@@ -101,13 +100,13 @@ namespace managementTask
                 switch (type)
                 {
                     case "task":
-                        using (SqlCommand cmd = new SqlCommand("INSERT INTO [" + nameDatabase + "].[dbo].['" + nameTable + "'] (IdTask,IdUser,Tip,Status,Continut,Nota,TimpEstimat,CalePoza) " + "VALUES (" + values[0] + "," + values[1] + ",'" + values[2] + "','" + values[3] + "','" + values[4] + "'," + values[5] + "," + values[6] + ",'" + values[7] + "')", connection))
+                        using (SqlCommand cmd = new SqlCommand("INSERT INTO [" + nameDatabase + "].[dbo].[" + nameTable + "] (IdTask,IdUser,Tip,Status,Continut,Nota,TimpEstimat) " + "VALUES (" + values[0] + "," + values[1] + ",'" + values[2] + "','" + values[3] + "','" + values[4] + "'," + values[5] + "," + values[6] + ")", connection))
                         {
                             cmd.ExecuteNonQuery();
                         }
                         break;
                     case "user":
-                        using (SqlCommand cmd = new SqlCommand("INSERT INTO [" + nameDatabase + "].[dbo].['" + nameTable + "'] (IdUser,Username, Password, Rights) " + "VALUES (" + values[0] + ",'" + values[1] + "','" + values[2] + "'," + values[3] + ")", connection))
+                        using (SqlCommand cmd = new SqlCommand("INSERT INTO [" + nameDatabase + "].[dbo].[" + nameTable + "] (IdUser,Username, Password, Rights) " + "VALUES (" + values[0] + ",'" + values[1] + "','" + values[2] + "'," + values[3] + ")", connection))
                         {
                             cmd.ExecuteNonQuery();
                         }
@@ -127,11 +126,11 @@ namespace managementTask
 
         }
 
-        public void UpdateTable(string nameTable, string nameDatabase, string element, string newValue, string whereElem, string whereElemVal)
+        public void UpdateTable(string nameTable, string nameDatabase, string element, string newValue, string IdTask)
         {
             try
             {
-                using (SqlCommand cmd = new SqlCommand("UPDATE [" + nameDatabase + "].[dbo].['" + nameTable + "'] SET " + element + "='" + newValue + "' WHERE " + whereElem + "='" + whereElemVal + "';", connection))
+                using (SqlCommand cmd = new SqlCommand("UPDATE [" + nameDatabase + "].[dbo].[" + nameTable + "] SET " + element + "='" + newValue + "' WHERE IdTask='" + IdTask + "';", connection))
                 {
                     cmd.ExecuteNonQuery();
                 }
@@ -152,7 +151,7 @@ namespace managementTask
             switch (type)
             {
                 case "task":
-                    using (SqlCommand cmd = new SqlCommand("SELECT * from [" + nameDatabase + "].[dbo].['" + nameTable + "'] where IdUser='" + IdUser + "' and IdTask='" + IdTask + "';", connection))
+                    using (SqlCommand cmd = new SqlCommand("SELECT * from [" + nameDatabase + "].[dbo].[" + nameTable + "] where IdUser='" + IdUser + "' and IdTask='" + IdTask + "';", connection))
                     {
                         try
                         {
@@ -164,7 +163,7 @@ namespace managementTask
                                 result.Add((string)rdr["Continut"]);
                                 result.Add(rdr["Nota"].ToString());
                                 result.Add(rdr["TimpEstimat"].ToString());
-                                result.Add((string)rdr["CalePoza"]);
+                               
 
                             }
                         }
@@ -184,7 +183,7 @@ namespace managementTask
                     }
 
                 case "user":
-                    using (SqlCommand cmd = new SqlCommand("SELECT * from [" + nameDatabase + "].[dbo].['" + nameTable + "'] where IdUser='" + IdUser + "';", connection))
+                    using (SqlCommand cmd = new SqlCommand("SELECT * from [" + nameDatabase + "].[dbo].[" + nameTable + "] where IdUser='" + IdUser + "';", connection))
                     {
                         try
                         {
@@ -226,7 +225,7 @@ namespace managementTask
             switch (type)
             {
                 case "task":
-                    using (SqlCommand cmd = new SqlCommand("SELECT * from [" + nameDatabase + "].[dbo].['" + nameTable + "'] ;", connection))
+                    using (SqlCommand cmd = new SqlCommand("SELECT * from [" + nameDatabase + "].[dbo].[" + nameTable + "] ;", connection))
                     {
                         List<List<string>> result = new List<List<string>>();
                         try
@@ -242,7 +241,7 @@ namespace managementTask
                                 innerList.Add((string)rdr["Continut"]);
                                 innerList.Add(rdr["Nota"].ToString());
                                 innerList.Add(rdr["TimpEstimat"].ToString());
-                                innerList.Add((string)rdr["CalePoza"]);
+                             
                                 result.Add(innerList);
 
                             }
@@ -263,7 +262,7 @@ namespace managementTask
                     }
 
                 case "user":
-                    using (SqlCommand cmd = new SqlCommand("SELECT * from [" + nameDatabase + "].[dbo].['" + nameTable + "'];", connection))
+                    using (SqlCommand cmd = new SqlCommand("SELECT * from [" + nameDatabase + "].[dbo].[" + nameTable + "];", connection))
                     {
                         List<List<string>> result = new List<List<string>>();
                         try

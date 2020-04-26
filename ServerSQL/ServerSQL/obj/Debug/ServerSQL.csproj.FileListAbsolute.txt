@@ -5,7 +5,6 @@ C:\Users\Diana\source\repos\ServerSQL\ServerSQL\obj\Debug\ServerSQL.csprojResolv
 C:\Users\Diana\source\repos\ServerSQL\ServerSQL\obj\Debug\ServerSQL.csproj.CoreCompileInputs.cache
 C:\Users\Diana\source\repos\ServerSQL\ServerSQL\obj\Debug\ServerSQL.exe
 C:\Users\Diana\source\repos\ServerSQL\ServerSQL\obj\Debug\ServerSQL.pdb
-C:\managementTask\ServerSQL\ServerSQL\obj\Debug\ServerSQL.csprojResolveAssemblyReference.cache
 C:\managementTask\ServerSQL\ServerSQL\obj\Debug\ServerSQL.csproj.CoreCompileInputs.cache
 C:\managementTask\ServerSQL\ServerSQL\obj\Debug\ServerSQL.exe
 C:\managementTask\ServerSQL\ServerSQL\obj\Debug\ServerSQL.pdb

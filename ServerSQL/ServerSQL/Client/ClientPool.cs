@@ -63,7 +63,15 @@ namespace ServerSQL.Client
             }
             return s;
         }
-
+        public string GetIpClients()
+        {
+            string s = "";
+            foreach (Client client in _clientPool)
+            {
+                s += client.GetIp() + ",";
+            }
+            return s;
+        }
         public void KillClient(string s)
         {
             Client clientToRemove = null;

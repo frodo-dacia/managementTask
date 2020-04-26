@@ -12,9 +12,13 @@ namespace managementTask
 {
     public partial class CreateNewTaskForm : Form
     {
+        Tasks tasks = null;
+        private Client client = null;
         private List<User> users = Users.MyUsers;
-        public CreateNewTaskForm()
+        public CreateNewTaskForm(Client client, Tasks tasks)
         {
+            this.client = client;
+            this.tasks = tasks;
             InitializeComponent();
         }
 
@@ -31,9 +35,9 @@ namespace managementTask
         {
             try
             {
-                int taskId = Convert.ToInt32(textBox_TaskID.Text);
+                string taskId = textBox_TaskID.Text;
                 string userName = comboBox_User.Text;
-                int userId;
+                int userId = -1;
                 foreach (var obj in users)
                 {
                     if (obj.Name == userName)
@@ -41,18 +45,26 @@ namespace managementTask
                         userId = obj.ID;
                     }
                 }
+
                 string tip = textBox_Tip.Text;
-                string stastus = comboBox_Status.Text;
+                string status = comboBox_Status.Text;
                 string continut = textBox_Continut.Text;
-                int nota = Convert.ToInt32(textBox_Nota.Text);
-                int timpEstimat = Convert.ToInt32(textBox_Timp);
+                string nota = textBox_Nota.Text;
+                string timpEstimat = textBox_Timp.Text;
+                
+                client.SendMessage("InsertRowIntoTable|TaskDB,Task," + taskId + "," + userId + "," + tip + "," + status + "," + continut + "," + nota + "," + timpEstimat);
+                
+                this.Close();
+
+                
+
             }
             catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
             }
 
-            /*TODO de adaugat task-ul nou*/
+           
 
 
         }

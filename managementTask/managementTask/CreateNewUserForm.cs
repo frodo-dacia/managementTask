@@ -12,8 +12,11 @@ namespace managementTask
 {
     public partial class CreateNewUserForm : Form
     {
-        public CreateNewUserForm()
+        private Client client = null;
+
+        public CreateNewUserForm(Client client)
         {
+            this.client = client;
             InitializeComponent();
         }
 
@@ -21,12 +24,12 @@ namespace managementTask
         {
             try
             {
-                int userID = Convert.ToInt32(textBox_UserID);
+                string userID = textBox_UserID.Text;
                 string userName = textBox_UserName.Text;
                 string password = textBox_Pass.Text;
                 password = Crypto.HashString(password);
                 string access = comboBox_AccessLevel.Text;
-                int accessLevel;
+                int accessLevel = 1;
                 switch (access)
                 {
                     case "ADMIN":
@@ -36,12 +39,14 @@ namespace managementTask
                         accessLevel = 1;
                         break;
                 }
+                client.SendMessage("InsertRowIntoTable|UserDB,User," + userID + "," + userName + "," + password + "," + accessLevel);
+                this.Close();
             }
             catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
             }
-            /*TODO de trimis la server*/
+           
         }
 
         private void button_Cancel_Click(object sender, EventArgs e)

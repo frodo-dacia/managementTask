@@ -2,7 +2,7 @@
 2	1	Bug	IN PROGRESS	Tre sa faci	1	13
 3	2	Bug	DONE	Tre sa faci	3	11
 4	3	e	CODE REVIEW	Tre sa facidasd	3	11
-5	4	Bug	IN PROGRESS	Tre sa faci	3	11
+5	4	Bug	IN PROGRESS	Tre sa faciss	3	11
 6	1	Bug	DONE	Diaana e jmek	3	11
 7	1	Bug	IN PROGRESS	Tre sa faci	3	11
 8	1	Bug	TO DO	Tre sa faci	3	11

@@ -5,12 +5,14 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using managementTask;
 sealed class Server
 {
     private static Server instance;
     private static readonly object padlock = new object();
     private static TcpListener server;
     private static ClientPool _clientPool;
+  
 
     public static Server Instance
     {
@@ -26,8 +28,10 @@ sealed class Server
             }
         }
     }
-    public Server() { }
-        
+    public Server()
+    {
+         }
+
     public Server( int port)
     {
         if (server == null)

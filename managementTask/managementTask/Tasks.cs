@@ -40,20 +40,28 @@ namespace managementTask
                 return _tasks;
             }
         }
-        public Tasks()
+        public Tasks(Client client)
         {
             try
             {
+                string data = "";
+                
+
                 _tasks = new List<Task>();
-                StreamReader sr = new StreamReader("taskuri.txt");
-                string line;
-                while ((line = sr.ReadLine()) != null)
+                client.SendMessage("GetTable|TaskDB,Task,task");
+                data = client.ReceiveMessage();
+                string[] values = data.Split(';').ToArray();
+                foreach (string str in values)
                 {
-                    string[] toks = line.Split('\t');
-                    Task task = new Task (Convert.ToInt32(toks[0]), Convert.ToInt32(toks[1]), toks[2], toks[3], toks[4], Convert.ToInt32(toks[5]), Convert.ToInt32(toks[6]));
-                    _tasks.Add(task);
+                    string[] toks = str.Split(',').ToArray();
+                   
+                    if (!str.Equals(""))
+                    {
+                        Task task = new Task(Convert.ToInt32(toks[0]), Convert.ToInt32(toks[1]), toks[2], toks[3], toks[4], Convert.ToInt32(toks[5]), Convert.ToInt32(toks[6]));
+                        _tasks.Add(task);
+                    }
                 }
-                sr.Close();
+
             }
             catch (Exception exc)
             {

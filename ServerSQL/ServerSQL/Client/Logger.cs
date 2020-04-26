@@ -9,6 +9,7 @@ namespace ServerSQL.Client
 {
     class Logger
     {
+        private static readonly object padlock = new object();
         string _path=null;
         public Logger()
         {
@@ -29,7 +30,11 @@ namespace ServerSQL.Client
         {
             try
             {
-                File.AppendAllText(_path, s + Environment.NewLine);
+                lock (padlock)
+                {
+                    File.AppendAllText(_path, s + Environment.NewLine);
+                }
+              
             }
             catch(Exception e)
             {
