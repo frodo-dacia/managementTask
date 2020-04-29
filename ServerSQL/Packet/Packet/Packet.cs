@@ -27,21 +27,7 @@ public class Packet
             _idClient = '0' + _idClient;
     }
 
-    public string Pack()
-    {
-        return _type + _idClient + _data;
-    }
 
-    public Packet Unpack(string receivedPacket)
-    {
-        Packet packet = null;
-
-        packet._type = receivedPacket.Substring(0, 1);
-        packet._idClient = receivedPacket.Substring(1, 6);
-        packet._data = receivedPacket.Substring(7);
-
-        return packet;
-    }
 
     public override string ToString()
     {
