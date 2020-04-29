@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{19BF1C56-5974-4B67-9633-D4F544382387}</ProjectGuid>
+    <ProjectGuid>{25A1E573-6F0F-4C58-8355-14BE71278DCE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Packet</RootNamespace>
@@ -16,7 +16,6 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-	
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -39,7 +38,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-	<HintPath>..\managementTask\ServerSQL\Packet\Packet\bin\Debug\Packet.dll</HintPath>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Packet.cs" />

@@ -27,8 +27,6 @@ public class Packet
             _idClient = '0' + _idClient;
     }
 
-
-
     public override string ToString()
     {
         return "Packet: type=" + _type + ", idClient=" + _idClient + ", data=" + _data;

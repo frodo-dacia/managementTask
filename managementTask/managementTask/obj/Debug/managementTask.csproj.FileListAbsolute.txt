@@ -27,3 +27,4 @@ C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.exe
 C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.pdb
 C:\managementTask\managementTask\managementTask\bin\Debug\Packet.dll
 C:\managementTask\managementTask\managementTask\bin\Debug\Packet.pdb
+C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.csprojResolveAssemblyReference.cache
