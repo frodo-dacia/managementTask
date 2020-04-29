@@ -18,6 +18,10 @@ namespace managementTask
         private List<Task> _taskuri = Tasks.MyTasks;
         public int canceled { get; set; }
         private Client client = null;
+        private Packet packet = new Packet();
+        private Packet response = new Packet();
+
+
 
         public EditTaskForm(int taskID, int accessLevel, Client client)
         {
@@ -63,21 +67,33 @@ namespace managementTask
             {
                 if(_taskuri[i].Task_ID == _taskID)
                 {
+
                     _taskuri[i] = new Task(_taskuri[i].Task_ID, _taskuri[i].User_ID, textBox_Tip.Text, comboBox_Status.Text, textBox_Continut.Text, Convert.ToInt32(textBox_Nota.Text), Convert.ToInt32(textBox_Timp.Text));
 
-                    client.SendMessage("UpdateTable|TaskDB,Task,Tip,"+ textBox_Tip.Text+","+_taskID);
-                    client.ReceiveMessage();
+                    //nu cer date
+                    packet._type = "0";
+                    packet._idClient = client.id;
 
-                    client.SendMessage("UpdateTable|TaskDB,Task,Status," + comboBox_Status.Text + "," + _taskID);
-                    client.ReceiveMessage();
+                    packet._data = "UpdateTable | TaskDB,Task,Tip," + textBox_Tip.Text + "," + _taskID;
+                    client.WriteObject(packet);
+                    response = client.ReadObject();
 
-                    client.SendMessage("UpdateTable|TaskDB,Task,Continut," + textBox_Continut.Text + "," + _taskID);
-                    client.ReceiveMessage();
-                    client.SendMessage("UpdateTable|TaskDB,Task,Nota," + textBox_Nota.Text + "," + _taskID);
-                    client.ReceiveMessage();
-                    client.SendMessage("UpdateTable|TaskDB,Task,TimpEstimat," + textBox_Timp.Text + "," + _taskID);
-                    client.ReceiveMessage();
-                   
+                    packet._data = "UpdateTable|TaskDB,Task,Status," + comboBox_Status.Text + "," + _taskID;
+                    client.WriteObject(packet);
+                    response = client.ReadObject();
+          
+                    packet._data = "UpdateTable|TaskDB,Task,Continut," + textBox_Continut.Text + "," + _taskID;
+                    client.WriteObject(packet);
+                    response = client.ReadObject();
+
+                    packet._data = "UpdateTable|TaskDB,Task,Nota," + textBox_Nota.Text + "," + _taskID;
+                    client.WriteObject(packet);
+                    response = client.ReadObject();
+
+                  
+                    packet._data = "UpdateTable|TaskDB,Task,TimpEstimat," + textBox_Timp.Text + "," + _taskID;
+                    client.WriteObject(packet);
+                    response = client.ReadObject(); 
                 }
             }
             this.Close();

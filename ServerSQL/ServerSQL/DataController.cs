@@ -115,7 +115,6 @@ namespace managementTask
                         Console.Error.Write("Eroare la inserarea in tabela!");
                         break;
 
-
                 }
 
             }
@@ -137,7 +136,7 @@ namespace managementTask
             }
             catch (SqlException e)
             {
-                Console.Error.Write(e.ToString()); 
+                Console.Error.Write(""); 
             }
         }
 

@@ -17,10 +17,9 @@ namespace managementTask
      
         public Login()
         {
-            client.Start("192.168.56.1");
+            
             InitializeComponent();
-            _Users = new Users(client);
-
+          
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -30,10 +29,18 @@ namespace managementTask
 
         private void button_Login_Click(object sender, EventArgs e)
         {
+            
             string userName = textBox_UserName.Text;
             string password = textBox_Password.Text;
+            string serverIP = textBox_serverIP.Text;
+
+            //client.Start("192.168.56.1");
+            client.Start(serverIP);
+
+            _Users = new Users(client);
+
             bool loginStatus = _Users.Login(userName, password);
-            if(loginStatus == true)
+            if( loginStatus == true)
             {
                 this.Hide();
                 int accessLevel = _Users.GetAccessLevel(userName, password);
@@ -42,14 +49,17 @@ namespace managementTask
                 TasksPage tasksForm = new TasksPage(currentUser, client);
                 tasksForm.ShowDialog();
                 this.Close();
-                
-
-               
+                 
             }
             else
             {
                 MessageBox.Show("Login failed.");
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

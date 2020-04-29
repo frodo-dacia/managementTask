@@ -12,6 +12,9 @@ namespace managementTask
 {
     public partial class CreateNewUserForm : Form
     {
+        private Packet packet = new Packet();
+        private Packet response = new Packet();
+
         private Client client = null;
 
         public CreateNewUserForm(Client client)
@@ -39,7 +42,15 @@ namespace managementTask
                         accessLevel = 1;
                         break;
                 }
-                client.SendMessage("InsertRowIntoTable|UserDB,User," + userID + "," + userName + "," + password + "," + accessLevel);
+
+                //nu cer date
+                packet._type = "0";
+                packet._idClient = client.id;
+                packet._data = "InsertRowIntoTable|UserDB,User," + userID + "," + userName + "," + password + "," + accessLevel;
+
+                client.WriteObject(packet);
+                response = client.ReadObject();
+
                 this.Close();
             }
             catch (Exception exc)

@@ -32,6 +32,8 @@ namespace managementTask
     public class Tasks
     {
         private static List<Task> _tasks;
+        private Packet packet = new Packet();
+        private Packet response = new Packet();
 
         public static List<Task> MyTasks
         {
@@ -44,13 +46,19 @@ namespace managementTask
         {
             try
             {
-                string data = "";
-                
-
+              
                 _tasks = new List<Task>();
-                client.SendMessage("GetTable|TaskDB,Task,task");
-                data = client.ReceiveMessage();
-                string[] values = data.Split(';').ToArray();
+
+                //type=1 pentru ca cer date
+                packet._type = "1";
+                packet._idClient = client.id;
+                packet._data = "GetTable|TaskDB,Task,task";
+
+                client.WriteObject(packet);
+                response = client.ReadObject();
+
+                //parsez stringul
+                string[] values = response._data.Split(';').ToArray();
                 foreach (string str in values)
                 {
                     string[] toks = str.Split(',').ToArray();

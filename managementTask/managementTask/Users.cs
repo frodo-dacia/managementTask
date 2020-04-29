@@ -5,8 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-
+using System.Xml.Serialization;
 
 namespace managementTask
 {
@@ -36,8 +35,12 @@ namespace managementTask
         private static List<User> _users;
         private User _currentUser;
         private Client client = null;
-
-        public static List<User> MyUsers {
+        private Packet packet = new Packet();
+        private Packet response = new Packet();
+        XmlSerializer xmlSerializer = new XmlSerializer(typeof(Packet));
+       
+           
+    public static List<User> MyUsers {
             get
             {
                 return _users;
@@ -46,15 +49,24 @@ namespace managementTask
 
         public Users(Client client)
         {
-
+           
             this.client = client;
+            var networkStream = client.stream;
             try
             {
-                string data = "";
+                
                 _users = new List<User>();
-                client.SendMessage("GetTable|UserDB,User,user");
-                data = client.ReceiveMessage();
-                string[] values = data.Split(';').ToArray();
+
+                //type=1 pentru ca cer date
+                packet._type = "1";
+                packet._idClient = client.id;
+                packet._data = "GetTable|UserDB,User,user";
+
+                client.WriteObject( packet);
+                response = client.ReadObject();
+
+                //parsez stringul 
+                string[] values = response._data.Split(';').ToArray();
                 foreach (string str in values)
                 {
                     string[] toks = str.Split(',').ToArray();
@@ -65,7 +77,7 @@ namespace managementTask
                         _users.Add(user);
                     }
                 }
-
+              
             }
             catch (Exception exc)
             {

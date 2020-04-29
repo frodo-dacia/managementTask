@@ -15,6 +15,9 @@ namespace managementTask
         Tasks tasks = null;
         private Client client = null;
         private List<User> users = Users.MyUsers;
+        private Packet packet = new Packet();
+        private Packet response = new Packet();
+
         public CreateNewTaskForm(Client client, Tasks tasks)
         {
             this.client = client;
@@ -51,21 +54,21 @@ namespace managementTask
                 string continut = textBox_Continut.Text;
                 string nota = textBox_Nota.Text;
                 string timpEstimat = textBox_Timp.Text;
-                
-                client.SendMessage("InsertRowIntoTable|TaskDB,Task," + taskId + "," + userId + "," + tip + "," + status + "," + continut + "," + nota + "," + timpEstimat);
-                
+
+                //nu cer date
+                packet._type = "0";
+                packet._idClient = client.id;
+                packet._data = "InsertRowIntoTable|TaskDB,Task," + taskId + "," + userId + "," + tip + "," + status + "," + continut + "," + nota + "," + timpEstimat;
+
+                client.WriteObject(packet);
+                response = client.ReadObject();
+
                 this.Close();
-
-                
-
             }
             catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
             }
-
-           
-
 
         }
 

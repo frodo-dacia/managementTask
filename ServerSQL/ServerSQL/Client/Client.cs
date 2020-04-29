@@ -25,6 +25,7 @@ namespace ServerSQL.Client
 
             _client = newClient;          
             Thread t = new Thread(new ParameterizedThreadStart(this.HandleDevice));
+
             t.Start(_client);
             _log = new Logger();
             _log.WriteLog("New connection: "+_client.Client.RemoteEndPoint.ToString());
@@ -40,29 +41,25 @@ namespace ServerSQL.Client
         {
             TcpClient client = (TcpClient)obj;
             var stream = client.GetStream();
-            string imei = String.Empty;
-            string data = null;
-            Byte[] bytes = new Byte[1024];
-            string str = "";
-            int i;
+
+            Packet packet = new Packet();
+            Packet responsePacket = new Packet();
             try
             {
-                while ((i = stream.Read(bytes, 0, bytes.Length)) != 0)
+                while (true)
                 {
-                    string hex = BitConverter.ToString(bytes);
-                    data = Encoding.ASCII.GetString(bytes, 0, i);
-                    _log.WriteLog(Thread.CurrentThread.ManagedThreadId + ": Received: " + data + "\n");
-                    Command.Command command = new Command.Command(dataController,data);
-                    str = command.Execute();
-                    Console.Write(clientPool.GetIpClients());
-                    Byte[] reply = System.Text.Encoding.ASCII.GetBytes(str);
-                    stream.Write(reply, 0, reply.Length);
-                    _log.WriteLog(Thread.CurrentThread.ManagedThreadId + ": Sent: " + str + "\n");
-                }
+                    packet = SerializeControl.ReadObject(stream);
+                    _log.WriteLog(Thread.CurrentThread.ManagedThreadId + ": Received: " + packet + "\n");
+                    
+                      Command.Command command = new Command.Command(dataController, packet);
+                     responsePacket = command.Execute();
+
+                    SerializeControl.WriteObject(stream, responsePacket);
+                    _log.WriteLog(Thread.CurrentThread.ManagedThreadId + ": Sent: " + packet + "\n");
+                }   
             }
             catch (Exception e)
-            {
-                //Console.WriteLine("Exception: {0}", e.ToString());
+            {    
                 _log.WriteLog("Exception: " + e.ToString());
                 client.Close();
             }

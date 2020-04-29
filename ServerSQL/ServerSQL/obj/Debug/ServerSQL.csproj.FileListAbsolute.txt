@@ -18,3 +18,6 @@ E:\IP\proiectIP_managementTask\ServerSQL\ServerSQL\obj\Debug\ServerSQL.pdb
 E:\IP\proiectIP_managementTask\ServerSQL\ServerSQL\bin\Debug\ServerSQL.exe.config
 E:\IP\proiectIP_managementTask\ServerSQL\ServerSQL\bin\Debug\ServerSQL.exe
 E:\IP\proiectIP_managementTask\ServerSQL\ServerSQL\bin\Debug\ServerSQL.pdb
+C:\managementTask\ServerSQL\ServerSQL\bin\Debug\Packet.dll
+C:\managementTask\ServerSQL\ServerSQL\bin\Debug\Packet.pdb
+C:\managementTask\ServerSQL\ServerSQL\obj\Debug\ServerSQL.csprojResolveAssemblyReference.cache

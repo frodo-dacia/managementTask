@@ -5,15 +5,19 @@ using System.Text;
 using System.Net.Sockets;
 using System.Windows.Forms;
 using System.Threading;
+using System.Xml.Serialization;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace managementTask
 {
     public class Client
     {
-        TcpClient client = null;
-        NetworkStream stream = null;
-        
 
+        TcpClient client = null;
+        public NetworkStream stream { get; set; }
+        public readonly string id = GenerateID();
+    
         public void Start(String serverIP)
         {
             new Thread(() =>
@@ -28,11 +32,7 @@ namespace managementTask
             try
             {
                 Int32 port = 13000;
-                client = new TcpClient(serverIP, port);
-          
-                // Bytes Array to receive Server Response.
-               
-               
+                client = new TcpClient(serverIP, port);             
             }
             catch (Exception e)
             {
@@ -40,31 +40,32 @@ namespace managementTask
             }
             Console.Read();
         }
-        public void SendMessage(String message)
-        {
-            stream = client.GetStream();
-            Byte[] data = System.Text.Encoding.ASCII.GetBytes(message.ToString());
-            // Send the message to the connected TcpServer. 
-            stream.Write(data, 0, data.Length);
-        }
-
-        public String ReceiveMessage()
-        {
-            Byte[] data = new Byte[1024];
-            String response = String.Empty;
-            // Read the Tcp Server Response Bytes.
-            Int32 bytes = stream.Read(data, 0, data.Length);
-            response = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
-           
-           // Thread.Sleep(2000);
-            return response;
-
-        }
-
+      
         public void CloseConnection()
         {
             stream.Close();
             client.Close();
+        }
+        public static string GenerateID()
+        {
+            Random random = new Random();
+            return random.Next(999999).ToString();
+        }
+
+         public Packet ReadObject()
+        {
+            IFormatter formatter = new BinaryFormatter();
+            Packet packet = (Packet)formatter.Deserialize(client.GetStream()); 
+            return packet;
+        }
+
+        public void WriteObject(Packet packet)
+        {
+            if (packet != null)
+            {
+                IFormatter formatter = new BinaryFormatter(); // the formatter that will serialize my object on my stream
+                formatter.Serialize(client.GetStream(), packet);
+            }
         }
     }
 }
