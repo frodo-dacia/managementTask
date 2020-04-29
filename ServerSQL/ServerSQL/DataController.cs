@@ -29,68 +29,7 @@ namespace managementTask
                 ShellMenu.ShowError(e.ToString());
             }
         }
-
-        public void CreateDatabase(string nameDatabase)
-        {
-            //sterg baza de date in caz de exista si o creez la loc
-            String sql = "DROP DATABASE  IF EXISTS [" + nameDatabase + "]; CREATE DATABASE [" + nameDatabase + "]";
-            using (SqlCommand command = new SqlCommand(sql, connection))
-                command.ExecuteNonQuery();
-        }
-
-        public void CreateTable(string nameDatabase, string nameTable, string type)
-        {
-            //creez tabela task in baza de date TasksDB
-            //Tip -> identific astfel obiectul ca sa stim sa il asignam factory-ului
-            //(IdTask,IdUser)->PK
-            switch (type)
-            {
-                case "task":
-                    try
-                    {
-                        using (SqlCommand cmd = new SqlCommand("USE " + nameDatabase + "; CREATE TABLE [" + nameTable + "]("
-                                        + "[IdTask]      [int]  NOT NULL ,"
-                                        + "[IdUser]      [int]  NOT NULL,"
-                                        + "[Tip]         [nvarchar](max) NOT NULL,"
-                                        + "[Status]      [nvarchar](max) NOT NULL,"
-                                        + "[Continut]    [nvarchar](max) NOT NULL,"
-                                        + "[Nota]        [int]  NOT NULL,"
-                                        + "[TimpEstimat] [int]  NOT NULL CONSTRAINT CompKey_ID_NAME PRIMARY KEY (IdTask, IdUser));"
-                                         , connection))
-                        {
-                            cmd.ExecuteNonQuery();
-                        }
-                    }
-                    catch (SqlException e)
-                    {
-                        Console.Error.Write(e.ToString());
-                    }
-                    break;
-                case "user":
-                    try
-                    {
-                        using (SqlCommand cmd = new SqlCommand("USE " + nameDatabase + "; CREATE TABLE [" + nameTable + "]("
-                                            + "[IdUser]      [int]  NOT NULL PRIMARY KEY,"
-                                            + "[Username]         [nvarchar](max) NOT NULL,"
-                                            + "[Password]      [nvarchar](max) NOT NULL,"
-                                            + "[Rights]        [int]  NOT NULL);"
-                                             , connection))
-                        {
-                            cmd.ExecuteNonQuery();
-                        }
-                    }
-                    catch (SqlException e)
-                    {
-                        Console.Error.Write(e.ToString());
-                    }
-                    break;
-                default:
-                    Console.Error.Write("Eroare la crearea tabelei!");
-                    break;
-            }
-        }
-
-
+        
 
         public void InsertRowIntoTable(string nameDatabase, string nameTable, string[] values, string type)
         {
@@ -140,81 +79,7 @@ namespace managementTask
             }
         }
 
-
-        public List<string> GetRow(string nameTable, string nameDatabase, string IdUser, string type, string IdTask = "")
-        {
-            List<string> result = new List<string>();
-
-            SqlDataReader rdr = null;
-
-            switch (type)
-            {
-                case "task":
-                    using (SqlCommand cmd = new SqlCommand("SELECT * from [" + nameDatabase + "].[dbo].[" + nameTable + "] where IdUser='" + IdUser + "' and IdTask='" + IdTask + "';", connection))
-                    {
-                        try
-                        {
-                            rdr = cmd.ExecuteReader();
-                            while (rdr.Read())
-                            {
-                                result.Add((string)rdr["Tip"]);
-                                result.Add((string)rdr["Status"]);
-                                result.Add((string)rdr["Continut"]);
-                                result.Add(rdr["Nota"].ToString());
-                                result.Add(rdr["TimpEstimat"].ToString());
-                               
-
-                            }
-                        }
-                        catch (SqlException e)
-                        {
-                            Console.Error.Write(e.ToString());
-                        }
-                        finally
-                        {
-                            if (rdr != null)
-                            {
-                                rdr.Close();
-                            }
-                        }
-
-                        return result;
-                    }
-
-                case "user":
-                    using (SqlCommand cmd = new SqlCommand("SELECT * from [" + nameDatabase + "].[dbo].[" + nameTable + "] where IdUser='" + IdUser + "';", connection))
-                    {
-                        try
-                        {
-                            rdr = cmd.ExecuteReader();
-                            while (rdr.Read())
-                            {
-                                result.Add((string)rdr["Username"]);
-                                result.Add((string)rdr["Password"]);
-                                result.Add(rdr["Rights"].ToString());
-                            }
-                        }
-                        catch (SqlException e)
-                        {
-                            Console.Error.Write(e.ToString());
-                        }
-                        finally
-                        {
-                            if (rdr != null)
-                            {
-                                rdr.Close();
-                            }
-                        }
-
-                        return result;
-                    }
-
-                default:
-                    Console.Error.Write("Eroare la extragerea datelor din tabela!!!");
-                    return result;
-            }
-
-        }
+      
 
         public List<List<string>> GetTable(string nameDatabase, string nameTable, string type)
         {
