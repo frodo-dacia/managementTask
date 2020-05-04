@@ -29,11 +29,41 @@ namespace managementTask
                 ShellMenu.ShowError(e.ToString());
             }
         }
-        
 
+        public void Delete(string nameDatabase, string nameTable, string[] values, string type)
+        {
+            try
+            {
+                switch (type)
+                {
+                    case "task":
+                      using (SqlCommand cmd = new SqlCommand("DELETE FROM [" + nameDatabase + "].[dbo].[" + nameTable + "] WHERE Tip='" + values[0] + "' and Status='" + values[1] + "' and Continut='" + values[2] + "' and Nota=" + values[3] + " and TimpEstimat=" + values[4] + ";", connection))
+                            {
+                                cmd.ExecuteNonQuery();
+                            }
+                       
+                            
+                        break;
+                    case "user":
+                        using (SqlCommand cmd = new SqlCommand("DELETE FROM [" + nameDatabase + "].[dbo].[" + nameTable + "] " + "WHERE Username='" + values[1] + "' and Password='" + values[2] + "' ;", connection))
+                        {
+                            cmd.ExecuteNonQuery();
+                        }
+                        break;
+                    default:
+                        Console.Error.Write("Eroare la inserarea in tabela!");
+                        break;
+
+                }
+
+            }
+            catch (SqlException e)
+            {
+                Console.Error.Write(e.ToString());
+            }
+        }
         public void InsertRowIntoTable(string nameDatabase, string nameTable, string[] values, string type)
         {
-
             try
             {
                 switch (type)
@@ -75,11 +105,12 @@ namespace managementTask
             }
             catch (SqlException e)
             {
-                Console.Error.Write(""); 
+                Console.Error.Write(e.Message); 
             }
         }
 
-      
+
+
 
         public List<List<string>> GetTable(string nameDatabase, string nameTable, string type)
         {

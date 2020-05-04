@@ -11,10 +11,13 @@ C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\o
 C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.TasksPage.resources
 C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.EditTaskForm.resources
 C:\managementTask\managementTask\managementTask\bin\Debug\managementTask.exe
-C:\managementTask\managementTask\managementTask\bin\Debug\managementTask.pdb
 C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.CreateNewTaskForm.resources
 C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.CreateNewUserForm.resources
+C:\managementTask\managementTask\managementTask\bin\Debug\Packet.dll
+C:\managementTask\managementTask\managementTask\bin\Debug\managementTask.pdb
 C:\managementTask\managementTask\managementTask\bin\Debug\managementTask.exe.config
+C:\managementTask\managementTask\managementTask\bin\Debug\Packet.pdb
+C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.csprojResolveAssemblyReference.cache
 C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.CreateNewTaskForm.resources
 C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.CreateNewUserForm.resources
 C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.EditTaskForm.resources
@@ -25,6 +28,3 @@ C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.csproj.
 C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.csproj.CoreCompileInputs.cache
 C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.exe
 C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.pdb
-C:\managementTask\managementTask\managementTask\bin\Debug\Packet.dll
-C:\managementTask\managementTask\managementTask\bin\Debug\Packet.pdb
-C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.csprojResolveAssemblyReference.cache

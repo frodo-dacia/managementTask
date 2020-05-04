@@ -70,11 +70,9 @@ namespace managementTask
 
                     _taskuri[i] = new Task(_taskuri[i].Task_ID, _taskuri[i].User_ID, textBox_Tip.Text, comboBox_Status.Text, textBox_Continut.Text, Convert.ToInt32(textBox_Nota.Text), Convert.ToInt32(textBox_Timp.Text));
 
-                    //nu cer date
-                    packet._type = "0";
-                    packet._idClient = client.id;
+                    try { 
 
-                    packet._data = "UpdateTable | TaskDB,Task,Tip," + textBox_Tip.Text + "," + _taskID;
+                    packet._data = "UpdateTable|TaskDB,Task,Tip," + textBox_Tip.Text + "," + _taskID;
                     client.WriteObject(packet);
                     response = client.ReadObject();
 
@@ -93,7 +91,10 @@ namespace managementTask
                   
                     packet._data = "UpdateTable|TaskDB,Task,TimpEstimat," + textBox_Timp.Text + "," + _taskID;
                     client.WriteObject(packet);
-                    response = client.ReadObject(); 
+                    
+                    response = client.ReadObject();
+                    }
+                    catch (Exception ee) { MessageBox.Show(ee.Message); };
                 }
             }
             this.Close();
@@ -102,6 +103,16 @@ namespace managementTask
 
         private void DeleteTask_Clicked(object sender, EventArgs e)
         {
+            string tip = textBox_Tip.Text;
+            string status = comboBox_Status.Text;
+            string continut = textBox_Continut.Text;
+            string nota = textBox_Nota.Text;
+            string timpEstimat = textBox_Timp.Text;
+
+            packet = new Packet();
+            packet._data = "Delete|TaskDB,Task," + tip + "," + status + "," + continut + "," + nota + "," + timpEstimat;
+            client.WriteObject(packet);
+            response = client.ReadObject();
             this.Close();
         }
 

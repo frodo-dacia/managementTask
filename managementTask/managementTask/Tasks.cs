@@ -28,6 +28,12 @@ namespace managementTask
             Nota = nota;
             TimpEstimat = timpEstimat;
         }
+
+        public override string ToString()
+        {
+            return Task_ID + "" + User_ID + "" + Tip + "" + Status + "" + Continut + "" + Nota + "" + TimpEstimat + "\n";
+
+        }
     }
     public class Tasks
     {
@@ -48,32 +54,41 @@ namespace managementTask
             {
               
                 _tasks = new List<Task>();
+                GetTable(client);
 
-                //type=1 pentru ca cer date
-                packet._type = "1";
-                packet._idClient = client.id;
-                packet._data = "GetTable|TaskDB,Task,task";
-
-                client.WriteObject(packet);
-                response = client.ReadObject();
-
-                //parsez stringul
-                string[] values = response._data.Split(';').ToArray();
-                foreach (string str in values)
-                {
-                    string[] toks = str.Split(',').ToArray();
-                   
-                    if (!str.Equals(""))
-                    {
-                        Task task = new Task(Convert.ToInt32(toks[0]), Convert.ToInt32(toks[1]), toks[2], toks[3], toks[4], Convert.ToInt32(toks[5]), Convert.ToInt32(toks[6]));
-                        _tasks.Add(task);
-                    }
-                }
-
+                
             }
             catch (Exception exc)
             {
-                MessageBox.Show(exc.Message);
+                GetTable(client);
+                MessageBox.Show("Table Exc:"+exc.Message);
+            }
+        }
+
+        private void GetTable(Client client)
+        {
+            packet._data = "GetTable|TaskDB,Task,task";
+
+            do
+            {
+                client.WriteObject(packet);
+                response = client.ReadObject();
+            } while (!response._type.Equals("task"));
+            ParseResponse(response);
+        }
+
+        private void ParseResponse(Packet response)
+        {
+            string[] values = response._data.Split(';').ToArray();
+            foreach (string str in values)
+            {
+                string[] toks = str.Split(',').ToArray();
+
+                if (!str.Equals(""))
+                {
+                    Task task = new Task(Convert.ToInt32(toks[0]), Convert.ToInt32(toks[1]), toks[2], toks[3], toks[4], Convert.ToInt32(toks[5]), Convert.ToInt32(toks[6]));
+                    _tasks.Add(task);
+                }
             }
         }
     }

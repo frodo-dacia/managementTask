@@ -12,20 +12,21 @@ namespace ServerSQL.Command
 {
     class SerializeControl
     {
+        static IFormatter formatter = new BinaryFormatter();
 
-        static public Packet ReadObject(NetworkStream stream)
+        static public Packet ReadObject(NetworkStream stream)   //folosind aceasta functie pot primi pachete la client utilizand TCP
         {
-            IFormatter formatter = new BinaryFormatter();
-            Packet packet = (Packet)formatter.Deserialize(stream); // you have to cast the deserialized object
+            Packet packet = (Packet)formatter.Deserialize(stream);
+            stream.Flush();
             return packet;
         }
 
-        static public void WriteObject(NetworkStream stream, Packet packet)
+        static public void WriteObject(NetworkStream stream, Packet packet)   //folosind aceasta functie pot trimite pachete la client utilizand TCP
         {
             if (packet != null)
             {
-                IFormatter formatter = new BinaryFormatter(); // the formatter that will serialize my object on my stream
                 formatter.Serialize(stream, packet);
+                stream.Flush();
             }
         }
     }

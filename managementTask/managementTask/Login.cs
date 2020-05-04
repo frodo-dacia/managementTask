@@ -16,10 +16,8 @@ namespace managementTask
         Client client = new Client();
      
         public Login()
-        {
-            
-            InitializeComponent();
-          
+        { 
+            InitializeComponent();  
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -34,8 +32,8 @@ namespace managementTask
             string password = textBox_Password.Text;
             string serverIP = textBox_serverIP.Text;
 
-            //client.Start("192.168.56.1");
-            client.Start(serverIP);
+            client.Start("192.168.1.10");
+            //client.Start(serverIP);
 
             _Users = new Users(client);
 

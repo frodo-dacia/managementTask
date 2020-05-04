@@ -12,23 +12,23 @@ namespace ServerSQL.Client
 {
     class Client
     {
-        ClientPool clientPool = new ClientPool();
-        readonly string ID = Logger.RandomString(4,true);
+
+        readonly string ID = Logger.RandomString(4, true);
         private static DataController dataController = new DataController();
-        TcpClient _client = null;
-        Logger _log = null;
+        private TcpClient _client = null;
+        private Logger _log = null;
+        private NetworkStream stream = null;
+        private ClientPool clientPool = null;
 
-
-        public Client(TcpClient newClient)
+        public Client(TcpClient newClient, ClientPool clientPool)
         {
-            
 
-            _client = newClient;          
+            this.clientPool = clientPool;
+            this._client = newClient;
             Thread t = new Thread(new ParameterizedThreadStart(this.HandleDevice));
-
             t.Start(_client);
-            _log = new Logger();
-            _log.WriteLog("New connection: "+_client.Client.RemoteEndPoint.ToString());
+            this._log = new Logger();
+            this._log.WriteLog("New connection: " + _client.Client.RemoteEndPoint.ToString());
         }
 
         public void CloseConnection(string log)
@@ -40,31 +40,35 @@ namespace ServerSQL.Client
         public void HandleDevice(Object obj)
         {
             TcpClient client = (TcpClient)obj;
-            var stream = client.GetStream();
+            stream = client.GetStream();
+            Packet packet = new Packet();   //pachetul primit de la client
+            Packet responsePacket = new Packet();   //pachetul pe care il vom trimite in urma cerererii clientului
 
-            Packet packet = new Packet();
-            Packet responsePacket = new Packet();
             try
             {
-                while (true)
+                while (Running())
                 {
-                    packet = SerializeControl.ReadObject(stream);
-                    _log.WriteLog(Thread.CurrentThread.ManagedThreadId + ": Received: " + packet + "\n");
-                    
-                      Command.Command command = new Command.Command(dataController, packet);
-                     responsePacket = command.Execute();
+                    packet = SerializeControl.ReadObject(stream);   //citesc pachetul primit de la client folosind serializare TCP
+                    _log.WriteLog(Thread.CurrentThread.ManagedThreadId + ": Received: " + packet._data + "\n");
 
-                    SerializeControl.WriteObject(stream, responsePacket);
-                    _log.WriteLog(Thread.CurrentThread.ManagedThreadId + ": Sent: " + packet + "\n");
-                }   
+                    Command.Command command = new Command.Command(dataController, packet);
+                    responsePacket = command.Execute();  // am pregatit raspunsul
+
+                    _log.WriteLog(Thread.CurrentThread.ManagedThreadId + ": Sent: " + responsePacket._data + "\n");
+                    SerializeControl.WriteObject(stream, responsePacket);   //trimit raspunsul clientului folosind serializare TCP
+                }
             }
             catch (Exception e)
-            {    
+            {
                 _log.WriteLog("Exception: " + e.ToString());
                 client.Close();
             }
         }
-
+    
+        bool Running()
+        {
+            return true;
+        }
 
         public override string ToString()
         {

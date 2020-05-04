@@ -56,32 +56,37 @@ namespace managementTask
             {
                 
                 _users = new List<User>();
-
-                //type=1 pentru ca cer date
-                packet._type = "1";
-                packet._idClient = client.id;
-                packet._data = "GetTable|UserDB,User,user";
-
-                client.WriteObject( packet);
-                response = client.ReadObject();
-
-                //parsez stringul 
-                string[] values = response._data.Split(';').ToArray();
-                foreach (string str in values)
-                {
-                    string[] toks = str.Split(',').ToArray();
-
-                    if (!str.Equals(""))
-                    {
-                        User user = new User(Convert.ToInt32(toks[0]), toks[1], toks[2], Convert.ToInt32(toks[3]));
-                        _users.Add(user);
-                    }
-                }
+                GetTable(client);
+               
               
             }
             catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
+            }
+        }
+
+        private void GetTable(Client client)   //trimit comanda la server
+        {
+            packet._data = "GetTable|UserDB,User,user";
+
+            client.WriteObject(packet);
+            response = client.ReadObject();
+            ParseResponse(response);   //parsez raspunsul primit de la server
+        }
+
+        private void ParseResponse(Packet response)
+        {
+            string[] values = response._data.Split(';').ToArray();
+            foreach (string str in values)
+            {
+                string[] toks = str.Split(',').ToArray();
+
+                if (!str.Equals(""))
+                {
+                    User user = new User(Convert.ToInt32(toks[0]), toks[1], toks[2], Convert.ToInt32(toks[3]));
+                    _users.Add(user);
+                }
             }
         }
 

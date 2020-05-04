@@ -43,9 +43,7 @@ namespace managementTask
                         break;
                 }
 
-                //nu cer date
-                packet._type = "0";
-                packet._idClient = client.id;
+
                 packet._data = "InsertRowIntoTable|UserDB,User," + userID + "," + userName + "," + password + "," + accessLevel;
 
                 client.WriteObject(packet);

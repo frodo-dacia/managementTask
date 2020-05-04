@@ -8,15 +8,18 @@ using System.Threading;
 using System.Xml.Serialization;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.ComponentModel;
 
 namespace managementTask
 {
     public class Client
     {
 
+        
         TcpClient client = null;
         public NetworkStream stream { get; set; }
         public readonly string id = GenerateID();
+        public bool flag = false;
     
         public void Start(String serverIP)
         {
@@ -27,7 +30,22 @@ namespace managementTask
             }).Start();
             Console.ReadLine();
         }
-       public void Connect(String serverIP)
+        public bool IsUpdatedRequired()
+        {
+            try
+            {
+                Byte[] data = new Byte[1024];
+                String response = String.Empty;
+                Int32 bytes = stream.Read(data, 0, data.Length);
+                response = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
+                if (response.Equals("1"))
+                    return true;
+                return false;
+            }
+            catch (Exception e) { return false; }
+
+        }
+        public void Connect(String serverIP)
         {
             try
             {
@@ -40,7 +58,8 @@ namespace managementTask
             }
             Console.Read();
         }
-      
+
+
         public void CloseConnection()
         {
             stream.Close();

@@ -55,9 +55,6 @@ namespace managementTask
                 string nota = textBox_Nota.Text;
                 string timpEstimat = textBox_Timp.Text;
 
-                //nu cer date
-                packet._type = "0";
-                packet._idClient = client.id;
                 packet._data = "InsertRowIntoTable|TaskDB,Task," + taskId + "," + userId + "," + tip + "," + status + "," + continut + "," + nota + "," + timpEstimat;
 
                 client.WriteObject(packet);

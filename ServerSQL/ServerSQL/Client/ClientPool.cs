@@ -11,7 +11,7 @@ namespace ServerSQL.Client
 {
     sealed class ClientPool : IEnumerable
     {
-        private static List<Client> _clientPool = new List<Client>();
+        public  List<Client> _clientPool = new List<Client>();
         private static ClientPool instance = null;
         private static readonly object padlock = new object();
         public static ClientPool Instance
@@ -40,7 +40,8 @@ namespace ServerSQL.Client
         {
             try
             {
-                _clientPool.Add(new Client(newClient));
+                _clientPool.Add(new Client(newClient,this));
+               
             }
             catch (Exception)
             {

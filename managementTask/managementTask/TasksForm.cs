@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,26 +15,98 @@ namespace managementTask
 {
     public partial class TasksPage : Form
     {
+
         Client client = null;
         private int refreshPageIndx = 0;
         private Tasks _Tasks;
         private List<TextBox> tasksShown = new List<TextBox>();
         private User currentUser;
-        
+        private BackgroundWorker _worker = new BackgroundWorker();
+        private List<Task> currentUser_tasks = new List<Task>();
+
         public TasksPage(User currentUser, Client client)
         {
-           
+
             this.currentUser = currentUser;
             this.client = client;
             InitializeComponent();
-            _Tasks = new Tasks(client);
+            this._Tasks = new Tasks(client);
             InitializeUsers();
-            if(currentUser.AccessLevel == Access.Admin)
+            if (currentUser.AccessLevel == Access.Admin)
             {
                 AdminExtraButtons();
             }
+            this._worker.DoWork += DoBackgroundWork;
+            this._worker.RunWorkerAsync();
+
         }
 
+        private List<Task> GetNewTasks() {   //functie care preia taskurile actuale
+
+            new Tasks(client);
+            List<Task> myTasks = Tasks.MyTasks;
+            List<Task> newTasks = new List<Task>();
+            foreach (Task t in myTasks)
+            {
+                if (currentUser.ID == t.User_ID)
+                {
+                    newTasks.Add(t);
+                }
+            }
+            return newTasks;
+        }
+       
+
+        private bool IsUpdateRequired()   //functie care compara taskurile curente cu cele actualizate de catre un alt client
+        {
+            List<Task> newTasks = GetNewTasks();
+
+            if(newTasks.Count == currentUser_tasks.Count)
+            {
+                string newTasksString = "";
+                string oldTasksString = "";
+                foreach (Task t in newTasks)
+                    newTasksString += t.ToString();
+                foreach (Task t in currentUser_tasks)
+                    oldTasksString += t.ToString();
+                if (oldTasksString.Equals(""))
+                    return false;
+                currentUser_tasks = newTasks;
+                   MessageBox.Show("Curente:" + oldTasksString +"\nNOOOi:"+newTasksString);
+                return (!newTasksString.Equals(oldTasksString));           
+            }
+
+            
+            if (currentUser_tasks.Count == 0)
+            {
+                return false;
+            }
+            else
+            {
+                //intra n cazul in care am adaugat un task 
+                currentUser_tasks = newTasks;
+                return true;
+            }         
+        }
+        private void DoBackgroundWork(object sender, DoWorkEventArgs e)   //workerul verifica periodic daca ar trebui sau nu sa fie actualizate taskurile pe interfata
+        {
+            try
+            {
+                while (!_worker.CancellationPending)
+                {
+                    if (IsUpdateRequired() == true)
+                    { 
+                        MessageBox.Show("Refresh is required! Your task section has been updated!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+                    Thread.Sleep(5000);
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+       
+     
         private void InitializeComponent()
         {
             this.label_Kanban = new System.Windows.Forms.Label();
@@ -141,7 +214,7 @@ namespace managementTask
             this.PerformLayout();
 
         }
-
+     
         private void Tasks_Load(object sender, EventArgs e)
         {
             
@@ -149,6 +222,7 @@ namespace managementTask
 
         private void InitializeUsers()
         {
+
             List<User> myUsers = new List<User>();
             myUsers = Users.MyUsers;
             int firstButtonX = 43;
@@ -159,7 +233,7 @@ namespace managementTask
 
                 dynamicButton.Height = 33;
                 dynamicButton.Width = 135;
-
+ 
                 dynamicButton.BackColor = Color.SteelBlue;
                 dynamicButton.ForeColor = Color.Black;
                 dynamicButton.TabStop = false;
@@ -181,93 +255,102 @@ namespace managementTask
         }
 
         private void DynamicButton_Click(object sender, EventArgs e, int ID)
-        {
-            TasksLoad(ID);
+        {   
+            TasksLoad(ID); 
         }
 
         void TasksLoad(int ID)
         {
-            if (tasksShown.Count != 0)
+            currentUser_tasks = new List<Task>();
+            try
             {
-                foreach (var element in tasksShown)
+                if (tasksShown.Count != 0)
                 {
-                    element.Dispose();
-                }
-            }
-            // tasksShown.Clear();
-
-            
-            int ValueX;
-            int ValueYToDo = 73;
-            int ValueYProg = 73;
-            int ValueYRev = 73;
-            int ValueYDone = 73;
-
-            foreach (var obj in Tasks.MyTasks)
-            {
-                if (obj.User_ID == ID)
-                {
-
-                    int Task_ID = obj.Task_ID;
-                    string Desc = obj.Continut;
-                    int Timp = obj.TimpEstimat;
-                    string Status = obj.Status;
-                    string Tip = obj.Tip;
-                    int Nota = obj.Nota;
-
-                    TextBox task = new TextBox();
-
-                    switch (obj.Status)
+                    foreach (var element in tasksShown)
                     {
-                        case "TO DO":
-                            ValueX = 54;
-                            ValueYToDo += 180;
-                            task.Location = new Point(ValueX, ValueYToDo);
-                            break;
-                        case "IN PROGRESS":
-                            ValueX = 54 + 453;
-                            ValueYProg += 180;
-                            task.Location = new Point(ValueX, ValueYProg);
-                            break;
-                        case "CODE REVIEW":
-                            ValueX = 54 + 453 * 2;
-                            ValueYRev += 180;
-                            task.Location = new Point(ValueX, ValueYRev);
-                            break;
-                        case "DONE":
-                            ValueX = 54 + 453 * 3;
-                            ValueYDone += 180;
-                            task.Location = new Point(ValueX, ValueYDone);
-                            break;
+                        element.Dispose();
+                    }
+                }
+               
+                int ValueX;
+                int ValueYToDo = 73;
+                int ValueYProg = 73;
+                int ValueYRev = 73;
+                int ValueYDone = 73;
+
+                new Tasks(client);                
+                foreach (var obj in Tasks.MyTasks)
+                {
+                    if (obj.User_ID == ID)
+                    {
+
+                        int Task_ID = obj.Task_ID;
+                        string Desc = obj.Continut;
+                        int Timp = obj.TimpEstimat;
+                        string Status = obj.Status;
+                        string Tip = obj.Tip;
+                        int Nota = obj.Nota;
+
+                        TextBox task = new TextBox();
+
+                        switch (obj.Status)
+                        {
+                            case "TO DO":
+                                ValueX = 54;
+                                ValueYToDo += 180;
+                                task.Location = new Point(ValueX, ValueYToDo);
+                                break;
+                            case "IN PROGRESS":
+                                ValueX = 54 + 453;
+                                ValueYProg += 180;
+                                task.Location = new Point(ValueX, ValueYProg);
+                                break;
+                            case "CODE REVIEW":
+                                ValueX = 54 + 453 * 2;
+                                ValueYRev += 180;
+                                task.Location = new Point(ValueX, ValueYRev);
+                                break;
+                            case "DONE":
+                                ValueX = 54 + 453 * 3;
+                                ValueYDone += 180;
+                                task.Location = new Point(ValueX, ValueYDone);
+                                break;
+                        }
+
+                        task.AutoSize = false;
+                        task.Width = 439;
+                        task.Height = 150;
+
+                        task.Multiline = true;
+                        task.ScrollBars = ScrollBars.Vertical;
+                        task.WordWrap = true;
+                        task.ReadOnly = true;
+                        task.Font = new Font("Calibri", 12);
+
+
+                        task.Text = "ID:  " + Task_ID.ToString() + Environment.NewLine +
+                            "Tip:  " + Tip + Environment.NewLine +
+                            "Descriere:  " + Desc + Environment.NewLine +
+                            "Timp estimat:  " + Timp + Environment.NewLine +
+                            "Nota:  " + Nota.ToString();
+
+
+                        task.Click += (sender, e) => taskClick(sender, e, Task_ID);
+                        refreshPageIndx = ID;
+
+                        tasksShown.Add(task);
+                        this.Controls.Add(task);
+
+                        
+                        if (ID == currentUser.ID)
+                        {
+                            Task t = new Task(Task_ID, ID, Tip, Status, Desc, Timp, Nota);
+                            currentUser_tasks.Add(t);
+                        }
                     }
 
-                    task.AutoSize = false;
-                    task.Width = 439;
-                    task.Height = 150;
-
-                    task.Multiline = true;
-                    task.ScrollBars = ScrollBars.Vertical;
-                    task.WordWrap = true;
-                    task.ReadOnly = true;
-                    task.Font = new Font("Calibri", 12);
-
-                    
-                    task.Text = "ID:  " + Task_ID.ToString() + Environment.NewLine +
-                        "Tip:  " + Tip + Environment.NewLine +
-                        "Descriere:  " + Desc + Environment.NewLine +
-                        "Timp estimat:  " + Timp + Environment.NewLine +
-                        "Nota:  " + Nota.ToString();
-
-                   
-                    task.Click += (sender, e) => taskClick(sender, e, Task_ID);
-                    refreshPageIndx = ID;
-                    
-                    tasksShown.Add(task);
-                    this.Controls.Add(task);
-                    
                 }
-
-            }
+            }catch(Exception e) { MessageBox.Show(e.Message); }
           
         }
         private void taskClick(object sender, EventArgs e, int Task_ID)
@@ -275,14 +358,14 @@ namespace managementTask
            
             if (refreshPageIndx == currentUser.ID || currentUser.AccessLevel == Access.Admin)
             {
+              
                 EditTaskForm editTaskForm = new EditTaskForm(Task_ID,currentUser.AccessLevel,client);
                 editTaskForm.ShowDialog();
                 if (editTaskForm.canceled == 0)
                 {
-                    TasksLoad(refreshPageIndx);
+                    TasksLoad(refreshPageIndx);  
                 }
             }
-            
         }
 
         private void AdminExtraButtons()
@@ -338,8 +421,6 @@ namespace managementTask
             createNewTask.ShowDialog();
             _Tasks = new Tasks(client);
             TasksLoad(refreshPageIndx);
-            
-
         }
         
         private void CreateNewUser_Clicked(object sender, EventArgs e)
@@ -349,8 +430,6 @@ namespace managementTask
             createNewUser.ShowDialog();
             new Users(client);
             InitializeUsers();
-            
-
         }
 
         private void label_ToDo_Click(object sender, EventArgs e)
