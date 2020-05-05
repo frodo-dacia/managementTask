@@ -57,10 +57,11 @@
             // 
             this.textBox_UserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_UserName.Location = new System.Drawing.Point(275, 325);
-            this.textBox_UserName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox_UserName.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_UserName.Name = "textBox_UserName";
             this.textBox_UserName.Size = new System.Drawing.Size(297, 38);
             this.textBox_UserName.TabIndex = 1;
+            this.textBox_UserName.TextChanged += new System.EventHandler(this.textBox_UserName_TextChanged);
             // 
             // label_Password
             // 
@@ -79,7 +80,7 @@
             // 
             this.textBox_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_Password.Location = new System.Drawing.Point(275, 401);
-            this.textBox_Password.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox_Password.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_Password.Name = "textBox_Password";
             this.textBox_Password.Size = new System.Drawing.Size(297, 38);
             this.textBox_Password.TabIndex = 3;
@@ -92,7 +93,7 @@
             this.button_Login.Cursor = System.Windows.Forms.Cursors.Default;
             this.button_Login.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button_Login.Location = new System.Drawing.Point(175, 578);
-            this.button_Login.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_Login.Margin = new System.Windows.Forms.Padding(4);
             this.button_Login.Name = "button_Login";
             this.button_Login.Size = new System.Drawing.Size(251, 44);
             this.button_Login.TabIndex = 4;
@@ -104,7 +105,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(153, 78);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(357, 185);
             this.pictureBox1.TabIndex = 5;
@@ -148,7 +149,7 @@
             this.Controls.Add(this.textBox_UserName);
             this.Controls.Add(this.label_UserName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Form1_Load);

@@ -32,8 +32,8 @@ namespace managementTask
             string password = textBox_Password.Text;
             string serverIP = textBox_serverIP.Text;
 
-            client.Start("192.168.1.10");
-            //client.Start(serverIP);
+            //client.Start("192.168.1.10");
+            client.Start(serverIP);
 
             _Users = new Users(client);
 
@@ -56,6 +56,11 @@ namespace managementTask
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_UserName_TextChanged(object sender, EventArgs e)
         {
 
         }
