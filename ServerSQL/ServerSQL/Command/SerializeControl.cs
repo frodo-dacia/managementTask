@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
 
 namespace ServerSQL.Command
 {
@@ -16,8 +14,14 @@ namespace ServerSQL.Command
 
         static public Packet ReadObject(NetworkStream stream)   //folosind aceasta functie pot primi pachete la client utilizand TCP
         {
-            Packet packet = (Packet)formatter.Deserialize(stream);
-            stream.Flush();
+            Byte[] bytes = new Byte[9999];
+            stream.Read(bytes, 0, bytes.Length);
+            MemoryStream ms = new MemoryStream(bytes);
+            BinaryFormatter bf1 = new BinaryFormatter();
+            ms.Position = 0;
+            object rawObj = bf1.Deserialize(ms);
+            Packet packet = (Packet)rawObj;
+            ms.Seek(0, SeekOrigin.Begin);
             return packet;
         }
 
@@ -25,8 +29,12 @@ namespace ServerSQL.Command
         {
             if (packet != null)
             {
-                formatter.Serialize(stream, packet);
-                stream.Flush();
+                byte[] userDataBytes;
+                MemoryStream ms1 = new MemoryStream();
+                BinaryFormatter bf2 = new BinaryFormatter();
+                bf2.Serialize(ms1,packet);
+                userDataBytes = ms1.ToArray();
+                stream.Write(userDataBytes, 0, userDataBytes.Length);
             }
         }
     }

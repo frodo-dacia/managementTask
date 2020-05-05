@@ -78,7 +78,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SerializeControl.cs" />
     <Compile Include="Tasks.cs" />
     <Compile Include="TasksForm.cs">
       <SubType>Form</SubType>

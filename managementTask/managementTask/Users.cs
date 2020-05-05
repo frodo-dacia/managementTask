@@ -68,6 +68,7 @@ namespace managementTask
 
         private void GetTable(Client client)   //trimit comanda la server
         {
+
             packet._data = "GetTable|UserDB,User,user";
 
             client.WriteObject(packet);

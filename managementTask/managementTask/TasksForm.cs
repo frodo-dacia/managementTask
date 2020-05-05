@@ -44,7 +44,7 @@ namespace managementTask
         private List<Task> GetNewTasks() {   //functie care preia taskurile actuale
 
             new Tasks(client);
-            List<Task> myTasks = Tasks.MyTasks;
+            List<Task> myTasks = Tasks.MyTasks.ToList();
             List<Task> newTasks = new List<Task>();
             foreach (Task t in myTasks)
             {
@@ -72,7 +72,7 @@ namespace managementTask
                 if (oldTasksString.Equals(""))
                     return false;
                 currentUser_tasks = newTasks;
-                   MessageBox.Show("Curente:" + oldTasksString +"\nNOOOi:"+newTasksString);
+                 MessageBox.Show("Curente:" + oldTasksString +"\nNOOOi:"+newTasksString);
                 return (!newTasksString.Equals(oldTasksString));           
             }
 
@@ -278,8 +278,9 @@ namespace managementTask
                 int ValueYRev = 73;
                 int ValueYDone = 73;
 
-                new Tasks(client);                
-                foreach (var obj in Tasks.MyTasks)
+                    new Tasks(client);
+
+                foreach (var obj in Tasks.MyTasks.ToList())
                 {
                     if (obj.User_ID == ID)
                     {
@@ -327,13 +328,11 @@ namespace managementTask
                         task.ReadOnly = true;
                         task.Font = new Font("Calibri", 12);
 
-
                         task.Text = "ID:  " + Task_ID.ToString() + Environment.NewLine +
                             "Tip:  " + Tip + Environment.NewLine +
                             "Descriere:  " + Desc + Environment.NewLine +
                             "Timp estimat:  " + Timp + Environment.NewLine +
                             "Nota:  " + Nota.ToString();
-
 
                         task.Click += (sender, e) => taskClick(sender, e, Task_ID);
                         refreshPageIndx = ID;
@@ -341,16 +340,15 @@ namespace managementTask
                         tasksShown.Add(task);
                         this.Controls.Add(task);
 
-                        
                         if (ID == currentUser.ID)
                         {
-                            Task t = new Task(Task_ID, ID, Tip, Status, Desc, Timp, Nota);
+                            Task t = new Task(Task_ID, ID, Tip, Status, Desc, Nota,Timp);
                             currentUser_tasks.Add(t);
                         }
                     }
 
                 }
-            }catch(Exception e) { MessageBox.Show(e.Message); }
+            }catch(Exception e) { MessageBox.Show("vali"+e.Message); }
           
         }
         private void taskClick(object sender, EventArgs e, int Task_ID)
