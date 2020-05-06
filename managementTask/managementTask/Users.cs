@@ -68,12 +68,17 @@ namespace managementTask
 
         private void GetTable(Client client)   //trimit comanda la server
         {
-
             packet._data = "GetTable|UserDB,User,user";
+            do
+            {
 
-            client.WriteObject(packet);
-            response = client.ReadObject();
-            ParseResponse(response);   //parsez raspunsul primit de la server
+                client.WriteObject(packet);
+                response = client.ReadObject();
+                ParseResponse(response);   //parsez raspunsul primit de la server
+
+            } while ( (response != null) && (!response._type.Equals("user")));
+            
+
         }
 
         private void ParseResponse(Packet response)

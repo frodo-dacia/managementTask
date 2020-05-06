@@ -87,7 +87,7 @@ namespace managementTask
                 ms.Seek(0, SeekOrigin.Begin);
                 return packet;
             }catch(Exception e) { MessageBox.Show("ReadObject"+e.Message); }
-            return null;
+            return new Packet();
         }
 
         public void WriteObject(Packet packet)

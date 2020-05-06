@@ -72,7 +72,7 @@ namespace managementTask
                 if (oldTasksString.Equals(""))
                     return false;
                 currentUser_tasks = newTasks;
-                 MessageBox.Show("Curente:" + oldTasksString +"\nNOOOi:"+newTasksString);
+                 //MessageBox.Show("Curente:" + oldTasksString +"\nNOOOi:"+newTasksString);
                 return (!newTasksString.Equals(oldTasksString));           
             }
 

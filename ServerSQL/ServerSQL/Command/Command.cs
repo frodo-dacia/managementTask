@@ -46,6 +46,7 @@ namespace ServerSQL.Command
 
                 //setez asta pentru retransmitere in cazul in care atunci cand cer tabela primesc un alt mesaj
                 if (args[2].Equals("task")) responsePacket._type = "task";
+				if (args[2].Equals("user")) responsePacket._type = "user";
             }
 
             // 2. 

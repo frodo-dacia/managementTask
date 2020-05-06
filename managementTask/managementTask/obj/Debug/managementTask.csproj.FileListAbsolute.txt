@@ -27,3 +27,6 @@ C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.csproj.
 C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.csproj.CoreCompileInputs.cache
 C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.exe
 C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.pdb
+C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\Packet.dll
+C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\Packet.pdb
+C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.csproj.CopyComplete
