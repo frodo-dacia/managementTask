@@ -1,4 +1,5 @@
 CREATE DATABASE TaskDB
+GO
 CREATE TABLE [TaskDB].[dbo].[Task] (IdTask [int] NOT NULL PRIMARY KEY, [IdUser] [int]  NOT NULL, [Tip] [nvarchar] (30) NOT NULL, [Status] [nvarchar] (30) NOT NULL, [Continut] [nvarchar] (200) NOT NULL, [Nota] [int] NOT NULL, [TimpEstimat] [int] NOT NULL)
 INSERT INTO [TaskDB].[dbo].[Task] (IdTask, IdUser, Tip, Status, Continut, Nota, TimpEstimat) VALUES (1, 2,'BUG', 'CODE REVIEW', 'TODO', 0, 0)
 INSERT INTO [TaskDB].[dbo].[Task] (IdTask, IdUser, Tip, Status, Continut, Nota, TimpEstimat) VALUES (2, 2,'BUG', 'CODE REVIEW', 'TODO', 0, 0)
@@ -12,6 +13,7 @@ INSERT INTO [TaskDB].[dbo].[Task] (IdTask, IdUser, Tip, Status, Continut, Nota, 
 GO
 
 CREATE DATABASE UserDB
+GO
 CREATE TABLE [UserDB].[dbo].[User] (IdUser [int] NOT NULL PRIMARY KEY, Username [nvarchar] (20) NOT NULL, Password [nvarchar] (80) NOT NULL, Rights [int] NOT NULL)
 INSERT INTO [UserDB].[dbo].[User] (IdUser, Username, Password, Rights) VALUES (1, 'Diana', '598RD0j9A5VHHREJqnnztEMwWyU=', 0)
 INSERT INTO [UserDB].[dbo].[User] (IdUser, Username, Password, Rights) VALUES (2, 'Vali', 'xjDwrgj8FeaAAQxsd68XtJHdflQ=' , 1);
