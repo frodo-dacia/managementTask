@@ -25,6 +25,8 @@ namespace managementTask
 
         private void button_Apply_Click(object sender, EventArgs e)
         {
+            bool approved = true;
+            List<User> currentUsers = Users.MyUsers;
             try
             {
                 string userID = textBox_UserID.Text;
@@ -43,11 +45,32 @@ namespace managementTask
                         break;
                 }
 
+                foreach(var obj in currentUsers)
+                {
+                    if(obj.ID == Convert.ToInt32(userID))
+                    {
+                        MessageBox.Show("Users with this userId already exists.");
+                        approved = false;
+                        break;
+                    }
+                    else if(obj.Name == userName)
+                    {
+                        MessageBox.Show("Users with this userId already exists.");
+                        approved = false;
+                        break;
+                    }
 
-                packet._data = "InsertRowIntoTable|UserDB,User," + userID + "," + userName + "," + password + "," + accessLevel;
+                }
 
-                client.WriteObject(packet);
-                response = client.ReadObject();
+
+                if(approved == true)
+                {
+                    packet._data = "InsertRowIntoTable|UserDB,User," + userID + "," + userName + "," + password + "," + accessLevel;
+
+                    client.WriteObject(packet);
+                    response = client.ReadObject();
+                }
+                
 
                 this.Close();
             }
@@ -66,6 +89,16 @@ namespace managementTask
         private void CreateNewUserForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox_UserID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char chr = e.KeyChar;
+            if (!Char.IsDigit(chr))
+            {
+                e.Handled = true;
+                MessageBox.Show("Please enter a valid number");
+            }
         }
     }
 }

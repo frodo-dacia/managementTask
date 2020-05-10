@@ -81,6 +81,7 @@
             "IN PROGRESS",
             "CODE REVIEW",
             "DONE"});
+            this.comboBox_Status.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Status.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_Status.FormattingEnabled = true;
             this.comboBox_Status.Items.AddRange(new object[] {
@@ -130,6 +131,7 @@
             this.textBox_Nota.Name = "textBox_Nota";
             this.textBox_Nota.Size = new System.Drawing.Size(127, 26);
             this.textBox_Nota.TabIndex = 17;
+            this.textBox_Nota.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Nota_KeyPress);
             // 
             // label_Timp
             // 
@@ -148,6 +150,7 @@
             this.textBox_Timp.Name = "textBox_Timp";
             this.textBox_Timp.Size = new System.Drawing.Size(127, 26);
             this.textBox_Timp.TabIndex = 19;
+            this.textBox_Timp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Timp_KeyPress);
             // 
             // label_TaskID
             // 
@@ -166,6 +169,8 @@
             this.textBox_TaskID.Name = "textBox_TaskID";
             this.textBox_TaskID.Size = new System.Drawing.Size(127, 26);
             this.textBox_TaskID.TabIndex = 21;
+            this.textBox_TaskID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_TaskID_KeyPress);
+            this.textBox_TaskID.Leave += new System.EventHandler(this.textBox_TaskID_Leave);
             // 
             // label1
             // 
@@ -184,6 +189,9 @@
             "IN PROGRESS",
             "CODE REVIEW",
             "DONE"});
+            this.comboBox_User.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBox_User.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_User.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_User.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_User.FormattingEnabled = true;
             this.comboBox_User.Location = new System.Drawing.Point(104, 74);

@@ -126,7 +126,7 @@ namespace managementTask
             this.label_Kanban.ForeColor = System.Drawing.Color.Black;
             this.label_Kanban.Location = new System.Drawing.Point(34, 26);
             this.label_Kanban.Name = "label_Kanban";
-            this.label_Kanban.Size = new System.Drawing.Size(345, 65);
+            this.label_Kanban.Size = new System.Drawing.Size(277, 52);
             this.label_Kanban.TabIndex = 0;
             this.label_Kanban.Text = "Kanban Board";
             // 
@@ -201,6 +201,7 @@ namespace managementTask
             // 
             // TasksPage
             // 
+            this.AutoScroll = true;
             this.BackgroundImage = global::managementTask.Properties.Resources.taskManagementBackground;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.table_StatusName);

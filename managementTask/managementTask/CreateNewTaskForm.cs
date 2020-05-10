@@ -36,9 +36,19 @@ namespace managementTask
 
         private void button_Apply_Click(object sender, EventArgs e)
         {
+            bool approved = true;
             try
             {
+                List<Task> currentTasks = Tasks.MyTasks;
                 string taskId = textBox_TaskID.Text;
+                foreach(var obj in currentTasks)
+                {
+                    if(obj.Task_ID == Convert.ToInt32(taskId))
+                    {
+
+                    }
+                }
+
                 string userName = comboBox_User.Text;
                 int userId = -1;
                 foreach (var obj in users)
@@ -54,11 +64,24 @@ namespace managementTask
                 string continut = textBox_Continut.Text;
                 string nota = textBox_Nota.Text;
                 string timpEstimat = textBox_Timp.Text;
+                foreach(var obj in currentTasks)
+                {
+                    if(obj.User_ID == userId && obj.Tip == tip && obj.Continut == continut && obj.Nota == Convert.ToInt32(nota) && obj.TimpEstimat == Convert.ToInt32(timpEstimat))
+                    {
+                        MessageBox.Show("This task exists with another ID");
+                        approved = false;
+                        break;
+                    }
+                }
 
-                packet._data = "InsertRowIntoTable|TaskDB,Task," + taskId + "," + userId + "," + tip + "," + status + "," + continut + "," + nota + "," + timpEstimat;
+                if(approved == true)
+                {
+                    packet._data = "InsertRowIntoTable|TaskDB,Task," + taskId + "," + userId + "," + tip + "," + status + "," + continut + "," + nota + "," + timpEstimat;
 
-                client.WriteObject(packet);
-                response = client.ReadObject();
+                    client.WriteObject(packet);
+                    response = client.ReadObject();
+                }
+               
 
                 this.Close();
             }
@@ -72,6 +95,45 @@ namespace managementTask
         private void button_Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void numberValidation(KeyPressEventArgs e)
+        {
+            char chr = e.KeyChar;
+            if (!Char.IsDigit(chr))
+            {
+                e.Handled = true;
+                MessageBox.Show("Please enter a valid number");
+            }
+        }
+
+        private void textBox_TaskID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            numberValidation(e);
+        }
+
+        private void textBox_Nota_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            numberValidation(e);
+        }
+
+        private void textBox_Timp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            numberValidation(e);
+        }
+
+        private void textBox_TaskID_Leave(object sender, EventArgs e)
+        {
+            List<Task> currentTasks = Tasks.MyTasks;
+            string taskId = textBox_TaskID.Text;
+            foreach (var obj in currentTasks)
+            {
+                if (obj.Task_ID == Convert.ToInt32(taskId))
+                {
+                    MessageBox.Show("This task id is already used.");
+                    textBox_TaskID.Text = "";
+                }
+            }
         }
     }
 }

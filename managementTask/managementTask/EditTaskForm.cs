@@ -121,5 +121,23 @@ namespace managementTask
             canceled = 1;
             this.Close();
         }
+        private void numberValidation(KeyPressEventArgs e)
+        {
+            char chr = e.KeyChar;
+            if (!Char.IsDigit(chr))
+            {
+                e.Handled = true;
+                MessageBox.Show("Please enter a valid number");
+            }
+        }
+        private void textBox_Nota_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            numberValidation(e);
+        }
+
+        private void textBox_Timp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            numberValidation(e);
+        }
     }
 }
