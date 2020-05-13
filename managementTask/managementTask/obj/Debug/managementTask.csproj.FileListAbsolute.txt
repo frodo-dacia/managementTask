@@ -15,6 +15,9 @@ C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\o
 C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.CreateNewUserForm.resources
 C:\managementTask\managementTask\managementTask\bin\Debug\Packet.dll
 C:\managementTask\managementTask\managementTask\bin\Debug\managementTask.pdb
+C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\Packet.dll
+C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\Packet.pdb
+C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.csproj.CopyComplete
 C:\managementTask\managementTask\managementTask\bin\Debug\managementTask.exe.config
 C:\managementTask\managementTask\managementTask\bin\Debug\Packet.pdb
 C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.CreateNewTaskForm.resources
@@ -27,6 +30,3 @@ C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.csproj.
 C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.csproj.CoreCompileInputs.cache
 C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.exe
 C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.pdb
-C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\Packet.dll
-C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\Packet.pdb
-C:\Users\andre\Desktop\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.csproj.CopyComplete

@@ -26,5 +26,7 @@
         private System.Windows.Forms.Label label_ToDo;
         private System.Windows.Forms.Label label_CodeReview;
         private System.Windows.Forms.Label label_Done;
+        private System.Windows.Forms.Button HelpButton;
+        private System.Windows.Forms.Button LogoutButton;
     }
 }

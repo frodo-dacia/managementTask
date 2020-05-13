@@ -19,9 +19,7 @@ namespace managementTask
         static IFormatter formatter = new BinaryFormatter();
         TcpClient client = null;
         public NetworkStream stream { get; set; }
-        public readonly string id = GenerateID();
-        public bool flag = false;
-    
+       
         public void Start(String serverIP)
         {
             new Thread(() =>
@@ -31,31 +29,18 @@ namespace managementTask
             }).Start();
             Console.ReadLine();
         }
-        public bool IsUpdatedRequired()
-        {
-            try
-            {
-                Byte[] data = new Byte[1024];
-                String response = String.Empty;
-                Int32 bytes = stream.Read(data, 0, data.Length);
-                response = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
-                if (response.Equals("1"))
-                    return true;
-                return false;
-            }
-            catch (Exception e) { return false; }
 
-        }
         public void Connect(String serverIP)
         {
             try
             {
                 Int32 port = 13000;
-                client = new TcpClient(serverIP, port);             
+                client = new TcpClient(serverIP, port);
+            
             }
             catch (Exception e)
             {
-                Console.WriteLine("SSSException: {0}", e);
+                Console.WriteLine("Exception: {0}", e);
             }
             Console.Read();
         }
@@ -66,12 +51,7 @@ namespace managementTask
             stream.Close();
             client.Close();
         }
-        public static string GenerateID()
-        {
-            Random random = new Random();
-            return random.Next(999999).ToString();
-        }
-
+  
          public Packet ReadObject()
         {
             try
@@ -86,7 +66,7 @@ namespace managementTask
                 Packet packet = (Packet)rawObj;
                 ms.Seek(0, SeekOrigin.Begin);
                 return packet;
-            }catch(Exception e) { MessageBox.Show("ReadObject"+e.Message); }
+            }catch(Exception ) { MessageBox.Show("Cerere de date esuata!", "ERROR!!!",MessageBoxButtons.OK, MessageBoxIcon.Error); }
             return new Packet();
         }
 
@@ -105,9 +85,9 @@ namespace managementTask
                     stream.Write(userDataBytes, 0, userDataBytes.Length);
                 }
             }
-            catch(Exception e)
+            catch(Exception )
             {
-                MessageBox.Show("WriteObject"+e.Message);
+                MessageBox.Show("Trimitere de date esuata!", "ERROR!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

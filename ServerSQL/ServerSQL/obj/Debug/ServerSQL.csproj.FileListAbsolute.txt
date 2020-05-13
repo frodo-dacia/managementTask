@@ -20,7 +20,6 @@ E:\IP\proiectIP_managementTask\ServerSQL\ServerSQL\bin\Debug\ServerSQL.exe
 E:\IP\proiectIP_managementTask\ServerSQL\ServerSQL\bin\Debug\ServerSQL.pdb
 C:\managementTask\ServerSQL\ServerSQL\bin\Debug\Packet.dll
 C:\managementTask\ServerSQL\ServerSQL\bin\Debug\Packet.pdb
-C:\managementTask\ServerSQL\ServerSQL\obj\Debug\ServerSQL.csprojResolveAssemblyReference.cache
 C:\Users\andre\Desktop\Proiect IP\managementTask\ServerSQL\ServerSQL\bin\Debug\ServerSQL.exe.config
 C:\Users\andre\Desktop\Proiect IP\managementTask\ServerSQL\ServerSQL\bin\Debug\ServerSQL.exe
 C:\Users\andre\Desktop\Proiect IP\managementTask\ServerSQL\ServerSQL\bin\Debug\ServerSQL.pdb
@@ -31,3 +30,4 @@ C:\Users\andre\Desktop\Proiect IP\managementTask\ServerSQL\ServerSQL\obj\Debug\S
 C:\Users\andre\Desktop\Proiect IP\managementTask\ServerSQL\ServerSQL\obj\Debug\ServerSQL.csproj.CopyComplete
 C:\Users\andre\Desktop\Proiect IP\managementTask\ServerSQL\ServerSQL\obj\Debug\ServerSQL.exe
 C:\Users\andre\Desktop\Proiect IP\managementTask\ServerSQL\ServerSQL\obj\Debug\ServerSQL.pdb
+C:\managementTask\ServerSQL\ServerSQL\obj\Debug\ServerSQL.csprojResolveAssemblyReference.cache

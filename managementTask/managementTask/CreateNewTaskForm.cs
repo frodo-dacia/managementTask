@@ -64,9 +64,12 @@ namespace managementTask
                 string continut = textBox_Continut.Text;
                 string nota = textBox_Nota.Text;
                 string timpEstimat = textBox_Timp.Text;
-                foreach(var obj in currentTasks)
+                int logTime = 0;
+                string comment = "-";
+
+                foreach (var obj in currentTasks)
                 {
-                    if(obj.User_ID == userId && obj.Tip == tip && obj.Continut == continut && obj.Nota == Convert.ToInt32(nota) && obj.TimpEstimat == Convert.ToInt32(timpEstimat))
+                    if(obj.User_ID == userId && obj.Tip == tip && obj.Continut == continut && obj.Nota == nota && obj.TimpEstimat == Convert.ToInt32(timpEstimat))
                     {
                         MessageBox.Show("This task exists with another ID");
                         approved = false;
@@ -76,7 +79,8 @@ namespace managementTask
 
                 if(approved == true)
                 {
-                    packet._data = "InsertRowIntoTable|TaskDB,Task," + taskId + "," + userId + "," + tip + "," + status + "," + continut + "," + nota + "," + timpEstimat;
+
+                    packet._data = "InsertRowIntoTable|TaskDB,Task," + taskId + "," + userId + "," + tip + "," + status + "," + continut + "," + nota + "," + timpEstimat + "," + logTime + "," + comment;
 
                     client.WriteObject(packet);
                     response = client.ReadObject();
@@ -134,6 +138,16 @@ namespace managementTask
                     textBox_TaskID.Text = "";
                 }
             }
+        }
+
+        private void textBox_Timp_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_Nota_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

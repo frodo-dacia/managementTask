@@ -51,7 +51,7 @@ namespace managementTask
                         }
                         break;
                     default:
-                        Console.Error.Write("Eroare la inserarea in tabela!");
+                        Console.Error.Write("Eroare la stergerea din tabela!");
                         break;
 
                 }
@@ -69,7 +69,7 @@ namespace managementTask
                 switch (type)
                 {
                     case "task":
-                        using (SqlCommand cmd = new SqlCommand("INSERT INTO [" + nameDatabase + "].[dbo].[" + nameTable + "] (IdTask,IdUser,Tip,Status,Continut,Nota,TimpEstimat) " + "VALUES (" + values[0] + "," + values[1] + ",'" + values[2] + "','" + values[3] + "','" + values[4] + "'," + values[5] + "," + values[6] + ")", connection))
+                        using (SqlCommand cmd = new SqlCommand("INSERT INTO [" + nameDatabase + "].[dbo].[" + nameTable + "] (IdTask,IdUser,Tip,Status,Continut,Nota,TimpEstimat,LogTime,Comment) " + "VALUES (" + values[0] + "," + values[1] + ",'" + values[2] + "','" + values[3] + "','" + values[4] + "','" + values[5] + "'," + values[6] +","+values[7]+ ",'"+values[8]+"','"+values[9]+"')", connection))
                         {
                             cmd.ExecuteNonQuery();
                         }
@@ -136,7 +136,9 @@ namespace managementTask
                                 innerList.Add((string)rdr["Continut"]);
                                 innerList.Add(rdr["Nota"].ToString());
                                 innerList.Add(rdr["TimpEstimat"].ToString());
-                             
+                                innerList.Add(rdr["LogTime"].ToString());
+                                innerList.Add(rdr["Comment"].ToString());
+
                                 result.Add(innerList);
 
                             }

@@ -15,10 +15,12 @@ namespace managementTask
         public string Tip { get; set; }
         public string Status { get; set; }
         public string Continut { get; set; }
-        public int Nota { get; set; }
+        public string Nota { get; set; }
         public int TimpEstimat { get; set; }
+        public int LogTime { get; set; }
+        public string Comment { get; set; }
 
-        public Task(int task_ID, int user_ID, string tip, string status, string continut, int nota, int timpEstimat)
+        public Task(int task_ID, int user_ID, string tip, string status, string continut, string nota, int timpEstimat, int logTime, string comment)
         {
             Task_ID = task_ID;
             User_ID = user_ID;
@@ -27,12 +29,12 @@ namespace managementTask
             Continut = continut;
             Nota = nota;
             TimpEstimat = timpEstimat;
+            LogTime = logTime;
+            Comment = comment;
         }
-
         public override string ToString()
         {
-            return Task_ID + "" + User_ID + "" + Tip + "" + Status + "" + Continut + "" + Nota + "" + TimpEstimat + "\n";
-
+            return Task_ID + User_ID + Tip + Status + Continut + Nota + TimpEstimat + LogTime + Comment;
         }
     }
     public class Tasks
@@ -86,7 +88,8 @@ namespace managementTask
 
                 if (!str.Equals(""))
                 {
-                    Task task = new Task(Convert.ToInt32(toks[0]), Convert.ToInt32(toks[1]), toks[2], toks[3], toks[4], Convert.ToInt32(toks[5]), Convert.ToInt32(toks[6]));
+                    
+                    Task task = new Task(Convert.ToInt32(toks[0]), Convert.ToInt32(toks[1]), toks[2], toks[3], toks[4], toks[5], Convert.ToInt32(toks[6]), Convert.ToInt32(toks[7]),toks[8]);
                     _tasks.Add(task);
                 }
             }

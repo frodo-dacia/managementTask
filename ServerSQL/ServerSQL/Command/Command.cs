@@ -56,9 +56,9 @@ namespace ServerSQL.Command
             }
 
             // 3.1
-            if(CheckSubstring(input, "InsertRowIntoTable") && args.Length == 9)    //nume_functie = InsertRowIntoTable && arg.Length = 9 in cazul tipului task
+            if(CheckSubstring(input, "InsertRowIntoTable") && args.Length == 11)    //nume_functie = InsertRowIntoTable && arg.Length = 11 in cazul tipului task
             {
-                string[] values = new string[7];
+                string[] values = new string[9];
 
                 values[0] = args[2];
                 values[1] = args[3];
@@ -66,7 +66,9 @@ namespace ServerSQL.Command
                 values[3] = args[5];
                 values[4] = args[6];
                 values[5] = args[7];
-                values[6] = args[8];          
+                values[6] = args[8];
+                values[7] = args[9];
+                values[8] = args[10];
 
                 dataController.InsertRowIntoTable(args[0], args[1],values,"task");          
             }
@@ -85,7 +87,7 @@ namespace ServerSQL.Command
             }
 
             // 4.1
-            if (CheckSubstring(input, "Delete") && args.Length == 7)   //nume_functie = Delete && arg.Length = 7 in cazul tipului task
+            if (CheckSubstring(input, "Delete") && args.Length == 8)   //nume_functie = Delete && arg.Length = 8 in cazul tipului task
             {
                 string[] values = new string[7];
 
@@ -94,6 +96,7 @@ namespace ServerSQL.Command
                 values[2] = args[4];
                 values[3] = args[5];
                 values[4] = args[6];
+                values[5] = args[7];
 
                 dataController.Delete(args[0], args[1], values, "task");
             }
@@ -111,13 +114,6 @@ namespace ServerSQL.Command
 
             responsePacket._data = dataPacket;
             return responsePacket;
-        }
-
-        public string[] SubArray( string[] data, int index)
-        {
-            string[] result = new string[data.Length];
-            Array.Copy(data, index, result, 0, data.Length);
-            return result;
         }
 
         public bool CheckSubstring( string s, string substring) 

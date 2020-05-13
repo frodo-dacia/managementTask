@@ -53,16 +53,14 @@ namespace managementTask
             this.client = client;
             var networkStream = client.stream;
             try
-            {
-                
+            {     
                 _users = new List<User>();
                 GetTable(client);
-               
-              
+ 
             }
-            catch (Exception exc)
+            catch (Exception)
             {
-                MessageBox.Show(exc.Message);
+                MessageBox.Show("Va rugam incercati mai tarziu!");
             }
         }
 

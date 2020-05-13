@@ -50,27 +50,30 @@
             // 
             this.label_Tip.AutoSize = true;
             this.label_Tip.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Tip.Location = new System.Drawing.Point(36, 127);
+            this.label_Tip.Location = new System.Drawing.Point(48, 156);
+            this.label_Tip.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Tip.Name = "label_Tip";
-            this.label_Tip.Size = new System.Drawing.Size(49, 21);
+            this.label_Tip.Size = new System.Drawing.Size(58, 26);
             this.label_Tip.TabIndex = 2;
             this.label_Tip.Text = "Tip: ";
             // 
             // textBox_Tip
             // 
             this.textBox_Tip.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Tip.Location = new System.Drawing.Point(104, 123);
+            this.textBox_Tip.Location = new System.Drawing.Point(139, 151);
+            this.textBox_Tip.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_Tip.Name = "textBox_Tip";
-            this.textBox_Tip.Size = new System.Drawing.Size(127, 26);
+            this.textBox_Tip.Size = new System.Drawing.Size(168, 30);
             this.textBox_Tip.TabIndex = 7;
             // 
             // label_Status
             // 
             this.label_Status.AutoSize = true;
             this.label_Status.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Status.Location = new System.Drawing.Point(36, 170);
+            this.label_Status.Location = new System.Drawing.Point(48, 209);
+            this.label_Status.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Status.Name = "label_Status";
-            this.label_Status.Size = new System.Drawing.Size(77, 21);
+            this.label_Status.Size = new System.Drawing.Size(91, 26);
             this.label_Status.TabIndex = 8;
             this.label_Status.Text = "Status: ";
             // 
@@ -89,85 +92,96 @@
             "IN PROGRESS",
             "CODE REVIEW",
             "DONE"});
-            this.comboBox_Status.Location = new System.Drawing.Point(119, 166);
+            this.comboBox_Status.Location = new System.Drawing.Point(159, 204);
+            this.comboBox_Status.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_Status.Name = "comboBox_Status";
-            this.comboBox_Status.Size = new System.Drawing.Size(168, 28);
+            this.comboBox_Status.Size = new System.Drawing.Size(223, 33);
             this.comboBox_Status.TabIndex = 13;
             // 
             // label_Continut
             // 
             this.label_Continut.AutoSize = true;
             this.label_Continut.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Continut.Location = new System.Drawing.Point(36, 218);
+            this.label_Continut.Location = new System.Drawing.Point(48, 268);
+            this.label_Continut.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Continut.Name = "label_Continut";
-            this.label_Continut.Size = new System.Drawing.Size(96, 21);
+            this.label_Continut.Size = new System.Drawing.Size(112, 26);
             this.label_Continut.TabIndex = 14;
             this.label_Continut.Text = "Continut: ";
             // 
             // textBox_Continut
             // 
             this.textBox_Continut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Continut.Location = new System.Drawing.Point(138, 218);
+            this.textBox_Continut.Location = new System.Drawing.Point(184, 268);
+            this.textBox_Continut.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_Continut.Multiline = true;
             this.textBox_Continut.Name = "textBox_Continut";
             this.textBox_Continut.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox_Continut.Size = new System.Drawing.Size(357, 81);
+            this.textBox_Continut.Size = new System.Drawing.Size(475, 99);
             this.textBox_Continut.TabIndex = 15;
             // 
             // label_Nota
             // 
             this.label_Nota.AutoSize = true;
             this.label_Nota.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Nota.Location = new System.Drawing.Point(36, 324);
+            this.label_Nota.Location = new System.Drawing.Point(48, 399);
+            this.label_Nota.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Nota.Name = "label_Nota";
-            this.label_Nota.Size = new System.Drawing.Size(62, 21);
+            this.label_Nota.Size = new System.Drawing.Size(73, 26);
             this.label_Nota.TabIndex = 16;
             this.label_Nota.Text = "Nota: ";
             // 
             // textBox_Nota
             // 
             this.textBox_Nota.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Nota.Location = new System.Drawing.Point(104, 320);
+            this.textBox_Nota.Location = new System.Drawing.Point(139, 394);
+            this.textBox_Nota.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_Nota.Name = "textBox_Nota";
-            this.textBox_Nota.Size = new System.Drawing.Size(127, 26);
+            this.textBox_Nota.Size = new System.Drawing.Size(168, 30);
             this.textBox_Nota.TabIndex = 17;
+            this.textBox_Nota.TextChanged += new System.EventHandler(this.textBox_Nota_TextChanged);
             this.textBox_Nota.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Nota_KeyPress);
             // 
             // label_Timp
             // 
             this.label_Timp.AutoSize = true;
             this.label_Timp.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Timp.Location = new System.Drawing.Point(36, 366);
+            this.label_Timp.Location = new System.Drawing.Point(48, 450);
+            this.label_Timp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Timp.Name = "label_Timp";
-            this.label_Timp.Size = new System.Drawing.Size(136, 21);
+            this.label_Timp.Size = new System.Drawing.Size(157, 26);
             this.label_Timp.TabIndex = 18;
             this.label_Timp.Text = "Timp estimat: ";
             // 
             // textBox_Timp
             // 
             this.textBox_Timp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Timp.Location = new System.Drawing.Point(178, 362);
+            this.textBox_Timp.Location = new System.Drawing.Point(237, 446);
+            this.textBox_Timp.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_Timp.Name = "textBox_Timp";
-            this.textBox_Timp.Size = new System.Drawing.Size(127, 26);
+            this.textBox_Timp.Size = new System.Drawing.Size(168, 30);
             this.textBox_Timp.TabIndex = 19;
+            this.textBox_Timp.TextChanged += new System.EventHandler(this.textBox_Timp_TextChanged);
             this.textBox_Timp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Timp_KeyPress);
             // 
             // label_TaskID
             // 
             this.label_TaskID.AutoSize = true;
             this.label_TaskID.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_TaskID.Location = new System.Drawing.Point(35, 32);
+            this.label_TaskID.Location = new System.Drawing.Point(47, 39);
+            this.label_TaskID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_TaskID.Name = "label_TaskID";
-            this.label_TaskID.Size = new System.Drawing.Size(85, 21);
+            this.label_TaskID.Size = new System.Drawing.Size(101, 26);
             this.label_TaskID.TabIndex = 20;
             this.label_TaskID.Text = "Task ID: ";
             // 
             // textBox_TaskID
             // 
             this.textBox_TaskID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_TaskID.Location = new System.Drawing.Point(119, 28);
+            this.textBox_TaskID.Location = new System.Drawing.Point(159, 34);
+            this.textBox_TaskID.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_TaskID.Name = "textBox_TaskID";
-            this.textBox_TaskID.Size = new System.Drawing.Size(127, 26);
+            this.textBox_TaskID.Size = new System.Drawing.Size(168, 30);
             this.textBox_TaskID.TabIndex = 21;
             this.textBox_TaskID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_TaskID_KeyPress);
             this.textBox_TaskID.Leave += new System.EventHandler(this.textBox_TaskID_Leave);
@@ -176,9 +190,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(35, 78);
+            this.label1.Location = new System.Drawing.Point(47, 96);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 21);
+            this.label1.Size = new System.Drawing.Size(73, 26);
             this.label1.TabIndex = 22;
             this.label1.Text = "User: ";
             // 
@@ -194,16 +209,18 @@
             this.comboBox_User.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_User.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_User.FormattingEnabled = true;
-            this.comboBox_User.Location = new System.Drawing.Point(104, 74);
+            this.comboBox_User.Location = new System.Drawing.Point(139, 91);
+            this.comboBox_User.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_User.Name = "comboBox_User";
-            this.comboBox_User.Size = new System.Drawing.Size(168, 28);
+            this.comboBox_User.Size = new System.Drawing.Size(223, 33);
             this.comboBox_User.TabIndex = 23;
             // 
             // button_Apply
             // 
-            this.button_Apply.Location = new System.Drawing.Point(178, 417);
+            this.button_Apply.Location = new System.Drawing.Point(237, 513);
+            this.button_Apply.Margin = new System.Windows.Forms.Padding(4);
             this.button_Apply.Name = "button_Apply";
-            this.button_Apply.Size = new System.Drawing.Size(109, 37);
+            this.button_Apply.Size = new System.Drawing.Size(145, 46);
             this.button_Apply.TabIndex = 24;
             this.button_Apply.Text = "Apply";
             this.button_Apply.UseVisualStyleBackColor = true;
@@ -211,9 +228,10 @@
             // 
             // button_Cancel
             // 
-            this.button_Cancel.Location = new System.Drawing.Point(377, 417);
+            this.button_Cancel.Location = new System.Drawing.Point(503, 513);
+            this.button_Cancel.Margin = new System.Windows.Forms.Padding(4);
             this.button_Cancel.Name = "button_Cancel";
-            this.button_Cancel.Size = new System.Drawing.Size(109, 37);
+            this.button_Cancel.Size = new System.Drawing.Size(145, 46);
             this.button_Cancel.TabIndex = 25;
             this.button_Cancel.Text = "Cancel";
             this.button_Cancel.UseVisualStyleBackColor = true;
@@ -221,9 +239,9 @@
             // 
             // CreateNewTaskForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(663, 477);
+            this.ClientSize = new System.Drawing.Size(884, 587);
             this.Controls.Add(this.button_Cancel);
             this.Controls.Add(this.button_Apply);
             this.Controls.Add(this.comboBox_User);
@@ -240,6 +258,7 @@
             this.Controls.Add(this.label_Status);
             this.Controls.Add(this.textBox_Tip);
             this.Controls.Add(this.label_Tip);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CreateNewTaskForm";
             this.Text = "CreateNewTaskForm";
             this.Load += new System.EventHandler(this.CreateNewTaskForm_Load);

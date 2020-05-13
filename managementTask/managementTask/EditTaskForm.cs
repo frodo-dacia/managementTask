@@ -67,38 +67,40 @@ namespace managementTask
             {
                 if(_taskuri[i].Task_ID == _taskID)
                 {
+                    //TREBE FACUT UN TEXXTBOX PT EDITARE COMENTARIU
+                    string Comment = "-";
 
-                    _taskuri[i] = new Task(_taskuri[i].Task_ID, _taskuri[i].User_ID, textBox_Tip.Text, comboBox_Status.Text, textBox_Continut.Text, Convert.ToInt32(textBox_Nota.Text), Convert.ToInt32(textBox_Timp.Text));
+                    _taskuri[i] = new Task(_taskuri[i].Task_ID, _taskuri[i].User_ID, textBox_Tip.Text, comboBox_Status.Text, textBox_Continut.Text, textBox_Nota.Text, Convert.ToInt32(textBox_Timp.Text),_taskuri[i].LogTime,Comment);
 
-                    try { 
+                    try
+                    {
 
-                    packet._data = "UpdateTable|TaskDB,Task,Tip," + textBox_Tip.Text + "," + _taskID;
-                    client.WriteObject(packet);
-                    response = client.ReadObject();
+                        packet._data = "UpdateTable|TaskDB,Task,Tip," + textBox_Tip.Text + "," + _taskID;
+                        UpdateData(packet);
 
-                    packet._data = "UpdateTable|TaskDB,Task,Status," + comboBox_Status.Text + "," + _taskID;
-                    client.WriteObject(packet);
-                    response = client.ReadObject();
-          
-                    packet._data = "UpdateTable|TaskDB,Task,Continut," + textBox_Continut.Text + "," + _taskID;
-                    client.WriteObject(packet);
-                    response = client.ReadObject();
+                        packet._data = "UpdateTable|TaskDB,Task,Status," + comboBox_Status.Text + "," + _taskID;
+                        UpdateData(packet);
 
-                    packet._data = "UpdateTable|TaskDB,Task,Nota," + textBox_Nota.Text + "," + _taskID;
-                    client.WriteObject(packet);
-                    response = client.ReadObject();
+                        packet._data = "UpdateTable|TaskDB,Task,Continut," + textBox_Continut.Text + "," + _taskID;
+                        UpdateData(packet);
 
-                  
-                    packet._data = "UpdateTable|TaskDB,Task,TimpEstimat," + textBox_Timp.Text + "," + _taskID;
-                    client.WriteObject(packet);
-                    
-                    response = client.ReadObject();
+                        packet._data = "UpdateTable|TaskDB,Task,Nota," + textBox_Nota.Text + "," + _taskID;
+                        UpdateData(packet);
+
+                        packet._data = "UpdateTable|TaskDB,Task,TimpEstimat," + textBox_Timp.Text + "," + _taskID;
+                        UpdateData(packet);
                     }
                     catch (Exception ee) { MessageBox.Show(ee.Message); };
                 }
             }
             this.Close();
 
+        }
+
+        private void UpdateData(Packet packet)
+        {
+            client.WriteObject(packet);
+            response = client.ReadObject();
         }
 
         private void DeleteTask_Clicked(object sender, EventArgs e)
@@ -138,6 +140,12 @@ namespace managementTask
         private void textBox_Timp_KeyPress(object sender, KeyPressEventArgs e)
         {
             numberValidation(e);
+        }
+
+        private void textBox_Continut_TextChanged(object sender, EventArgs e)
+        {
+            if(_accessLevel==1)
+            textBox_Continut.Enabled = false;
         }
     }
 }

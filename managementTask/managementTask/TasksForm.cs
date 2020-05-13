@@ -23,6 +23,7 @@ namespace managementTask
         private User currentUser;
         private BackgroundWorker _worker = new BackgroundWorker();
         private List<Task> currentUser_tasks = new List<Task>();
+ 
 
         public TasksPage(User currentUser, Client client)
         {
@@ -115,6 +116,8 @@ namespace managementTask
             this.label_CodeReview = new System.Windows.Forms.Label();
             this.label_InProgress = new System.Windows.Forms.Label();
             this.label_ToDo = new System.Windows.Forms.Label();
+            this.HelpButton = new System.Windows.Forms.Button();
+            this.LogoutButton = new System.Windows.Forms.Button();
             this.table_StatusName.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -124,9 +127,9 @@ namespace managementTask
             this.label_Kanban.BackColor = System.Drawing.Color.Transparent;
             this.label_Kanban.Font = new System.Drawing.Font("MV Boli", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Kanban.ForeColor = System.Drawing.Color.Black;
-            this.label_Kanban.Location = new System.Drawing.Point(34, 26);
+            this.label_Kanban.Location = new System.Drawing.Point(32, 39);
             this.label_Kanban.Name = "label_Kanban";
-            this.label_Kanban.Size = new System.Drawing.Size(277, 52);
+            this.label_Kanban.Size = new System.Drawing.Size(345, 65);
             this.label_Kanban.TabIndex = 0;
             this.label_Kanban.Text = "Kanban Board";
             // 
@@ -199,11 +202,33 @@ namespace managementTask
             this.label_ToDo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label_ToDo.Click += new System.EventHandler(this.label_ToDo_Click);
             // 
+            // HelpButton
+            // 
+            this.HelpButton.Location = new System.Drawing.Point(74, 24);
+            this.HelpButton.Name = "HelpButton";
+            this.HelpButton.Size = new System.Drawing.Size(75, 23);
+            this.HelpButton.TabIndex = 2;
+            this.HelpButton.Text = "button1";
+            this.HelpButton.UseVisualStyleBackColor = true;
+            this.HelpButton.Click += new System.EventHandler(this.HelpButton_Click);
+            // 
+            // LogoutButton
+            // 
+            this.LogoutButton.Location = new System.Drawing.Point(840, 24);
+            this.LogoutButton.Name = "LogoutButton";
+            this.LogoutButton.Size = new System.Drawing.Size(75, 23);
+            this.LogoutButton.TabIndex = 3;
+            this.LogoutButton.Text = "button1";
+            this.LogoutButton.UseVisualStyleBackColor = true;
+            this.LogoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
+            // 
             // TasksPage
             // 
             this.AutoScroll = true;
             this.BackgroundImage = global::managementTask.Properties.Resources.taskManagementBackground;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.LogoutButton);
+            this.Controls.Add(this.HelpButton);
             this.Controls.Add(this.table_StatusName);
             this.Controls.Add(this.label_Kanban);
             this.Name = "TasksPage";
@@ -279,7 +304,7 @@ namespace managementTask
                 int ValueYRev = 73;
                 int ValueYDone = 73;
 
-                    new Tasks(client);
+                new Tasks(client);
 
                 foreach (var obj in Tasks.MyTasks.ToList())
                 {
@@ -291,7 +316,9 @@ namespace managementTask
                         int Timp = obj.TimpEstimat;
                         string Status = obj.Status;
                         string Tip = obj.Tip;
-                        int Nota = obj.Nota;
+                        string Nota = obj.Nota;
+                        int LogTime = obj.LogTime;
+                        string Comment = obj.Comment;
 
                         TextBox task = new TextBox();
 
@@ -343,13 +370,13 @@ namespace managementTask
 
                         if (ID == currentUser.ID)
                         {
-                            Task t = new Task(Task_ID, ID, Tip, Status, Desc, Nota,Timp);
+                            Task t = new Task(Task_ID, ID, Tip, Status, Desc, Nota,Timp,LogTime,Comment);
                             currentUser_tasks.Add(t);
                         }
                     }
 
                 }
-            }catch(Exception e) { MessageBox.Show("vali"+e.Message); }
+            }catch(Exception e) { MessageBox.Show(e.Message); }
           
         }
         private void taskClick(object sender, EventArgs e, int Task_ID)
@@ -434,6 +461,26 @@ namespace managementTask
         private void label_ToDo_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void HelpButton_Click(object sender, EventArgs e)
+        {
+            if (currentUser.AccessLevel == 0)
+            {
+                string text = System.IO.File.ReadAllText("HelpAdmin.txt");
+                MessageBox.Show(text, "HELP" ,MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                string text = System.IO.File.ReadAllText("HelpUser.txt");
+                MessageBox.Show(text,"HELP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void LogoutButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            client.CloseConnection();
         }
     }
 }

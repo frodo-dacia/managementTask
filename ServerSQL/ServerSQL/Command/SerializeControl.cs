@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Windows;
+using System.Windows.Forms;
 
 namespace ServerSQL.Command
 {
@@ -13,7 +13,7 @@ namespace ServerSQL.Command
     {
         static IFormatter formatter = new BinaryFormatter();
 
-        static public Packet ReadObject(NetworkStream stream)   //folosind aceasta functie pot primi pachete la client utilizand TCP
+        static public Packet ReadObject(NetworkStream stream, string IP)   //folosind aceasta functie pot primi pachete la client utilizand TCP
         {
             try
             {
@@ -27,11 +27,11 @@ namespace ServerSQL.Command
                 ms.Seek(0, SeekOrigin.Begin);
                 return packet;
             }
-            catch (Exception e) { MessageBox.Show("ReadObject" + e.Message); }
+            catch (Exception) { MessageBox.Show("INFO: " + IP + " closed the connection!", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information); }
             return new Packet();
         }
 
-        static public void WriteObject(NetworkStream stream, Packet packet)   //folosind aceasta functie pot trimite pachete la client utilizand TCP
+        static public void WriteObject(NetworkStream stream, Packet packet, string IP)   //folosind aceasta functie pot trimite pachete la client utilizand TCP
         {
             if (packet != null)
             {
@@ -45,10 +45,11 @@ namespace ServerSQL.Command
                     stream.Write(userDataBytes, 0, userDataBytes.Length);
 
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
-                    MessageBox.Show("WriteObject" + e.Message);
+                    MessageBox.Show("INFO: " + IP + " closed the connection!");
                 }
+
             }
         }
     }

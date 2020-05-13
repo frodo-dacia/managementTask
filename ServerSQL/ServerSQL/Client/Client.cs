@@ -48,14 +48,14 @@ namespace ServerSQL.Client
             {
                 while (Running())
                 {
-                    packet = SerializeControl.ReadObject(stream);   //citesc pachetul primit de la client folosind serializare TCP
+                    packet = SerializeControl.ReadObject(stream, _client.Client.RemoteEndPoint.ToString());   //citesc pachetul primit de la client folosind serializare TCP
                     _log.WriteLog(Thread.CurrentThread.ManagedThreadId + ": Received: " + packet._data + "\n");
 
                     Command.Command command = new Command.Command(dataController, packet);
                     responsePacket = command.Execute();  // am pregatit raspunsul
 
                     _log.WriteLog(Thread.CurrentThread.ManagedThreadId + ": Sent: " + responsePacket._data + "\n");
-                    SerializeControl.WriteObject(stream, responsePacket);   //trimit raspunsul clientului folosind serializare TCP
+                    SerializeControl.WriteObject(stream, responsePacket, _client.Client.RemoteEndPoint.ToString());   //trimit raspunsul clientului folosind serializare TCP
                 }
             }
             catch (Exception e)

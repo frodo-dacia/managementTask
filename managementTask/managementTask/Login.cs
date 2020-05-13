@@ -31,8 +31,7 @@ namespace managementTask
             string userName = textBox_UserName.Text;
             string password = textBox_Password.Text;
             string serverIP = textBox_serverIP.Text;
-
-            //client.Start("192.168.1.10");
+            
             client.Start(serverIP);
 
             _Users = new Users(client);
