@@ -55,8 +55,10 @@ namespace managementTask
                     textBox_Tip.Text = obj.Tip;
                     comboBox_Status.Text = obj.Status;
                     textBox_Continut.Text = obj.Continut;
-                    textBox_Nota.Text = obj.Nota.ToString();
+                    comboBox_Nota.Text = obj.Nota;
                     textBox_Timp.Text = obj.TimpEstimat.ToString();
+                    textBox_Comentarii.Text = obj.Comment;
+                    textBox_TotalOrePontate.Text = obj.LogTime.ToString();
                 }
             }
         }
@@ -67,10 +69,13 @@ namespace managementTask
             {
                 if(_taskuri[i].Task_ID == _taskID)
                 {
-                    //TREBE FACUT UN TEXXTBOX PT EDITARE COMENTARIU
-                    string Comment = "-";
-
-                    _taskuri[i] = new Task(_taskuri[i].Task_ID, _taskuri[i].User_ID, textBox_Tip.Text, comboBox_Status.Text, textBox_Continut.Text, textBox_Nota.Text, Convert.ToInt32(textBox_Timp.Text),_taskuri[i].LogTime,Comment);
+                    int totalOre = 0;
+                    if (textBox_PontareOre.Text != "")
+                    {
+                        totalOre = _taskuri[i].LogTime + Convert.ToInt32(textBox_PontareOre.Text);
+                    }
+                                    
+                    _taskuri[i] = new Task(_taskuri[i].Task_ID, _taskuri[i].User_ID, textBox_Tip.Text, comboBox_Status.Text, textBox_Continut.Text, comboBox_Nota.Text, Convert.ToInt32(textBox_Timp.Text), totalOre, textBox_Comentarii.Text);
 
                     try
                     {
@@ -84,10 +89,16 @@ namespace managementTask
                         packet._data = "UpdateTable|TaskDB,Task,Continut," + textBox_Continut.Text + "," + _taskID;
                         UpdateData(packet);
 
-                        packet._data = "UpdateTable|TaskDB,Task,Nota," + textBox_Nota.Text + "," + _taskID;
+                        packet._data = "UpdateTable|TaskDB,Task,Nota," + comboBox_Nota.Text + "," + _taskID;
                         UpdateData(packet);
 
                         packet._data = "UpdateTable|TaskDB,Task,TimpEstimat," + textBox_Timp.Text + "," + _taskID;
+                        UpdateData(packet);
+
+                        packet._data = "UpdateTable|TaskDB,Task,LogTime," + totalOre + "," + _taskID;
+                        UpdateData(packet);
+
+                        packet._data = "UpdateTable|TaskDB,Task,Comment," + textBox_Comentarii.Text + "," + _taskID;
                         UpdateData(packet);
                     }
                     catch (Exception ee) { MessageBox.Show(ee.Message); };
@@ -108,7 +119,7 @@ namespace managementTask
             string tip = textBox_Tip.Text;
             string status = comboBox_Status.Text;
             string continut = textBox_Continut.Text;
-            string nota = textBox_Nota.Text;
+            string nota = comboBox_Nota.Text;
             string timpEstimat = textBox_Timp.Text;
 
             packet = new Packet();
@@ -145,7 +156,12 @@ namespace managementTask
         private void textBox_Continut_TextChanged(object sender, EventArgs e)
         {
             if(_accessLevel==1)
-            textBox_Continut.Enabled = false;
+                textBox_Continut.Enabled = false;
+        }
+
+        private void textBox_PontareOre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            numberValidation(e);
         }
     }
 }

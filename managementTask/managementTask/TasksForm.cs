@@ -127,9 +127,9 @@ namespace managementTask
             this.label_Kanban.BackColor = System.Drawing.Color.Transparent;
             this.label_Kanban.Font = new System.Drawing.Font("MV Boli", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Kanban.ForeColor = System.Drawing.Color.Black;
-            this.label_Kanban.Location = new System.Drawing.Point(32, 39);
+            this.label_Kanban.Location = new System.Drawing.Point(34, 27);
             this.label_Kanban.Name = "label_Kanban";
-            this.label_Kanban.Size = new System.Drawing.Size(345, 65);
+            this.label_Kanban.Size = new System.Drawing.Size(277, 52);
             this.label_Kanban.TabIndex = 0;
             this.label_Kanban.Text = "Kanban Board";
             // 
@@ -204,22 +204,32 @@ namespace managementTask
             // 
             // HelpButton
             // 
-            this.HelpButton.Location = new System.Drawing.Point(74, 24);
+            this.HelpButton.BackColor = System.Drawing.Color.SteelBlue;
+            this.HelpButton.FlatAppearance.BorderSize = 0;
+            this.HelpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HelpButton.Font = new System.Drawing.Font("Georgia", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HelpButton.ForeColor = System.Drawing.Color.Black;
+            this.HelpButton.Location = new System.Drawing.Point(1647, 36);
             this.HelpButton.Name = "HelpButton";
-            this.HelpButton.Size = new System.Drawing.Size(75, 23);
+            this.HelpButton.Size = new System.Drawing.Size(75, 40);
             this.HelpButton.TabIndex = 2;
-            this.HelpButton.Text = "button1";
-            this.HelpButton.UseVisualStyleBackColor = true;
+            this.HelpButton.TabStop = false;
+            this.HelpButton.Text = "Help";
+            this.HelpButton.UseVisualStyleBackColor = false;
             this.HelpButton.Click += new System.EventHandler(this.HelpButton_Click);
             // 
             // LogoutButton
             // 
-            this.LogoutButton.Location = new System.Drawing.Point(840, 24);
+            this.LogoutButton.BackColor = System.Drawing.Color.SteelBlue;
+            this.LogoutButton.FlatAppearance.BorderSize = 0;
+            this.LogoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LogoutButton.Font = new System.Drawing.Font("Georgia", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogoutButton.Location = new System.Drawing.Point(1762, 36);
             this.LogoutButton.Name = "LogoutButton";
-            this.LogoutButton.Size = new System.Drawing.Size(75, 23);
+            this.LogoutButton.Size = new System.Drawing.Size(118, 40);
             this.LogoutButton.TabIndex = 3;
-            this.LogoutButton.Text = "button1";
-            this.LogoutButton.UseVisualStyleBackColor = true;
+            this.LogoutButton.Text = "Logout";
+            this.LogoutButton.UseVisualStyleBackColor = false;
             this.LogoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
             // 
             // TasksPage
@@ -360,7 +370,8 @@ namespace managementTask
                             "Tip:  " + Tip + Environment.NewLine +
                             "Descriere:  " + Desc + Environment.NewLine +
                             "Timp estimat:  " + Timp + Environment.NewLine +
-                            "Nota:  " + Nota.ToString();
+                            "Nota:  " + Nota.ToString() + Environment.NewLine +
+                            "Comentarii:  " + Comment;
 
                         task.Click += (sender, e) => taskClick(sender, e, Task_ID);
                         refreshPageIndx = ID;

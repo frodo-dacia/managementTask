@@ -33,7 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Packet">
+    <Reference Include="Packet, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ServerSQL\Packet\Packet\bin\Debug\Packet.dll</HintPath>
     </Reference>
     <Reference Include="System" />

@@ -45,7 +45,9 @@ namespace managementTask
                 {
                     if(obj.Task_ID == Convert.ToInt32(taskId))
                     {
-
+                        MessageBox.Show("This ID task already exists");
+                        approved = false;
+                        break;
                     }
                 }
 
@@ -62,7 +64,7 @@ namespace managementTask
                 string tip = textBox_Tip.Text;
                 string status = comboBox_Status.Text;
                 string continut = textBox_Continut.Text;
-                string nota = textBox_Nota.Text;
+                string nota = comboBox_Nota.Text;
                 string timpEstimat = textBox_Timp.Text;
                 int logTime = 0;
                 string comment = "-";
