@@ -11,7 +11,7 @@ using System.Configuration;
 using ServerSQL;
 
 namespace managementTask
-{    
+{
     class DataController
     {
         SqlConnection connection = null;
@@ -37,12 +37,12 @@ namespace managementTask
                 switch (type)
                 {
                     case "task":
-                      using (SqlCommand cmd = new SqlCommand("DELETE FROM [" + nameDatabase + "].[dbo].[" + nameTable + "] WHERE Tip='" + values[0] + "' and Status='" + values[1] + "' and Continut='" + values[2] + "' and Nota=" + values[3] + " and TimpEstimat=" + values[4] + ";", connection))
-                            {
-                                cmd.ExecuteNonQuery();
-                            }
-                       
-                            
+                        using (SqlCommand cmd = new SqlCommand("DELETE FROM [" + nameDatabase + "].[dbo].[" + nameTable + "] WHERE Tip='" + values[0] + "' and Status='" + values[1] + "' and Continut='" + values[2] + "' and Nota=" + values[3] + " and TimpEstimat=" + values[4] + ";", connection))
+                        {
+                            cmd.ExecuteNonQuery();
+                        }
+
+
                         break;
                     case "user":
                         using (SqlCommand cmd = new SqlCommand("DELETE FROM [" + nameDatabase + "].[dbo].[" + nameTable + "] " + "WHERE Username='" + values[1] + "' and Password='" + values[2] + "' ;", connection))
@@ -69,7 +69,7 @@ namespace managementTask
                 switch (type)
                 {
                     case "task":
-                        using (SqlCommand cmd = new SqlCommand("INSERT INTO [" + nameDatabase + "].[dbo].[" + nameTable + "] (IdTask,IdUser,Tip,Status,Continut,Nota,TimpEstimat,LogTime,Comment) " + "VALUES (" + values[0] + "," + values[1] + ",'" + values[2] + "','" + values[3] + "','" + values[4] + "','" + values[5] + "'," + values[6] +","+values[7]+ ",'"+values[8]+"','"+values[9]+"')", connection))
+                        using (SqlCommand cmd = new SqlCommand("INSERT INTO [" + nameDatabase + "].[dbo].[" + nameTable + "] (IdTask,IdUser,Tip,Status,Continut,Nota,TimpEstimat,LogTime,Comment) " + "VALUES (" + values[0] + "," + values[1] + ",'" + values[2] + "','" + values[3] + "','" + values[4] + "','" + values[5] + "'," + values[6] + "," + values[7] + ",'" + values[8] + "')", connection))
                         {
                             cmd.ExecuteNonQuery();
                         }
@@ -105,7 +105,7 @@ namespace managementTask
             }
             catch (SqlException e)
             {
-                Console.Error.Write(e.Message); 
+                Console.Error.Write(e.Message);
             }
         }
 

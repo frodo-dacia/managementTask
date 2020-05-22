@@ -27,8 +27,8 @@ namespace managementTask
 
         private void CreateNewTaskForm_Load(object sender, EventArgs e)
         {
-            
-            foreach(var obj in users)
+
+            foreach (var obj in users)
             {
                 comboBox_User.Items.Add(obj.Name);
             }
@@ -41,9 +41,9 @@ namespace managementTask
             {
                 List<Task> currentTasks = Tasks.MyTasks;
                 string taskId = textBox_TaskID.Text;
-                foreach(var obj in currentTasks)
+                foreach (var obj in currentTasks)
                 {
-                    if(obj.Task_ID == Convert.ToInt32(taskId))
+                    if (obj.Task_ID == Convert.ToInt32(taskId))
                     {
                         MessageBox.Show("This ID task already exists");
                         approved = false;
@@ -71,7 +71,7 @@ namespace managementTask
 
                 foreach (var obj in currentTasks)
                 {
-                    if(obj.User_ID == userId && obj.Tip == tip && obj.Continut == continut && obj.Nota == nota && obj.TimpEstimat == Convert.ToInt32(timpEstimat))
+                    if (obj.User_ID == userId && obj.Tip == tip && obj.Continut == continut && obj.Nota == nota && obj.TimpEstimat == Convert.ToInt32(timpEstimat))
                     {
                         MessageBox.Show("This task exists with another ID");
                         approved = false;
@@ -79,7 +79,7 @@ namespace managementTask
                     }
                 }
 
-                if(approved == true)
+                if (approved == true)
                 {
 
                     packet._data = "InsertRowIntoTable|TaskDB,Task," + taskId + "," + userId + "," + tip + "," + status + "," + continut + "," + nota + "," + timpEstimat + "," + logTime + "," + comment;
@@ -87,7 +87,7 @@ namespace managementTask
                     client.WriteObject(packet);
                     response = client.ReadObject();
                 }
-               
+
 
                 this.Close();
             }

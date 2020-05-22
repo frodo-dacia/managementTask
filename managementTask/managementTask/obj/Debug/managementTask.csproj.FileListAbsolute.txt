@@ -30,3 +30,4 @@ C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.csproj.
 C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.csproj.CoreCompileInputs.cache
 C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.exe
 C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.pdb
+C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.csprojResolveAssemblyReference.cache

@@ -11,22 +11,22 @@ namespace ServerSQL.Command
 
         private Packet receivedPacket = new Packet();
         private DataController dataController = null;   //transmit ca parametru pentru ca conexiunea necesita sa fie deschisa o singura data 
-        
+
         public Command(DataController dataController, Packet receivedPacket)
-        {   
+        {
             this.receivedPacket = receivedPacket;
             this.dataController = dataController;
         }
 
         public Packet Execute()
         {
-            String dataPacket = "";   
+            String dataPacket = "";
             String input = receivedPacket._data;  //_data este de forma nume_functie | argumentele functiei
 
             string[] val = input.Split('|').ToArray();   //numele functiei din DataController
             string[] args = null;   //argumentele functiilor din DataController
 
-            if(val.Length>1)   //verific daca functia necesita argumente
+            if (val.Length > 1)   //verific daca functia necesita argumente
                 args = val[1].Split(',').ToArray();
 
             Packet responsePacket = new Packet();   //pregatesc raspunsul pentru cererea clientului
@@ -46,17 +46,17 @@ namespace ServerSQL.Command
 
                 //setez asta pentru retransmitere in cazul in care atunci cand cer tabela primesc un alt mesaj
                 if (args[2].Equals("task")) responsePacket._type = "task";
-				if (args[2].Equals("user")) responsePacket._type = "user";
+                if (args[2].Equals("user")) responsePacket._type = "user";
             }
 
             // 2. 
             if (CheckSubstring(input, "UpdateTable") && args.Length == 5)   //nume_functie = UpdateTable && arg.Length = 5
             {
-                dataController.UpdateTable(args[1], args[0], args[2], args[3], args[4]);          
+                dataController.UpdateTable(args[1], args[0], args[2], args[3], args[4]);
             }
 
             // 3.1
-            if(CheckSubstring(input, "InsertRowIntoTable") && args.Length == 11)    //nume_functie = InsertRowIntoTable && arg.Length = 11 in cazul tipului task
+            if (CheckSubstring(input, "InsertRowIntoTable") && args.Length == 11)    //nume_functie = InsertRowIntoTable && arg.Length = 11 in cazul tipului task
             {
                 string[] values = new string[9];
 
@@ -70,7 +70,8 @@ namespace ServerSQL.Command
                 values[7] = args[9];
                 values[8] = args[10];
 
-                dataController.InsertRowIntoTable(args[0], args[1],values,"task");          
+
+                dataController.InsertRowIntoTable(args[0], args[1], values, "task");
             }
 
             // 3.2
@@ -82,8 +83,8 @@ namespace ServerSQL.Command
                 values[1] = args[3];
                 values[2] = args[4];
                 values[3] = args[5];
-               
-                dataController.InsertRowIntoTable(args[0], args[1], values, "user");     
+
+                dataController.InsertRowIntoTable(args[0], args[1], values, "user");
             }
 
             // 4.1
@@ -116,13 +117,13 @@ namespace ServerSQL.Command
             return responsePacket;
         }
 
-        public bool CheckSubstring( string s, string substring) 
+        public bool CheckSubstring(string s, string substring)
         {
             bool value = false;
 
             if (s.Length > substring.Length && s.Substring(0, substring.Length).Equals(substring))
                 value = true;
-  
+
             return value;
         }
     }

@@ -163,5 +163,11 @@ namespace managementTask
         {
             numberValidation(e);
         }
+
+        private void textBox_Tip_TextChanged(object sender, EventArgs e)
+        {
+            if (_accessLevel == 1)
+                textBox_Tip.Enabled = false;
+        }
     }
 }

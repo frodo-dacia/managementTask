@@ -52,18 +52,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(73, 58);
+            this.label1.Location = new System.Drawing.Point(97, 71);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.Size = new System.Drawing.Size(0, 17);
             this.label1.TabIndex = 0;
             // 
             // label_Tip
             // 
             this.label_Tip.AutoSize = true;
             this.label_Tip.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Tip.Location = new System.Drawing.Point(25, 22);
+            this.label_Tip.Location = new System.Drawing.Point(33, 27);
+            this.label_Tip.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Tip.Name = "label_Tip";
-            this.label_Tip.Size = new System.Drawing.Size(49, 21);
+            this.label_Tip.Size = new System.Drawing.Size(58, 26);
             this.label_Tip.TabIndex = 1;
             this.label_Tip.Text = "Tip: ";
             // 
@@ -71,9 +73,10 @@
             // 
             this.label_Status.AutoSize = true;
             this.label_Status.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Status.Location = new System.Drawing.Point(25, 71);
+            this.label_Status.Location = new System.Drawing.Point(33, 87);
+            this.label_Status.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Status.Name = "label_Status";
-            this.label_Status.Size = new System.Drawing.Size(77, 21);
+            this.label_Status.Size = new System.Drawing.Size(91, 26);
             this.label_Status.TabIndex = 2;
             this.label_Status.Text = "Status: ";
             // 
@@ -81,9 +84,10 @@
             // 
             this.label_Continut.AutoSize = true;
             this.label_Continut.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Continut.Location = new System.Drawing.Point(25, 119);
+            this.label_Continut.Location = new System.Drawing.Point(33, 146);
+            this.label_Continut.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Continut.Name = "label_Continut";
-            this.label_Continut.Size = new System.Drawing.Size(107, 21);
+            this.label_Continut.Size = new System.Drawing.Size(122, 26);
             this.label_Continut.TabIndex = 3;
             this.label_Continut.Text = "Descriere: ";
             // 
@@ -91,9 +95,10 @@
             // 
             this.label_Nota.AutoSize = true;
             this.label_Nota.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Nota.Location = new System.Drawing.Point(25, 206);
+            this.label_Nota.Location = new System.Drawing.Point(33, 254);
+            this.label_Nota.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Nota.Name = "label_Nota";
-            this.label_Nota.Size = new System.Drawing.Size(62, 21);
+            this.label_Nota.Size = new System.Drawing.Size(73, 26);
             this.label_Nota.TabIndex = 4;
             this.label_Nota.Text = "Nota: ";
             // 
@@ -101,45 +106,51 @@
             // 
             this.label_Timp.AutoSize = true;
             this.label_Timp.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Timp.Location = new System.Drawing.Point(25, 252);
+            this.label_Timp.Location = new System.Drawing.Point(33, 310);
+            this.label_Timp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Timp.Name = "label_Timp";
-            this.label_Timp.Size = new System.Drawing.Size(136, 21);
+            this.label_Timp.Size = new System.Drawing.Size(157, 26);
             this.label_Timp.TabIndex = 5;
             this.label_Timp.Text = "Timp estimat: ";
             // 
             // textBox_Tip
             // 
             this.textBox_Tip.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Tip.Location = new System.Drawing.Point(80, 22);
+            this.textBox_Tip.Location = new System.Drawing.Point(107, 27);
+            this.textBox_Tip.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_Tip.Name = "textBox_Tip";
-            this.textBox_Tip.Size = new System.Drawing.Size(127, 26);
+            this.textBox_Tip.Size = new System.Drawing.Size(168, 30);
             this.textBox_Tip.TabIndex = 6;
+            this.textBox_Tip.TextChanged += new System.EventHandler(this.textBox_Tip_TextChanged);
             // 
             // textBox_Continut
             // 
             this.textBox_Continut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Continut.Location = new System.Drawing.Point(127, 119);
+            this.textBox_Continut.Location = new System.Drawing.Point(169, 146);
+            this.textBox_Continut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_Continut.Multiline = true;
             this.textBox_Continut.Name = "textBox_Continut";
             this.textBox_Continut.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox_Continut.Size = new System.Drawing.Size(357, 81);
+            this.textBox_Continut.Size = new System.Drawing.Size(475, 99);
             this.textBox_Continut.TabIndex = 8;
             this.textBox_Continut.TextChanged += new System.EventHandler(this.textBox_Continut_TextChanged);
             // 
             // textBox_Timp
             // 
             this.textBox_Timp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Timp.Location = new System.Drawing.Point(167, 247);
+            this.textBox_Timp.Location = new System.Drawing.Point(223, 304);
+            this.textBox_Timp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_Timp.Name = "textBox_Timp";
-            this.textBox_Timp.Size = new System.Drawing.Size(127, 26);
+            this.textBox_Timp.Size = new System.Drawing.Size(168, 30);
             this.textBox_Timp.TabIndex = 10;
             this.textBox_Timp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Timp_KeyPress);
             // 
             // button_Apply
             // 
-            this.button_Apply.Location = new System.Drawing.Point(149, 486);
+            this.button_Apply.Location = new System.Drawing.Point(199, 598);
+            this.button_Apply.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button_Apply.Name = "button_Apply";
-            this.button_Apply.Size = new System.Drawing.Size(109, 37);
+            this.button_Apply.Size = new System.Drawing.Size(145, 46);
             this.button_Apply.TabIndex = 11;
             this.button_Apply.Text = "Apply";
             this.button_Apply.UseVisualStyleBackColor = true;
@@ -162,16 +173,18 @@
             "IN PROGRESS",
             "CODE REVIEW",
             "DONE"});
-            this.comboBox_Status.Location = new System.Drawing.Point(108, 71);
+            this.comboBox_Status.Location = new System.Drawing.Point(144, 87);
+            this.comboBox_Status.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox_Status.Name = "comboBox_Status";
-            this.comboBox_Status.Size = new System.Drawing.Size(168, 28);
+            this.comboBox_Status.Size = new System.Drawing.Size(223, 33);
             this.comboBox_Status.TabIndex = 12;
             // 
             // button_Cancel
             // 
-            this.button_Cancel.Location = new System.Drawing.Point(318, 486);
+            this.button_Cancel.Location = new System.Drawing.Point(424, 598);
+            this.button_Cancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button_Cancel.Name = "button_Cancel";
-            this.button_Cancel.Size = new System.Drawing.Size(109, 37);
+            this.button_Cancel.Size = new System.Drawing.Size(145, 46);
             this.button_Cancel.TabIndex = 13;
             this.button_Cancel.Text = "Cancel";
             this.button_Cancel.UseVisualStyleBackColor = true;
@@ -194,27 +207,30 @@
             "Not great not terrible",
             "Prety hard",
             "Hard as fuck"});
-            this.comboBox_Nota.Location = new System.Drawing.Point(80, 206);
+            this.comboBox_Nota.Location = new System.Drawing.Point(107, 254);
+            this.comboBox_Nota.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox_Nota.Name = "comboBox_Nota";
-            this.comboBox_Nota.Size = new System.Drawing.Size(168, 28);
+            this.comboBox_Nota.Size = new System.Drawing.Size(223, 33);
             this.comboBox_Nota.TabIndex = 27;
             // 
             // label_PontareOre
             // 
             this.label_PontareOre.AutoSize = true;
             this.label_PontareOre.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_PontareOre.Location = new System.Drawing.Point(25, 339);
+            this.label_PontareOre.Location = new System.Drawing.Point(33, 417);
+            this.label_PontareOre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_PontareOre.Name = "label_PontareOre";
-            this.label_PontareOre.Size = new System.Drawing.Size(129, 21);
+            this.label_PontareOre.Size = new System.Drawing.Size(150, 26);
             this.label_PontareOre.TabIndex = 28;
             this.label_PontareOre.Text = "Pontare ore : ";
             // 
             // textBox_PontareOre
             // 
             this.textBox_PontareOre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_PontareOre.Location = new System.Drawing.Point(149, 335);
+            this.textBox_PontareOre.Location = new System.Drawing.Point(199, 412);
+            this.textBox_PontareOre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_PontareOre.Name = "textBox_PontareOre";
-            this.textBox_PontareOre.Size = new System.Drawing.Size(127, 26);
+            this.textBox_PontareOre.Size = new System.Drawing.Size(168, 30);
             this.textBox_PontareOre.TabIndex = 29;
             this.textBox_PontareOre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_PontareOre_KeyPress);
             // 
@@ -222,46 +238,50 @@
             // 
             this.label_TotalOreLogate.AutoSize = true;
             this.label_TotalOreLogate.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_TotalOreLogate.Location = new System.Drawing.Point(25, 297);
+            this.label_TotalOreLogate.Location = new System.Drawing.Point(33, 366);
+            this.label_TotalOreLogate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_TotalOreLogate.Name = "label_TotalOreLogate";
-            this.label_TotalOreLogate.Size = new System.Drawing.Size(169, 21);
+            this.label_TotalOreLogate.Size = new System.Drawing.Size(197, 26);
             this.label_TotalOreLogate.TabIndex = 30;
             this.label_TotalOreLogate.Text = "Total ore pontate: ";
             // 
             // textBox_TotalOrePontate
             // 
             this.textBox_TotalOrePontate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_TotalOrePontate.Location = new System.Drawing.Point(200, 293);
+            this.textBox_TotalOrePontate.Location = new System.Drawing.Point(267, 361);
+            this.textBox_TotalOrePontate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_TotalOrePontate.Name = "textBox_TotalOrePontate";
             this.textBox_TotalOrePontate.ReadOnly = true;
-            this.textBox_TotalOrePontate.Size = new System.Drawing.Size(127, 26);
+            this.textBox_TotalOrePontate.Size = new System.Drawing.Size(168, 30);
             this.textBox_TotalOrePontate.TabIndex = 31;
             // 
             // label_Comentarii
             // 
             this.label_Comentarii.AutoSize = true;
             this.label_Comentarii.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Comentarii.Location = new System.Drawing.Point(25, 385);
+            this.label_Comentarii.Location = new System.Drawing.Point(33, 474);
+            this.label_Comentarii.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Comentarii.Name = "label_Comentarii";
-            this.label_Comentarii.Size = new System.Drawing.Size(123, 21);
+            this.label_Comentarii.Size = new System.Drawing.Size(141, 26);
             this.label_Comentarii.TabIndex = 32;
             this.label_Comentarii.Text = "Comentarii:  ";
             // 
             // textBox_Comentarii
             // 
             this.textBox_Comentarii.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Comentarii.Location = new System.Drawing.Point(149, 381);
+            this.textBox_Comentarii.Location = new System.Drawing.Point(199, 469);
+            this.textBox_Comentarii.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_Comentarii.Multiline = true;
             this.textBox_Comentarii.Name = "textBox_Comentarii";
             this.textBox_Comentarii.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox_Comentarii.Size = new System.Drawing.Size(357, 81);
+            this.textBox_Comentarii.Size = new System.Drawing.Size(475, 99);
             this.textBox_Comentarii.TabIndex = 33;
             // 
             // EditTaskForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(581, 552);
+            this.ClientSize = new System.Drawing.Size(775, 679);
             this.Controls.Add(this.textBox_Comentarii);
             this.Controls.Add(this.label_Comentarii);
             this.Controls.Add(this.textBox_TotalOrePontate);
@@ -281,6 +301,7 @@
             this.Controls.Add(this.label_Status);
             this.Controls.Add(this.label_Tip);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "EditTaskForm";
             this.Text = "EditTaskForm";
             this.Load += new System.EventHandler(this.EditTaskForm_Load);
