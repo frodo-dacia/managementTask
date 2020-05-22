@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace ServerSQL.Command
 {
-    class SerializeControl
+    public class SerializeControl
     {
         static IFormatter formatter = new BinaryFormatter();
 
