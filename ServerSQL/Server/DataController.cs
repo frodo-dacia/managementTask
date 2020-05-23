@@ -41,7 +41,7 @@ namespace managementTask
                 switch (type)
                 {
                     case "task":
-                        using (SqlCommand cmd = new SqlCommand("DELETE FROM [" + nameDatabase + "].[dbo].[" + nameTable + "] WHERE Tip='" + values[0] + "' and Status='" + values[1] + "' and Continut='" + values[2] + "' and Nota=" + values[3] + " and TimpEstimat=" + values[4] + ";", connection))
+                        using (SqlCommand cmd = new SqlCommand("DELETE FROM [" + nameDatabase + "].[dbo].[" + nameTable + "] WHERE IdTask="+ values[0] + ";", connection))
                         {
                             cmd.ExecuteNonQuery();
                         }

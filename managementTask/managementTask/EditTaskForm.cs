@@ -1,5 +1,5 @@
 ﻿//Autor: Sandu Diana-Elena
-//Functionalitate: In aceasta clasa am codificat cererea catre server si am procesat raspunsul primit de catre acesta pe a face un update unui task din baza de date aferenta
+//Functionalitate: In aceasta clasa am codificat cererea catre server si am procesat raspunsul primit de catre acesta pe a face un update unui task din baza de date aferenta ori de a il sterge
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -125,7 +125,7 @@ namespace managementTask
             string timpEstimat = textBox_Timp.Text;
 
             packet = new Packet();
-            packet._data = "Delete|TaskDB,Task," + tip + "," + status + "," + continut + "," + nota + "," + timpEstimat;
+            packet._data = "Delete|TaskDB,Task," + _taskID;
             client.WriteObject(packet);
             response = client.ReadObject();
             this.Close();

@@ -94,16 +94,12 @@ namespace ServerSQL.Command
             }
 
             // 4.1
-            if (CheckSubstring(input, "Delete") && args.Length == 8)   //nume_functie = Delete && arg.Length = 8 in cazul tipului task
+            if (CheckSubstring(input, "Delete") && args.Length == 3)   //nume_functie = Delete && arg.Length = 8 in cazul tipului task
             {
-                string[] values = new string[7];
+                string[] values = new string[1];
 
                 values[0] = args[2];
-                values[1] = args[3];
-                values[2] = args[4];
-                values[3] = args[5];
-                values[4] = args[6];
-                values[5] = args[7];
+            
 
                 dataController.Delete(args[0], args[1], values, "task");
             }
