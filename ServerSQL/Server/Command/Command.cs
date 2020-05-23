@@ -1,4 +1,10 @@
-﻿using managementTask;
+﻿//Autor: Sandu Diana-Elena
+//Functionalitate: In aceasta clasa am realizat procesarea cererii clientului. Cand acesta doreste sa opereze cu baza mea de date va trimite 
+//                 o cerere serverului de forma numeFunctie|argumente, unde argumentele sunt delimitate de caracterul "," , astfel afland ce 
+//                 functie trebuie sa apelam din DataController si,  implicit, ce argumente va avea functia in cauza. 
+//                 Prin urmare se va procesa pachetul primit si se va construi pachetul pe care il vom trimite clientului
+
+using managementTask;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Autor: Sandu Diana-Elena
+//Functionalitate: In aceasta clasa am realizat conexiunea dintre client si server
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

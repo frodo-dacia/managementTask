@@ -1,4 +1,10 @@
-﻿using System;
+﻿//Autor: Sandu Diana-Elena
+//Functionalitate: In aceasta clasa am realizat serializarea raspunsului serverului fata de client si deserializarea cererii clientului fata de server
+//                 folosindu-ma de clasele DataController(manipularea bazei de date) si Command (procesarea cererii)
+
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;

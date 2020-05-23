@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Autor: Sandu Diana-Elena
+//Functionalitate: In aceasta clasa se efectueaza interogarile specifice bazelor de date(inserare, stergere, preluare date...)
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

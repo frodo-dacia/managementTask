@@ -1,4 +1,7 @@
-﻿using System;
+﻿//Autor:Sandu Diana-Elena
+//Functionalitate: Aceasta clasa se ocupa de serializarea TCP, punand la dispozitie posibilitatea transmiterii
+//                 a multiple pachete intre mai multe dispozitive diferite conectate in aceeasi retea
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;

@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Autor: Sandu Diana-Elena
+//Functionalitate: In aceasta clasa am codificat cererea catre server si am procesat raspunsul primit de catre acesta pt a crea un nou user in baza de date aferenta
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Autor: Sandu Diana-Elena
+//Functionalitate: In aceasta clasa am lucrat cu un BackgroundWorker care ma va ajuta ca la un anume interval de timp prestabilit sa verific daca userului 
+//                 s-au efectuat schimbari in cadrul sectiunii personale de taskuri de catre admin(update, adaugare)
+//                 Am implementat un buton de help pentru a oferi userului posibilitatea de a intelege cat mai bine functionalitatea interfetei in cauza.  
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

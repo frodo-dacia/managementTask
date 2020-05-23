@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Autor: Sandu Diana-Elena
+//Functionalitate: Clientul are posibilitatea conectarii la serverul aferent, la randul sau functionand pe baza unei serializari TCP,
+//                 fiind capabil sa primeasca si sa trimita multiple pachete in functie de dorinte
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,7 +31,7 @@ namespace managementTask
                 Thread.CurrentThread.IsBackground = true;
                 Connect(serverIP);
             }).Start();
-            Console.ReadLine();
+            //Console.ReadLine();
         }
 
         public void Connect(String serverIP)
@@ -42,14 +46,23 @@ namespace managementTask
             {
                 Console.WriteLine("Exception: {0}", e);
             }
-            Console.Read();
+            //Console.Read();
         }
 
 
         public void CloseConnection()
         {
-            stream.Close();
-            client.Close();
+            try
+            {
+                stream.Close();
+                client.Close();
+                client = null;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception: {0}", e);
+            }
+
         }
   
          public Packet ReadObject()

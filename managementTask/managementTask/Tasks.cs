@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Autor: Sandu Diana-Elena
+//Functionalitate: In aceasta clasa am codificat cererea catre server si am procesat raspunsul primit de catre acesta pt a primi toate taskurile existente in baza de date aferenta
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
