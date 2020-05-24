@@ -4,9 +4,14 @@ using managementTask;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading;
 
-namespace UnitTestProjectManagementTask
+namespace UnitTest_managementTask
 {
-    
+    /// <summary>
+    /// Autor:Iovu Vali Cristian
+    /// Functionalitate: Adaugare test case uri pt verificarea functionalitatii de Login
+    /// Add testcases for UniTesting in  UnitTestProjectManagementTask_Login by VaIo
+    /// </summary>
+
     [TestClass]
     public class UnitTestProjectManagementTask_Login
     {
