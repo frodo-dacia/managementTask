@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Autor: Puscalau Robert-George
+//Functionalitate: O clasa generica de tip logger pentru a ajuta cu colectarea datelor dintr-o sesiune
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;

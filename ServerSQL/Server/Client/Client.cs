@@ -1,4 +1,5 @@
 ﻿//Autor: Sandu Diana-Elena
+//Autor2: Puscalau Robert George
 //Functionalitate: In aceasta clasa am realizat serializarea raspunsului serverului fata de client si deserializarea cererii clientului fata de server
 //                 folosindu-ma de clasele DataController(manipularea bazei de date) si Command (procesarea cererii)
 

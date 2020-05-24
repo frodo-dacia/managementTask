@@ -1,4 +1,5 @@
-﻿using ServerSQL;
+﻿//Autor Puscalau Robert George
+using ServerSQL;
 using ServerSQL.Client;
 using System;
 using System.Net;

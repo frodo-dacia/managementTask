@@ -1,4 +1,6 @@
-﻿
+﻿//Autor: Puscalau Robert George
+//Functionalitatea: Clasa ce implementeaza un meniu in consola pentru comenzi de tip print de baza
+//                  pentru informatii legate de server in timpul runtime-ului.
 using ServerSQL.Client;
 using System;
 using System.Collections.Generic;
