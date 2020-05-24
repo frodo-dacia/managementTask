@@ -67,6 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UnitTestProjectManagementTaskPart_Admin.cs" />
+    <Compile Include="UnitTestProjectManagementTask_Database.cs" />
     <Compile Include="UnitTestProjectManagementTask_Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
