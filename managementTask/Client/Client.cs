@@ -58,9 +58,9 @@ namespace managementTask
                 client.Close();
                 client = null;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine("Exception: {0}", e);
+                Console.WriteLine("Conexiunea a fost oprita !");
             }
 
         }
