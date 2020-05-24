@@ -157,5 +157,10 @@ namespace managementTask
         {
 
         }
+
+        private void textBox_Continut_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
