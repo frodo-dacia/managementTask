@@ -1,0 +1,9 @@
+In calitate de admin, dispuneti de urmatoarele functionalitati:
+	- sa creati un nou task si sa-l atribuiti oricarui user doriti, inclusiv dvs.
+	- sa faceti update oricarui task existent in baza de date
+	- sa stergeti taskuri de este cazul
+	- sa adaugati un user
+	- sa vizualizati taskurile oricarui user
+	- puteti adauga comentarii referitor la evolutia taskurilor
+	- puteti nota taskul in functie de dificultatea pe care a avut-o
+	- sa inregistrati numarul de ore alocate taskurilor la care lucrati in prezent

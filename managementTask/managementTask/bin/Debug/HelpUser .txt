@@ -1,0 +1,6 @@
+In calitate de user, dispuneti de urmatoarele functionalitati:
+	- sa faceti update oricarui task existent in sectiunea dvs. de taskuri
+	- sa inregistrati numarul de ore alocate taskurilor la care lucrati in prezent
+	- sa vizualizati taskurile oricarui user
+	- puteti adauga comentarii referitor la evolutia taskurilor
+	- puteti nota taskul in functie de dificultatea pe care a avut-o
