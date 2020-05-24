@@ -242,7 +242,7 @@ namespace managementTask
             // TasksPage
             // 
             this.AutoScroll = true;
-            this.BackgroundImage = global::managementTask.Properties.Resources.taskManagementBackground;
+            this.BackgroundImage = global::TasksForm.Properties.Resources.taskManagementBackground;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.LogoutButton);
             this.Controls.Add(this.HelpButton);

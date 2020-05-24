@@ -32,12 +32,8 @@ C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.exe
 C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.pdb
 C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.csprojResolveAssemblyReference.cache
 d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.csprojAssemblyReference.cache
-d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.CreateNewTaskForm.resources
-d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.CreateNewUserForm.resources
-d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.EditTaskForm.resources
 d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.Login.resources
 d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.Properties.Resources.resources
-d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.TasksPage.resources
 d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.csproj.GenerateResource.cache
 d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.csproj.CoreCompileInputs.cache
 d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.exe
@@ -56,3 +52,11 @@ d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\bi
 d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\Tasks.pdb
 d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\Users.dll
 d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\Users.pdb
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\NewTaskForm.dll
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\NewTaskForm.pdb
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\NewUserForm.dll
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\NewUserForm.pdb
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\EditTaskForm.dll
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\EditTaskForm.pdb
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\TasksForm.dll
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\TasksForm.pdb

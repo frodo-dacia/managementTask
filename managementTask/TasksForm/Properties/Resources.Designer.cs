@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace managementTask.Properties {
+namespace TasksForm.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace managementTask.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("managementTask.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TasksForm.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,19 +63,9 @@ namespace managementTask.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap loginBackground {
+        internal static System.Drawing.Bitmap taskManagementBackground {
             get {
-                object obj = ResourceManager.GetObject("loginBackground", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Webp_net_resizeimage {
-            get {
-                object obj = ResourceManager.GetObject("Webp.net-resizeimage", resourceCulture);
+                object obj = ResourceManager.GetObject("taskManagementBackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

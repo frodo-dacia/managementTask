@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace managementTask
 {
-    static class Program
+    static class MainClass
     {
         /// <summary>
         /// The main entry point for the application.
