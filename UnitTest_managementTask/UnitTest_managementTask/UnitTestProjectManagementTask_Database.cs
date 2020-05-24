@@ -153,7 +153,7 @@ namespace UnitTest_managementTask
             //Type-Positive Test Case
             //---------------------------------------------------------------------------------//
             Console.WriteLine("Test_Step_2: Creare Task");
-            Task Test_task = new Task(44422, 2, "Task de Testare", "DONE", "Acesta este al 5lea test case", "6", 4, 3, "-");
+            Task Test_task = new Task(44422, 2, "Task de Testare", "DONE", "Acesta este al 5lea test case", "6", 4, 0, "-");
 
             Console.WriteLine("Test_Step_3: Inserare in baza de date ");
             packet._data = "InsertRowIntoTable|TaskDB,Task," + Test_task.Task_ID + "," + Test_task.User_ID + "," + Test_task.Tip + "," + Test_task.Status + "," + Test_task.Continut + "," + Test_task.Nota + "," + Test_task.TimpEstimat + "," + Test_task.LogTime + "," + Test_task.Comment;
@@ -417,6 +417,64 @@ namespace UnitTest_managementTask
                     }
                 }
                 Assert.AreEqual(1, 1);
+            }
+        }
+
+        [TestMethod]
+        public void Test_Nr_14_Aplicatie()
+        {
+            //---------------------------------------------------------------------------------//
+            //Verificare daca board ul se updateaza daca se face pontarea unui  task din rubrica  IN PROGRESS
+            //Type-Positive Test Case
+            //---------------------------------------------------------------------------------//
+            Console.WriteLine("Test_Step_2: Creare Task");
+            Task Test_task = new Task(44422, 2, "Task de Testare", "IN PROGRESS", "Acesta este testul 14", "6", 4, 4, "-");
+
+            //Console.WriteLine("Test_Step_3: Inserare in baza de date ");
+            //acket._data = "InsertRowIntoTable|TaskDB,Task," + Test_task.Task_ID + "," + Test_task.User_ID + "," + Test_task.Tip + "," + Test_task.Status + "," + Test_task.Continut + "," + Test_task.Nota + "," + Test_task.TimpEstimat + "," + Test_task.LogTime + "," + Test_task.Comment;
+            //UpdateData(packet);
+
+            Console.WriteLine("Test_Step_4: Modificare Status ");
+            packet._data = "UpdateTable|TaskDB,Task,LogTime," + Test_task.LogTime + "," + Test_task.Task_ID;
+            UpdateData(packet);
+
+            Tasks Test_tasks = new Tasks(client);
+            for (int i = 0; i < Tasks.MyTasks.Count; ++i)
+            {
+                if (Tasks.MyTasks[i].Task_ID == 44422)
+                {
+                    //Tasks.MyTasks[i] = Test_task;
+                    Assert.AreEqual(4, Tasks.MyTasks[i].LogTime);
+                }
+            }
+        }
+
+        [TestMethod]
+        public void Test_Nr_15_Aplicatie()
+        {
+            //---------------------------------------------------------------------------------//
+            //Verificare daca board ul se updateaza daca se adauga un comment unui  task din rubrica  IN PROGRESS
+            //Type-Positive Test Case
+            //---------------------------------------------------------------------------------//
+            Console.WriteLine("Test_Step_2: Creare Task");
+            Task Test_task = new Task(44422, 2, "Task de Testare", "IN PROGRESS", "Acesta este testul 14", "6", 4, 4, "Comment 15");
+
+            //Console.WriteLine("Test_Step_3: Inserare in baza de date ");
+            //acket._data = "InsertRowIntoTable|TaskDB,Task," + Test_task.Task_ID + "," + Test_task.User_ID + "," + Test_task.Tip + "," + Test_task.Status + "," + Test_task.Continut + "," + Test_task.Nota + "," + Test_task.TimpEstimat + "," + Test_task.LogTime + "," + Test_task.Comment;
+            //UpdateData(packet);
+
+            Console.WriteLine("Test_Step_4: Modificare Comentariu ");
+            packet._data = "UpdateTable|TaskDB,Task,Comment," + Test_task.Comment + "," + Test_task.Task_ID;
+            UpdateData(packet);
+
+            Tasks Test_tasks = new Tasks(client);
+            for (int i = 0; i < Tasks.MyTasks.Count; ++i)
+            {
+                if (Tasks.MyTasks[i].Task_ID == 44422)
+                {
+                    //Tasks.MyTasks[i] = Test_task;
+                    Assert.AreEqual("Comment 15", Tasks.MyTasks[i].Comment);
+                }
             }
         }
         /*
