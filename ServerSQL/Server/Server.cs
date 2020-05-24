@@ -1,4 +1,6 @@
-﻿//Autor Puscalau Robert George
+﻿//Autor: Puscalau Robert George
+//Functionalitatea: Clasa singleton ce implementeaza logica de server a aplicatiei.
+//                  Folosita pentru gestionare de clienti, interactiunea cu clientii si baza de date.
 using ServerSQL;
 using ServerSQL.Client;
 using System;

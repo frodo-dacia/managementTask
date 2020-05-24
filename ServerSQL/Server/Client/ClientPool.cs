@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Autor: Puscalau Robert George
+//Functionalitatea: Pool-ul de clienti prin care serveru gestioneaza toti clientii conectati la un moment dat
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
