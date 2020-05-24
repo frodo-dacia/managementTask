@@ -1,7 +1,10 @@
-﻿//Autor: Sandu Diana-Elena
+﻿//Autor1: Sandu Diana-Elena
 //Functionalitate: In aceasta clasa am lucrat cu un BackgroundWorker care ma va ajuta ca la un anume interval de timp prestabilit sa verific daca userului 
 //                 s-au efectuat schimbari in cadrul sectiunii personale de taskuri de catre admin(update, adaugare)
 //                 Am implementat un buton de help pentru a oferi userului posibilitatea de a intelege cat mai bine functionalitatea interfetei in cauza.  
+//Autor2: Stefan Andrei
+//Functionalitate: In aceasta clasa am creat form-ul principal unde este tabela kanban. Aici putem vedea task-urile tuturor userilor, fiecare user isi poate modifica 
+//                  task-urile lui iar adminul pe langa ca poate modifica task-urile tuturor poate sa si creeze task-uri noi sau sa stearga task-uri
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

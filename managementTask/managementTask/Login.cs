@@ -1,5 +1,7 @@
-﻿//Autor: Sandu Diana-Elena
+﻿//Autor1: Sandu Diana-Elena
 //Functionalitate: In aceasta clasa am realizat conexiunea dintre client si server
+//Autor2: Stefan Andrei
+//Functionalitate: In aceasta clasa am creat form-ul unde introducem datele de logare si ip-ul serverului la care ne conectam.
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

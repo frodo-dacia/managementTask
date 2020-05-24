@@ -1,5 +1,9 @@
-﻿//Autor: Sandu Diana-Elena
-//Functionalitate: In aceasta clasa am codificat cererea catre server si am procesat raspunsul primit de catre acesta pt a crea un nou task in baza de date aferenta
+﻿//Autor1: Sandu Diana-Elena
+//Functionalitate: In aceasta clasa am codificat cererea catre server si am procesat raspunsul primit de catre acesta pt a crea un nou task in baza de date aferenta.
+//Autor2: Stefan Andrei
+//Functionalitate: In aceasta clasa am creat un form cu ajutorul caruia cream un nou task. Totodata facem si verificarile ca datele introduse da fie in formatul in care trebuie
+//                  pentru field-ul respectiv si mai verificam ca id-ul task-ului sa fie unic in baza de date si sa nu existe 2 task-uri cu id-uri diferite dar cu field-uri identice.
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -108,7 +112,7 @@ namespace managementTask
         private void numberValidation(KeyPressEventArgs e)
         {
             char chr = e.KeyChar;
-            if (!Char.IsDigit(chr))
+            if ((!Char.IsDigit(chr)) && (chr !=(char)Keys.Back))
             {
                 e.Handled = true;
                 MessageBox.Show("Please enter a valid number");

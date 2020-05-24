@@ -1,5 +1,7 @@
-﻿//Autor: Sandu Diana-Elena
+﻿//Autor1: Sandu Diana-Elena
 //Functionalitate: In aceasta clasa am codificat cererea catre server si am procesat raspunsul primit de catre acesta pt a primi datele userilor existente in baza de date aferenta
+//Autor2: Stefan Andrei
+//Functionalitate: In aceasta clasa am implementat structura unui user cu toate campurile pe care acesta le contine precum si initializarea listei de useri preluate din baza de date
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,7 +14,7 @@ using System.Xml.Serialization;
 namespace managementTask
 {
 
-    static class Access
+    static public class Access
     {
         public const int Admin = 0;
         public const int User = 1;

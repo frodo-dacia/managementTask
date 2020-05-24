@@ -31,3 +31,28 @@ C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.csproj.
 C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.exe
 C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.pdb
 C:\managementTask\managementTask\managementTask\obj\Debug\managementTask.csprojResolveAssemblyReference.cache
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.csprojAssemblyReference.cache
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.CreateNewTaskForm.resources
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.CreateNewUserForm.resources
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.EditTaskForm.resources
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.Login.resources
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.Properties.Resources.resources
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.TasksPage.resources
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.csproj.GenerateResource.cache
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.csproj.CoreCompileInputs.cache
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.exe
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.pdb
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\managementTask.exe.config
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\managementTask.exe
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\managementTask.pdb
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\Crypto.dll
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\Packet.dll
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\Crypto.pdb
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\Packet.pdb
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\obj\Debug\managementTask.csproj.CopyComplete
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\Client.dll
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\Client.pdb
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\Tasks.dll
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\Tasks.pdb
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\Users.dll
+d:\Facultate\Proiecte\Proiect IP\managementTask\managementTask\managementTask\bin\Debug\Users.pdb

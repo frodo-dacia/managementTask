@@ -1,4 +1,7 @@
-﻿using System;
+﻿//Autor: Stefan Andrei
+//Functionalitate: In aceasta clasa am implementat o functie care cripteaza parola user-ului folosint un hash pentru a o salva in baza de date. 
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

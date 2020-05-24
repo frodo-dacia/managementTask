@@ -1,5 +1,8 @@
-﻿//Autor: Sandu Diana-Elena
+﻿//Autor1: Sandu Diana-Elena
 //Functionalitate: In aceasta clasa am codificat cererea catre server si am procesat raspunsul primit de catre acesta pt a crea un nou user in baza de date aferenta
+//Autor2: Stefan Andrei
+//Functionalitate:  In aceasta clasa am creat un form cu ajutorul caruia cream un nou user. Totodata facem si verificarile ca datele introduse da fie in formatul in care trebuie
+//                  pentru field-ul respectiv si mai verificam ca id-ul si user name-ul sa fie unice in baza de date.
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -57,7 +60,7 @@ namespace managementTask
                     }
                     else if(obj.Name == userName)
                     {
-                        MessageBox.Show("Users with this userId already exists.");
+                        MessageBox.Show("Users with this userName already exists.");
                         approved = false;
                         break;
                     }
@@ -96,7 +99,7 @@ namespace managementTask
         private void textBox_UserID_KeyPress(object sender, KeyPressEventArgs e)
         {
             char chr = e.KeyChar;
-            if (!Char.IsDigit(chr))
+            if ((!Char.IsDigit(chr) && (chr != (char)Keys.Back)))
             {
                 e.Handled = true;
                 MessageBox.Show("Please enter a valid number");

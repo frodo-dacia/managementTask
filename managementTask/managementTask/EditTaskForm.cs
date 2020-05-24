@@ -1,5 +1,9 @@
-﻿//Autor: Sandu Diana-Elena
+﻿//Autor1: Sandu Diana-Elena
 //Functionalitate: In aceasta clasa am codificat cererea catre server si am procesat raspunsul primit de catre acesta pe a face un update unui task din baza de date aferenta ori de a il sterge
+//Autor2: Stefan Andrei
+//Functionalitate: In aceasta clasa am creat un form cu ajutorul caruia putem edita task-urile. Ficare user isi poate modifica doar task-urile care ii sunt asignate iar adminul
+//                  poate modifica toate task-urile.
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -139,7 +143,7 @@ namespace managementTask
         private void numberValidation(KeyPressEventArgs e)
         {
             char chr = e.KeyChar;
-            if (!Char.IsDigit(chr))
+            if ((!Char.IsDigit(chr) && (chr != (char)Keys.Back)))
             {
                 e.Handled = true;
                 MessageBox.Show("Please enter a valid number");

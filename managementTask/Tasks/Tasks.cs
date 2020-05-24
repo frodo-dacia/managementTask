@@ -1,5 +1,7 @@
-﻿//Autor: Sandu Diana-Elena
+﻿//Autor1: Sandu Diana-Elena
 //Functionalitate: In aceasta clasa am codificat cererea catre server si am procesat raspunsul primit de catre acesta pt a primi toate taskurile existente in baza de date aferenta
+//Autor2: Stefan Andrei
+//Functionalitate: In aceasta clasa am implementat structura unui task cu toate campurile pe care acesta le contine precum si initializarea listei de task-uri preluate din baza de date
 using System;
 using System.Collections.Generic;
 using System.IO;
