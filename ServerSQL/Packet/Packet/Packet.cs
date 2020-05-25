@@ -1,4 +1,6 @@
-﻿using System;
+//Autor: Sandu Diana Elena
+//Functionalitate: Folosit pt serializare TCP
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
